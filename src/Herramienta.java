@@ -14,4 +14,8 @@ public class Herramienta {
     public void desgastar() {
         durabilidad -= desgastador.calcularDesgaste();
     }
+
+    public int getDesgaste() {
+        return this.desgastador.calcularDesgaste();
+    }
 }
