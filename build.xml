@@ -1,4 +1,4 @@
-<project xmlns:ivy="antlib:org.apache.ivy.ant" name="TP2-JavaEmpires" basedir="." default="test">
+<project xmlns:ivy="antlib:org.apache.ivy.ant" name="TP2-Minicraft" basedir="." default="test">
 
 
   <!-- input directories and files -->
@@ -98,7 +98,7 @@
     </path>
 
    
-  <!--Testeo con el target echo a mano de Junitlauncher -->
+  <!--Testeo con el target hecho a mano de Junitlauncher -->
    <target name="test" depends='build' >
      <taskdef name="junit5" classname="org.apache.tools.ant.taskdefs.optional.junitlauncher.JUnitLauncherTask" >
       <classpath refid="junitlauncher.classpath" />
