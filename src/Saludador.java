@@ -1,7 +1,7 @@
 public class Saludador {
 
 
-    public String saluda() {
+    public String saludar() {
         return "hola";
     }
 }
