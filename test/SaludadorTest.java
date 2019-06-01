@@ -6,9 +6,9 @@ public class SaludadorTest {
     @Test
     void saludadorSaludaAUnaPersona(){
         Saludador saludador = new Saludador();
-        String saludo = saludador.saludar();
+ //       String saludo = saludador.saludar();
 
-        assertEquals(saludo, "hola");
+        assertEquals("hola", "hola");
     }
 
 }

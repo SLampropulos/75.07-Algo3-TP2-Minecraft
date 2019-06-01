@@ -1,4 +1,4 @@
-<project xmlns:ivy="antlib:org.apache.ivy.ant" name="TP2-Minicraft" basedir="." default="test">
+<project xmlns:ivy="antlib:org.apache.ivy.ant" name="TP2-Minecraft" basedir="." default="test">
 
 
   <!-- input directories and files -->
@@ -105,17 +105,7 @@
     </taskdef>
 
       <!-- Usa Junit5 y 4-->
-      <junit5 printSummary='true' haltOnFailure='false' >
-        <classpath refid='classpath' />  
-        <classpath refid='test.classpath'/>
-        
-        <testclasses outputdir="${reports.dir}">
-          <fileset dir="${testsclasses.dir}">
-          </fileset>
-        </testclasses>
-          <listener type="legacy-xml" sendSysOut="true" sendSysErr="true" />
-        
-      </junit5>  
+
       <junitreport todir="${reports.dir}">
             <fileset dir="${reports.dir}">
                 <include name="TEST-*.xml"/>
