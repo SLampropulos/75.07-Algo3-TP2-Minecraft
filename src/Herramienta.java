@@ -1,17 +1,17 @@
 public class Herramienta {
-    private static int durabilidad;
-    private static int fuerza;
+    protected static int durabilidad;
+    protected static int fuerza;
+    protected static Desgatador desgastador;
 
-    private Herramienta(){}
-
-    public static Herramienta HachaMadera() {
-        Herramienta hachaMadera = new Herramienta();
-        durabilidad = 100;
-        fuerza = 2;
-        return hachaMadera;
+    protected Herramienta(int durabilidadDada, int fuerzaDada){
+        durabilidad = durabilidadDada;
+        fuerza = fuerzaDada;
     }
 
     public int getDurabilidad(){return durabilidad;}
     public int getFuerza(){return fuerza;}
 
+    public void desgastar() {
+        durabilidad -= desgastador.calcularDesgaste();
+    }
 }
