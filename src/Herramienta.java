@@ -11,7 +11,7 @@ public class Herramienta {
     public int getDurabilidad(){return durabilidad;}
     public int getFuerza(){return fuerza;}
 
-    public void desgastar() {
+    public static void desgastar() {
         durabilidad -= desgastador.calcularDesgaste();
     }
 

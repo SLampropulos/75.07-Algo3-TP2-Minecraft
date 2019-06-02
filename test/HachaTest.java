@@ -53,4 +53,25 @@ public class HachaTest {
         assertEquals(durabilidad-5, hachaPiedra.getDurabilidad());
     }
 
+    @Test
+    void seCreaHachaMetalConDurabilidadCorrecta(){
+        HachaMetal hachaMetal= new HachaMetal();
+        int durabilidad = hachaMetal.getDurabilidad();
+        assertEquals(400, durabilidad);
+    }
+
+    @Test
+    void seCreaHachaMetalConFuerzaCorrecta(){
+        HachaMetal hachaMetal = new HachaMetal();
+        int fuerza = hachaMetal.getFuerza();
+        assertEquals(10,fuerza);
+    }
+
+    @Test
+    void seCreaHachaMetalSeDesgastaCorrectamente(){
+        HachaMetal hachaMetal = new HachaMetal();
+        int durabilidad = hachaMetal.getDurabilidad();
+        hachaMetal.desgastar();
+        assertEquals(durabilidad-(hachaMetal.getFuerza()/2),hachaMetal.getDurabilidad());
+    }
 }
