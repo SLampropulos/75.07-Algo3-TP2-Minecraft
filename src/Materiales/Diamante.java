@@ -1,6 +1,6 @@
 package Materiales;
 
-import Materiales.Material;
+import Herramientas.PicoFino;
 
 public class Diamante extends Material {
 
@@ -8,8 +8,8 @@ public class Diamante extends Material {
         this.durabilidad = 100;
     }
 
-    /*public void desgastarCon(PicoFino picoFino) {
+    public void desgastarCon(PicoFino picoFino) {
         this.desgastar(picoFino.getDesgaste());
-    }*/
+    }
 
 }

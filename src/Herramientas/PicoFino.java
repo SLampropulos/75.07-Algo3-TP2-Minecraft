@@ -1,3 +1,5 @@
+package Herramientas;
+
 import Herramientas.Desgastador.DesgastadorPorcentual;
 import Herramientas.Herramienta;
 

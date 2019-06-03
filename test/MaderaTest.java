@@ -1,24 +1,23 @@
 import Herramientas.HachaMadera;
 import Herramientas.HachaPiedra;
-import Herramientas.Herramienta;
+import Herramientas.PicoMadera;
 import Materiales.Madera;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 
 public class MaderaTest {
 
     @Test
-    public void maderaEsGolpeadaPorPicoYSeLanzaExcepcion() {
+    public void maderaEsGolpeadaPorPicoYNoSeDesgasta() {
         Madera madera = new Madera();
         float durabilidad = madera.getDurabilidad();
-        /* Acá iría la clase Pico y debería funcionar igual. Como no está implementada todavía
-        * la dejo así. */
-        Herramienta pico = new Herramienta(200, 10);
+        PicoMadera pico = new PicoMadera();
 
-        assertThrows(HerramientaInvalidaException.class, ()-> {madera.desgastarCon(pico);});
+        madera.desgastarCon(pico);
+
+        assertEquals(durabilidad, madera.getDurabilidad());
     }
 
     @Test
