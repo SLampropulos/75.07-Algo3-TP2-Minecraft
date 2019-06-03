@@ -1,7 +1,4 @@
-import Herramientas.Herramienta;
-import Herramientas.PicoMadera;
-import Herramientas.PicoMetal;
-import Herramientas.PicoPiedra;
+import Herramientas.*;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

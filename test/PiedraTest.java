@@ -1,4 +1,5 @@
 import Herramientas.HachaMadera;
+import Herramientas.HachaMetal;
 import Herramientas.HachaPiedra;
 import Materiales.Piedra;
 import org.junit.jupiter.api.Test;
@@ -30,7 +31,7 @@ public class PiedraTest {
         assertEquals(durabilidad, piedra.getDurabilidad());
     }
 
-    /*@Test
+    @Test
     public void piedraEsGolpeadaPorHachaDeMetalYNoSeReduceSuDurabilidad() {
         Piedra piedra = new Piedra();
         float durabilidad = piedra.getDurabilidad();
@@ -39,6 +40,6 @@ public class PiedraTest {
         piedra.desgastarCon(hacha);
 
         assertEquals(durabilidad, piedra.getDurabilidad());
-    }*/
+    }
 
 }

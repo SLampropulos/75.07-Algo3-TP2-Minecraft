@@ -1,6 +1,9 @@
 package Materiales;
 
-import Materiales.Material;
+import Herramientas.PicoMadera;
+import Herramientas.PicoMetal;
+import Herramientas.PicoPiedra;
+
 
 public class Piedra extends Material {
 
@@ -8,16 +11,16 @@ public class Piedra extends Material {
         this.durabilidad = 30;
     }
 
-    /*public void desgastarCon(Herramientas.PicoMadera pico) {
+    public void desgastarCon(PicoMadera pico) {
         this.desgastar(pico.getDesgaste());
-    }*/
+    }
 
-    /*public void desgastarCon(Herramientas.PicoPiedra pico) {
+    public void desgastarCon(PicoPiedra pico) {
         this.desgastar(pico.getDesgaste());
-    }*/
+    }
 
-    /*public void desgastarCon(Herramientas.PicoMetal pico) {
+    public void desgastarCon(PicoMetal pico) {
         this.desgastar(pico.getDesgaste());
-    }*/
+    }
 
 }
