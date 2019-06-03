@@ -1,3 +1,7 @@
+import Herramientas.Herramienta;
+import Herramientas.PicoMadera;
+import Herramientas.PicoMetal;
+import Herramientas.PicoPiedra;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -55,4 +59,20 @@ public class PicoTest {
         assertEquals(durabilidad, picoMetal.getDurabilidad());
     }
 
+    @Test
+    void seCreaUnPicoFinoCorrectamnete(){
+        PicoFino picoFino = new PicoFino();
+        int durabilidad = picoFino.getDurabilidad();
+        int fuerza = picoFino.getFuerza();
+        assertEquals(1000,durabilidad);
+        assertEquals(20,fuerza);
+    }
+
+    @Test
+    void seCreaPicoFinoYSedesgastaCorrectamente(){
+        PicoFino picoFino = new PicoFino();
+        int durabilidad = picoFino.getDurabilidad();
+        picoFino.desgastar();
+        assertEquals(durabilidad - (durabilidad/10), picoFino.getDurabilidad());
+    }
 }

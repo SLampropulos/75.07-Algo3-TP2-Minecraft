@@ -1,3 +1,7 @@
+package Herramientas;
+
+import Herramientas.Desgastador.DesgatadorLineal;
+
 public class HachaMadera extends Herramienta{
 
     public HachaMadera(){

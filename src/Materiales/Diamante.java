@@ -1,3 +1,7 @@
+package Materiales;
+
+import Materiales.Material;
+
 public class Diamante extends Material {
 
     public Diamante() {

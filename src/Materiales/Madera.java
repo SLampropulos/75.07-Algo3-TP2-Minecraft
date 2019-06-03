@@ -1,3 +1,8 @@
+package Materiales;
+
+import Herramientas.HachaMadera;
+import Herramientas.HachaPiedra;
+
 public class Madera extends Material {
 
     public Madera() {
@@ -12,7 +17,7 @@ public class Madera extends Material {
         this.desgastar(hacha.getDesgaste());
     }
 
-    /*public void desgastarCon(HachaMetal hacha) {
+    /*public void desgastarCon(Herramientas.HachaMetal hacha) {
         this.desgastar(hacha.getDesgaste());
     }*/
 

@@ -1,3 +1,7 @@
+package Materiales;
+
+import Herramientas.Herramienta;
+
 public abstract class Material {
 
     protected float durabilidad;

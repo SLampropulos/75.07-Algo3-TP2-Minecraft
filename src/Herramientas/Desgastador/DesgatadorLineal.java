@@ -1,3 +1,5 @@
+package Herramientas.Desgastador;
+
 public class DesgatadorLineal implements Desgatador {
 
     private final int indiceDesgaste;

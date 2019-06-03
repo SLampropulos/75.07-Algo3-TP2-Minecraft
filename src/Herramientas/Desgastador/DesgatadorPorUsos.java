@@ -1,3 +1,5 @@
+package Herramientas.Desgastador;
+
 public class DesgatadorPorUsos implements Desgatador {
 
     private int durabilidadAQuitar;

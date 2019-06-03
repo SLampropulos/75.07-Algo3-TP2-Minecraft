@@ -1,3 +1,7 @@
+import Herramientas.HachaMadera;
+import Herramientas.HachaMetal;
+import Herramientas.HachaPiedra;
+import Herramientas.Herramienta;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

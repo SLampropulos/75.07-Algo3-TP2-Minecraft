@@ -1,9 +1,13 @@
+package Herramientas;
+
+import Herramientas.Desgastador.Desgatador;
+
 public class Herramienta {
     protected static int durabilidad;
     protected static int fuerza;
     protected static Desgatador desgastador;
 
-    protected Herramienta(int durabilidadDada, int fuerzaDada){
+    public Herramienta(int durabilidadDada, int fuerzaDada){
         durabilidad = durabilidadDada;
         fuerza = fuerzaDada;
     }
