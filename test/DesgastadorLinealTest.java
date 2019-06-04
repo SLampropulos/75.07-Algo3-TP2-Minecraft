@@ -8,14 +8,14 @@ public class DesgastadorLinealTest {
     @Test
     void seDesgastaLinealMente(){
         DesgatadorLineal desgatadorLineal = new DesgatadorLineal(1,1);
-        int desgastado = desgatadorLineal.calcularDesgaste();
+        float desgastado = desgatadorLineal.calcularDesgaste();
         assertEquals(desgastado,1);
     }
 
     @Test
     void seDesgastaDiezVecesCorrectamente(){
         DesgatadorLineal desgatadorLineal = new DesgatadorLineal(1,1);
-        int desgastado = 0;
+        float desgastado = 0;
         for (int i=0; i<10; i++) {
             desgastado += desgatadorLineal.calcularDesgaste();
         }
@@ -25,7 +25,7 @@ public class DesgastadorLinealTest {
     @Test
     void seDesgastaLinealMenteConFuerzaCuatroYInDiceDesgasteDos(){
         DesgatadorLineal desgatadorLineal = new DesgatadorLineal(4,2);
-        int desgastado = desgatadorLineal.calcularDesgaste();
+        float desgastado = desgatadorLineal.calcularDesgaste();
         assertEquals(desgastado,2);
     }
 

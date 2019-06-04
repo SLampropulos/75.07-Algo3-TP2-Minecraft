@@ -2,22 +2,22 @@ package Herramientas.Desgastador;
 
 public class DesgatadorPorUsos implements Desgatador {
 
-    private int durabilidadAQuitar;
-    private int usos;
+    private float durabilidadAQuitar;
+    private float usos;
 
-    public DesgatadorPorUsos(int i,int i2) {
+    public DesgatadorPorUsos(float i,float i2) {
         usos = i;
         durabilidadAQuitar = i2;
     }
 
     @Override
-    public int calcularDesgaste() {
+    public float calcularDesgaste() {
         if(usos == 0) return durabilidadAQuitar;
         usos -= 1;
         return 0;
     }
 
-    public int usosRestante() {
+    public float usosRestante() {
         return usos;
     }
 }

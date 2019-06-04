@@ -3,23 +3,23 @@ package Herramientas;
 import Herramientas.Desgastador.Desgatador;
 
 public class Herramienta {
-    protected static int durabilidad;
-    protected static int fuerza;
+    protected static float durabilidad;
+    protected static float fuerza;
     protected static Desgatador desgastador;
 
-    public Herramienta(int durabilidadDada, int fuerzaDada){
+    public Herramienta(float durabilidadDada, float fuerzaDada){
         durabilidad = durabilidadDada;
         fuerza = fuerzaDada;
     }
 
-    public int getDurabilidad(){return durabilidad;}
-    public int getFuerza(){return fuerza;}
+    public float getDurabilidad(){return durabilidad;}
+    public float getFuerza(){return fuerza;}
 
     public static void desgastar() {
         durabilidad -= desgastador.calcularDesgaste();
     }
 
-    public int getDesgaste() {
+    public float getDesgaste() {
         return this.desgastador.calcularDesgaste();
     }
 }
