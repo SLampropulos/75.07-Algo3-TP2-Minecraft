@@ -1,25 +1,32 @@
 package Herramientas;
 
-import Herramientas.Desgastador.Desgatador;
+import Herramientas.Desgastador.factorDesgastador;
 
 public class Herramienta {
-    protected static float durabilidad;
-    protected static float fuerza;
-    protected static Desgatador desgastador;
+    protected static int durabilidad;
+    protected static int fuerza;
+    protected static factorDesgastador desgaste;
 
-    public Herramienta(float durabilidadDada, float fuerzaDada){
+    //Constructor
+    public Herramienta(int durabilidadDada, int fuerzaDada){
         durabilidad = durabilidadDada;
         fuerza = fuerzaDada;
     }
 
-    public float getDurabilidad(){return durabilidad;}
-    public float getFuerza(){return fuerza;}
+    //Post: Devuelve el parámetro durabilidad
+    public int obtenerDurabilidad(){return durabilidad;}
+    
+    //Post: Devuelve el parámetro fuerza
+    public int obtenerFuerza(){return fuerza;}
 
+    //Post: Produce un desgaste en la herramienta según su tipo
     public static void desgastar() {
-        durabilidad -= desgastador.calcularDesgaste();
+        durabilidad -= desgaste.calcularDesgaste();
     }
 
-    public float getDesgaste() {
-        return this.desgastador.calcularDesgaste();
+    //Post: Devuelve el valor de desgaste producido
+    //Pendiente: Genera bug con desgaste por usos. Revisar
+    public int obtenerDesgaste() {
+        return this.desgaste.calcularDesgaste();
     }
 }
