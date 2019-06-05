@@ -1,6 +1,6 @@
 package Herramientas.Desgastador;
 
-public class DesgatadorLineal implements factorDesgastador {
+public class DesgastadorLineal implements factorDesgastador {
 
     private int desgaste;
 
