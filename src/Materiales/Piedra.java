@@ -4,7 +4,7 @@ import Herramientas.PicoMadera;
 import Herramientas.PicoMetal;
 import Herramientas.PicoPiedra;
 
-static final int DURABILIDAD_PIEDRA 30
+static final int DURABILIDAD_PIEDRA 30;
 
 public class Piedra extends Material {
 
