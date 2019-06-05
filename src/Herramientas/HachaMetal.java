@@ -1,6 +1,6 @@
 package Herramientas;
 
-import Herramientas.Desgastador.DesgatadorLineal;
+import Herramientas.Desgastador.DesgastadorLineal;
 
 //Definición de constantes
 static final int DURABILIDAD_HACHA_METAL 400;
