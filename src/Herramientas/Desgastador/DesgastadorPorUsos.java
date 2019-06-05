@@ -2,24 +2,22 @@ package Herramientas.Desgastador;
 
 public class DesgastadorPorUsos implements factorDesgastador {
 
-    private int durabilidadAQuitar;
+    private float durabilidadAQuitar;
     private int usos;
 
-    //Constructor
-    public DesgastadorPorUsos(int limiteUsos, int durabilidadHerramienta) {
-        usosRestantes = limiteUsos;
+    public DesgastadorPorUsos(int limiteUsos, float durabilidadHerramienta) {
+        usos = limiteUsos;
         durabilidadAQuitar = durabilidadHerramienta;
     }
 
     @Override
-    //Post: Devuelve el desgaste
-    public int calcularDesgaste() {
-        if(usosRestantes == 0) return durabilidadAQuitar;
-        usosRestantes -= 1;
+    public float calcularDesgaste() {
+        if(usos == 0) return durabilidadAQuitar;
+        usos -= 1;
         return 0;
     }
 
-    public int usosRestantes() {
+    public int usosRestante() {
         return usos;
     }
 }

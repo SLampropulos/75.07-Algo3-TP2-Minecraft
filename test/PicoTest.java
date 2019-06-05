@@ -35,9 +35,9 @@ public class PicoTest {
     void seCreaUnPicoDePiedraYDesgastaCorrectamente(){
         PicoPiedra picoPiedra = new PicoPiedra();
         float durabilidad = picoPiedra.getDurabilidad();
+        durabilidad -= 4/1.5;
         PicoMadera.desgastar();
-     // FIXME revizar calculo
-//                assertEquals(durabilidad-2, picoPiedra.getDurabilidad());
+        assertEquals(durabilidad, picoPiedra.getDurabilidad());
     }
 
     @Test

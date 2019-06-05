@@ -23,11 +23,12 @@ public class MetalTest {
     public void metalEsGolpeadoConPicoDePiedraYSeReduceSuDurabilidad() {
         Metal metal = new Metal();
         float durabilidad = metal.getDurabilidad();
+        durabilidad -= 4/1.5;
         PicoPiedra pico = new PicoPiedra();
 
         metal.desgastarCon(pico);
-// FIXME revizar calculo
-//        assertEquals(durabilidad - 2, metal.getDurabilidad());
+        assertEquals(durabilidad, metal.getDurabilidad());
+
     }
 
 }

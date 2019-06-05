@@ -2,14 +2,11 @@ package Herramientas;
 
 import Herramientas.Desgastador.DesgastadorLineal;
 
-//Definición de constantes
-static final int DURABILIDAD_HACHA_METAL 400;
-static final int FUERZA_HACHA_METAL 10;
 
 public class HachaMetal extends Herramienta {
 
     public HachaMetal() {
-        super(DURABILIDAD_HACHA_METAL, FUERZA_HACHA_METAL);
+        super(400, 10);
         desgastador = new DesgastadorLineal(fuerza,2);
     }
 

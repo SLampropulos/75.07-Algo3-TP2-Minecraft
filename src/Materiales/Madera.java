@@ -4,12 +4,11 @@ import Herramientas.HachaMadera;
 import Herramientas.HachaMetal;
 import Herramientas.HachaPiedra;
 
-static final int DURABILIDAD_MADERA 10;
 
 public class Madera extends Material {
 
     public Madera() {
-        this.durabilidad = DURABILIDAD_MADERA;
+        super(10);
     }
 
     public void desgastarCon(HachaMadera hacha) {

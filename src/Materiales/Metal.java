@@ -1,14 +1,22 @@
 package Materiales;
 
-static final int DURABILIDAD_METAL 50;
+import Herramientas.PicoFino;
+import Herramientas.PicoMetal;
+import Herramientas.PicoPiedra;
 
 public class Metal extends Material {
 
-    public Metal() {
-        this.durabilidad = DURABILIDAD_METAL;
+    public Metal(){
+        super(50);
     }
 
-    public void desgastarCon(Herramientas.PicoPiedra pico) {
+    public void desgastarCon(PicoPiedra pico) {
+        this.desgastar(pico.obtenerDesgaste());
+    }
+    public void desgastarCon(PicoMetal pico) {
+        this.desgastar(pico.obtenerDesgaste());
+    }
+    public void desgastarCon(PicoFino pico) {
         this.desgastar(pico.obtenerDesgaste());
     }
 

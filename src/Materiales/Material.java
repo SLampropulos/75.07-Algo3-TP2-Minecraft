@@ -4,16 +4,20 @@ import Herramientas.Herramienta;
 
 public abstract class Material {
 
-    protected int durabilidad;
+    protected float durabilidad;
 
-    public int obtenerDurabilidad() {
-        return this.durabilidad;
+    public Material(float durabilidadDada) {
+        durabilidad = durabilidadDada;
+    }
+
+    public float getDurabilidad() {
+        return durabilidad;
     }
 
     public void desgastarCon(Herramienta herramienta) {}
 
-    protected void desgastar(int desgaste) {
-        this.durabilidad -= desgaste;
+    protected void desgastar(float desgaste) {
+        durabilidad -= desgaste;
     }
 
 }
