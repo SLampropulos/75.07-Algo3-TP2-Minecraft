@@ -1,10 +1,14 @@
 package Herramientas;
 
-import Herramientas.Desgastador.DesgatadorLineal;
+import Herramientas.Desgastador.DesgastadorLineal;
+
+//Definición de constantes
+static final int DURABILIDAD_PICO_PIEDRA 200;
+static final int FUERZA_PICO_PIEDRA 4;
 
 public class PicoPiedra extends Herramienta {
     public PicoPiedra() {
-        super(200, 4);
-        desgastador = new DesgatadorLineal(fuerza, 15,10);
+        super(DURABILIDAD_PICO_PIEDRA, FUERZA_PICO_PIEDRA);
+        desgastador = new DesgastadorLineal(fuerza, 15, 10);
     }
 }
