@@ -1,5 +1,4 @@
-import Herramientas.PicoMadera;
-import Herramientas.PicoPiedra;
+import Herramientas.*;
 import Materiales.Metal;
 import org.junit.jupiter.api.Test;
 
@@ -27,8 +26,29 @@ public class MetalTest {
 
         metal.desgastarCon(pico);
 
-        assertEquals(durabilidad - (float)(4/1.5), metal.getDurabilidad());
+        assertEquals(durabilidad - 4, metal.getDurabilidad());
 
+    }
+    @Test
+    public void metalEsGolpeadoConPicoDeMetalYSeReduceSuDurabilidad() {
+        Metal metal = new Metal();
+        float durabilidad = metal.getDurabilidad();
+        PicoMetal pico = new PicoMetal();
+
+        metal.desgastarCon(pico);
+
+        assertEquals(durabilidad - 12, metal.getDurabilidad());
+
+    }
+    @Test
+    public void metalEsGolpeadoConPicoFinoaYSeReduceSuDurabilidad() {
+        Metal metal = new Metal();
+        float durabilidad = metal.getDurabilidad();
+        PicoFino pico = new PicoFino();
+
+        metal.desgastarCon(pico);
+
+        assertEquals(durabilidad - 20, metal.getDurabilidad());
     }
 
 }

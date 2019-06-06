@@ -11,13 +11,13 @@ public class Metal extends Material {
     }
 
     public void desgastarCon(PicoPiedra pico) {
-        this.desgastar(pico.obtenerDesgaste());
+        this.desgastar(pico.usar());
     }
     public void desgastarCon(PicoMetal pico) {
-        this.desgastar(pico.obtenerDesgaste());
+        this.desgastar(pico.usar());
     }
     public void desgastarCon(PicoFino pico) {
-        this.desgastar(pico.obtenerDesgaste());
+        this.desgastar(pico.usar());
     }
 
 }

@@ -20,8 +20,8 @@ public class Herramienta {
         durabilidad -= desgastador.calcularDesgaste();
     }
 
-    //Pendiente: Genera bug con desgaste por usos. Revisar
-    public float obtenerDesgaste() {
-        return desgastador.calcularDesgaste();
+    public float usar(){
+        this.desgastar();
+        return fuerza;
     }
 }

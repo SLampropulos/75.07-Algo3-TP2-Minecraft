@@ -10,7 +10,7 @@ public class Diamante extends Material {
     }
 
     public void desgastarCon(PicoFino picoFino) {
-        this.desgastar(picoFino.obtenerDesgaste());
+        this.desgastar(picoFino.usar());
     }
 
 }

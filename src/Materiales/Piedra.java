@@ -13,16 +13,16 @@ public class Piedra extends Material {
     }
 
     public void desgastarCon(PicoMadera pico) {
-        this.desgastar(pico.obtenerDesgaste());
+        this.desgastar(pico.usar());
     }
     public void desgastarCon(PicoPiedra pico) {
-        this.desgastar(pico.obtenerDesgaste());
+        this.desgastar(pico.usar());
     }
     public void desgastarCon(PicoMetal pico) {
-        this.desgastar(pico.obtenerDesgaste());
+        this.desgastar(pico.usar());
     }
     public void desgastarCon(PicoFino pico) {
-        this.desgastar(pico.obtenerDesgaste());
+        this.desgastar(pico.usar());
     }
 
 
