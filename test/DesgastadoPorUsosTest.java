@@ -6,18 +6,18 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class DesgastadoPorUsosTest {
 
     @Test
-    void desgastadorPorUsosSeCreaCorractamente(){
+    void desgastadorPorUsosSeCreaCorrectamente(){
         DesgastadorPorUsos desgatadorPorUsos = new DesgastadorPorUsos(2,5);
-        int usosRestante = desgatadorPorUsos.usosRestante();
+        int usosRestante = desgatadorPorUsos.usosRestantes();
         assertEquals(2,usosRestante);
     }
 
     @Test
-    void desgastadorPorUsosSeUsaTotosSusUsosSuDurabilidadEsCero(){
-        DesgastadorPorUsos desgatadorPorUsos = new DesgastadorPorUsos(3,5);
+    void desgastadorPorUsosSeAlcanzaLimiteDeUsosYSuDurabilidadEsCero(){
+        DesgastadorPorUsos desgastadorPorUsos = new DesgastadorPorUsos(3,5);
         float desgastado = 0;
         for (int i=0; i < 4; i++){
-            desgastado = desgatadorPorUsos.calcularDesgaste();
+            desgastado = desgastadorPorUsos.calcularDesgaste();
         }
         assertEquals(5,desgastado);
     }

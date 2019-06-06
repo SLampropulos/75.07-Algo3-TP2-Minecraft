@@ -1,6 +1,6 @@
 package Herramientas.Desgastador;
 
-public class DesgastadorPorUsos implements factorDesgastador {
+public class DesgastadorPorUsos implements Desgastador {
 
     private float durabilidadAQuitar;
     private int usos;
@@ -17,7 +17,8 @@ public class DesgastadorPorUsos implements factorDesgastador {
         return 0;
     }
 
-    public int usosRestante() {
+    public int usosRestantes() {
         return usos;
     }
+
 }

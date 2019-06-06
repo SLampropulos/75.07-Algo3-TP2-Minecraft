@@ -1,11 +1,11 @@
 package Herramientas;
 
-import Herramientas.Desgastador.factorDesgastador;
+import Herramientas.Desgastador.Desgastador;
 
 public class Herramienta {
     protected static float durabilidad;
     protected static float fuerza;
-    protected static factorDesgastador desgastador;
+    protected static Desgastador desgastador;
 
     public Herramienta(float durabilidadDada, float fuerzaDada){
         durabilidad = durabilidadDada;

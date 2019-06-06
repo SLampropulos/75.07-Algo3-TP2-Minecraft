@@ -17,7 +17,7 @@ public class HachaTest {
     }
 
     @Test
-    void seCreaHachaMaderaConDuerzaCorrecta(){
+    void seCreaHachaMaderaConFuerzaCorrecta(){
         HachaMadera hachaMadera = new HachaMadera();
         float fuerza = hachaMadera.getFuerza();
         assertEquals(fuerza, 2);

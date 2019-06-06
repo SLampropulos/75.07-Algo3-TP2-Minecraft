@@ -21,7 +21,7 @@ public class MaderaTest {
     }
 
     @Test
-    public void maderaEsGolpeadaPorHachaMaderaYSeDesgasta() {
+    public void maderaEsGolpeadaPorHachaDeMaderaYSeDesgasta() {
         Madera madera = new Madera();
         float durabilidad = madera.getDurabilidad();
         HachaMadera hacha = new HachaMadera();
@@ -32,7 +32,7 @@ public class MaderaTest {
     }
 
     @Test
-    public void maderaEsGolpeadaPorHachaPiedraYSeDesgasta() {
+    public void maderaEsGolpeadaPorHachaDePiedraYSeDesgasta() {
         Madera madera = new Madera();
         float durabilidad = madera.getDurabilidad();
         HachaPiedra hacha = new HachaPiedra();
