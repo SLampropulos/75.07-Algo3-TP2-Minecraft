@@ -1,13 +1,13 @@
 package Herramientas;
 
+import Herramientas.Desgastador.DesgastadorLineal;
 
-import Herramientas.Desgastador.DesgatadorLineal;
 
 public class HachaMetal extends Herramienta {
 
     public HachaMetal() {
-        super(400,10);
-        desgastador = new DesgatadorLineal(fuerza,2);
+        super(400, 10);
+        desgastador = new DesgastadorLineal(fuerza,2);
     }
 
 

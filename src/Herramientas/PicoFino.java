@@ -7,6 +7,6 @@ public class PicoFino extends Herramienta {
 
     public PicoFino() {
         super(1000, 20);
-        desgastador = new DesgastadorPorcentual(1000,10);
+        desgastador = new DesgastadorPorcentual(1000, 10);
     }
 }

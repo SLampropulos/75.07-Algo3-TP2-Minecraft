@@ -2,6 +2,8 @@ import Herramientas.HachaMadera;
 import Herramientas.HachaPiedra;
 import Herramientas.PicoMadera;
 import Materiales.Madera;
+import Materiales.Material;
+
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -11,7 +13,7 @@ public class MaderaTest {
 
     @Test
     public void maderaEsGolpeadaPorPicoYNoSeDesgasta() {
-        Madera madera = new Madera();
+        Madera madera = new Madera(); //TODO debe funcionar con Material
         float durabilidad = madera.getDurabilidad();
         PicoMadera pico = new PicoMadera();
 
@@ -21,8 +23,8 @@ public class MaderaTest {
     }
 
     @Test
-    public void maderaEsGolpeadaPorHachaMaderaYSeDesgasta() {
-        Madera madera = new Madera();
+    public void maderaEsGolpeadaPorHachaDeMaderaYSeDesgasta() {
+        Madera madera = new Madera(); //TODO debe funcionar con Material
         float durabilidad = madera.getDurabilidad();
         HachaMadera hacha = new HachaMadera();
 
@@ -32,8 +34,8 @@ public class MaderaTest {
     }
 
     @Test
-    public void maderaEsGolpeadaPorHachaPiedraYSeDesgasta() {
-        Madera madera = new Madera();
+    public void maderaEsGolpeadaPorHachaDePiedraYSeDesgasta() {
+        Madera madera = new Madera(); //TODO debe funcionar con Material
         float durabilidad = madera.getDurabilidad();
         HachaPiedra hacha = new HachaPiedra();
 

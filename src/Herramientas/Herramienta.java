@@ -1,11 +1,11 @@
 package Herramientas;
 
-import Herramientas.Desgastador.Desgatador;
+import Herramientas.Desgastador.Desgastador;
 
 public class Herramienta {
-    protected static float durabilidad;
-    protected static float fuerza;
-    protected static Desgatador desgastador;
+    protected float durabilidad;
+    protected float fuerza;
+    protected Desgastador desgastador;
 
     public Herramienta(float durabilidadDada, float fuerzaDada){
         durabilidad = durabilidadDada;
@@ -13,13 +13,15 @@ public class Herramienta {
     }
 
     public float getDurabilidad(){return durabilidad;}
+    
     public float getFuerza(){return fuerza;}
 
-    public static void desgastar() {
+    public void desgastar() {
         durabilidad -= desgastador.calcularDesgaste();
     }
 
-    public float getDesgaste() {
-        return this.desgastador.calcularDesgaste();
+    public float usar(){
+        this.desgastar();
+        return fuerza;
     }
 }

@@ -1,6 +1,6 @@
 package Herramientas.Desgastador;
 
-public interface Desgatador {
+public interface Desgastador {
 
     float calcularDesgaste();
 }
