@@ -1,19 +1,60 @@
 package Personaje;
 
+import Herramientas.HachaMadera;
 import Herramientas.Herramienta;
+import Materiales.Madera;
+import Materiales.Material;
+import juego.Mapa;
 import juego.Posicionable;
 
 public class Jugador implements Posicionable {
 
-    FabricadorHerramientas fabricadorHerramientas = new FabricadorHerramientas();
-    InventarioHerraminetas inventarioHerraminetas = new InventarioHerraminetas();
-    Herramienta equipo;
+	Mapa mapa;
 
-    public Jugador(){
-        equipo = inventarioHerraminetas.getHerramienta(0);
-    }
+	public void setMapa(Mapa mapa) {
+		this.mapa = mapa;
+	}
 
-    public Herramienta getEquipado() {
-        return equipo;
-    }
+	FabricadorHerramientas fabricadorHerramientas = new FabricadorHerramientas();
+	InventarioHerraminetas inventarioHerraminetas = new InventarioHerraminetas();
+	Herramienta equipo;
+
+	public Jugador() {
+		equipo = inventarioHerraminetas.getHerramienta(0);
+	}
+
+	public Herramienta getEquipado() {
+		return equipo;
+	}
+
+	private void irA(int fila, int columna) {
+		if (mapa.estaVacio(fila, columna)) {
+			mapa.borrar(this);
+			mapa.agregar(this, fila, columna);
+		} else {
+			Madera material = (Madera) mapa.getElementoEnCelda(fila, columna);
+			if (material.getDurabilidad() > 0)
+				material.desgastarCon((HachaMadera)this.getEquipado());
+			else {
+// TODO el jugador debe adquirir el material
+				mapa.borrar(material);
+			}
+		}
+	}
+
+	public void irIzquierda() {
+		irA(mapa.getFila(this), mapa.getColumna(this) - 1);
+	}
+
+	public void irDerecha() {
+		irA(mapa.getFila(this), mapa.getColumna(this) + 1);
+	}
+
+	public void irArriba() {
+		irA(mapa.getFila(this) - 1, mapa.getColumna(this));
+	}
+
+	public void irAbajo() {
+		irA(mapa.getFila(this) + 1, mapa.getColumna(this));
+	}
 }

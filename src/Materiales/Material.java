@@ -1,5 +1,6 @@
 package Materiales;
 
+import Herramientas.HachaMadera;
 import Herramientas.Herramienta;
 import juego.Posicionable;
 

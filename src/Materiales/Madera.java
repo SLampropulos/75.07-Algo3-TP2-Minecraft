@@ -17,6 +17,7 @@ public class Madera extends Material {
     public void desgastarCon(HachaPiedra hacha) {
         this.desgastar(hacha.usar());
     }
+
     public void desgastarCon(HachaMetal hacha) {
         this.desgastar(hacha.usar());
     }
