@@ -31,7 +31,7 @@ public class DiamanteTest {
     }
 
     @Test void diamanteEsGolpeadoPorUnPicoFino(){
-        Material diamante = new Diamante();
+        Diamante diamante = new Diamante();
         float durabilidad = diamante.getDurabilidad();
         PicoFino picoFino = new PicoFino();
 

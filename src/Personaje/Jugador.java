@@ -32,9 +32,11 @@ public class Jugador implements Posicionable {
 			mapa.borrar(this);
 			mapa.agregar(this, fila, columna);
 		} else {
-			Material material = (Material) mapa.getElementoEnCelda(fila, columna);
-			if (material.getDurabilidad() > 0)
-				material.desgastarCon((HachaMadera)this.getEquipado());
+			Madera material = (Madera) mapa.getElementoEnCelda(fila, columna); //TODO casteo?
+			if (material.getDurabilidad() > 0) {
+				HachaMadera equipado = (HachaMadera)this.getEquipado();  //TODO casteo?
+				material.desgastarCon((HachaMadera)equipado);
+			}
 			else {
 // TODO el jugador debe adquirir el material
 				mapa.borrar(material);
