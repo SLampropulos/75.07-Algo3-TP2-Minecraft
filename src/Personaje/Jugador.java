@@ -1,8 +1,9 @@
 package Personaje;
 
 import Herramientas.Herramienta;
+import juego.Posicionable;
 
-public class Jugador {
+public class Jugador implements Posicionable {
 
     FabricadorHerramientas fabricadorHerramientas = new FabricadorHerramientas();
     InventarioHerraminetas inventarioHerraminetas = new InventarioHerraminetas();

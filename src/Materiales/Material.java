@@ -1,8 +1,9 @@
 package Materiales;
 
 import Herramientas.Herramienta;
+import juego.Posicionable;
 
-public abstract class Material {
+public abstract class Material implements Posicionable {
 
     protected float durabilidad;
 
