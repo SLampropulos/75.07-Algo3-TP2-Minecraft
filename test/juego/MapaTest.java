@@ -16,7 +16,7 @@ class MapaTest {
 		Madera unaMadera = new Madera();
 		mapa.agregarMaterial(unaMadera, 5, 5);
 		Posicionable respuesta = mapa.getElementoEnCelda(5,5);
-		assertEquals(unaMadera,respuesta);
+		assertEquals(unaMadera, respuesta);
 	}
 
 	@Test
@@ -25,7 +25,7 @@ class MapaTest {
 		Piedra unaPiedra = new Piedra();
 		mapa.agregarMaterial(unaPiedra, 8, 8);
 		Posicionable respuesta = mapa.getElementoEnCelda(8,8);
-		assertEquals(unaPiedra,respuesta);
+		assertEquals(unaPiedra, respuesta);
 	}
 
 	@Test
@@ -34,7 +34,7 @@ class MapaTest {
 		Jugador jugador = new Jugador();
 		mapa.agregarJugador(jugador, 10, 10);
 		Posicionable respuesta = mapa.getElementoEnCelda(10,10);
-		assertEquals(jugador,respuesta);
+		assertEquals(jugador, respuesta);
 	}
 
 }
