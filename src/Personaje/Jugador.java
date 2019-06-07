@@ -32,7 +32,7 @@ public class Jugador implements Posicionable {
 			mapa.borrar(this);
 			mapa.agregar(this, fila, columna);
 		} else {
-			Madera material = (Madera) mapa.getElementoEnCelda(fila, columna);
+			Material material = (Material) mapa.getElementoEnCelda(fila, columna);
 			if (material.getDurabilidad() > 0)
 				material.desgastarCon((HachaMadera)this.getEquipado());
 			else {

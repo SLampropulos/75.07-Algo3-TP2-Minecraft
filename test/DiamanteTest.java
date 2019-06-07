@@ -2,6 +2,8 @@ import Herramientas.HachaPiedra;
 import Herramientas.PicoFino;
 import Herramientas.PicoPiedra;
 import Materiales.Diamante;
+import Materiales.Material;
+
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -11,7 +13,7 @@ public class DiamanteTest {
 
     @Test
     public void diamanteSeCreaCorrectamnete(){
-        Diamante diamante = new Diamante();
+        Material diamante = new Diamante();
         float durabiliadad = diamante.getDurabilidad();
 
         assertEquals(100,durabiliadad);
@@ -19,7 +21,7 @@ public class DiamanteTest {
 
     @Test
     public void diamanteEsGolpeadoPorHachaPiedraYNoSeReduceSuDurabilidad() {
-        Diamante diamante = new Diamante();
+        Material diamante = new Diamante();
         float durabilidad = diamante.getDurabilidad();
         HachaPiedra hacha = new HachaPiedra();
 
@@ -29,7 +31,7 @@ public class DiamanteTest {
     }
 
     @Test void diamanteEsGolpeadoPorUnPicoFino(){
-        Diamante diamante = new Diamante();
+        Material diamante = new Diamante();
         float durabilidad = diamante.getDurabilidad();
         PicoFino picoFino = new PicoFino();
 
@@ -38,7 +40,7 @@ public class DiamanteTest {
     }
 
     @Test void diamanteEsGolpeadoPorUnPicoPiedraNoPasaNada(){
-        Diamante diamante = new Diamante();
+        Material diamante = new Diamante();
         float durabilidad = diamante.getDurabilidad();
         PicoPiedra picoPiedra = new PicoPiedra();
 

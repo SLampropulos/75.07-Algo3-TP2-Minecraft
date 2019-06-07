@@ -1,4 +1,5 @@
 import Herramientas.*;
+import Materiales.Material;
 import Materiales.Metal;
 import org.junit.jupiter.api.Test;
 
@@ -9,7 +10,7 @@ public class MetalTest {
 
     @Test
     public void metalEsGolpeadoConPicoDeMaderaYNoSeReduceSuDurabilidad() {
-        Metal metal = new Metal();
+        Material metal = new Metal();
         float durabilidad = metal.getDurabilidad();
         PicoMadera pico = new PicoMadera();
 
@@ -20,7 +21,7 @@ public class MetalTest {
 
     @Test
     public void metalEsGolpeadoConPicoDePiedraYSeReduceSuDurabilidad() {
-        Metal metal = new Metal();
+        Material metal = new Metal();
         float durabilidad = metal.getDurabilidad();
         PicoPiedra pico = new PicoPiedra();
 
@@ -31,7 +32,7 @@ public class MetalTest {
     }
     @Test
     public void metalEsGolpeadoConPicoDeMetalYSeReduceSuDurabilidad() {
-        Metal metal = new Metal();
+        Material metal = new Metal();
         float durabilidad = metal.getDurabilidad();
         PicoMetal pico = new PicoMetal();
 
@@ -42,7 +43,7 @@ public class MetalTest {
     }
     @Test
     public void metalEsGolpeadoConPicoFinoaYSeReduceSuDurabilidad() {
-        Metal metal = new Metal();
+        Material metal = new Metal();
         float durabilidad = metal.getDurabilidad();
         PicoFino pico = new PicoFino();
 

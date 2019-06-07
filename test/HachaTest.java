@@ -10,7 +10,7 @@ public class HachaTest {
 
     @Test
     void seCreaHachaMaderaConDurabilidadCorrecta(){
-        HachaMadera hachaMadera = new HachaMadera();
+        Herramienta hachaMadera = new HachaMadera();
         float durabilidad = hachaMadera.getDurabilidad();
 
         assertEquals(durabilidad, 100);
