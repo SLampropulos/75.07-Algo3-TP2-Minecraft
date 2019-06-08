@@ -1,8 +1,9 @@
-package vista;
+
 
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import vista.ContenedorPrincipal;
 
 
 public class Aplicacion extends Application  {
