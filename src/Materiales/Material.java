@@ -1,13 +1,6 @@
 package Materiales;
 
-import Herramientas.HachaMadera;
-import Herramientas.HachaMetal;
-import Herramientas.HachaPiedra;
 import Herramientas.Herramienta;
-import Herramientas.PicoFino;
-import Herramientas.PicoMadera;
-import Herramientas.PicoMetal;
-import Herramientas.PicoPiedra;
 import juego.Posicionable;
 
 public abstract class Material implements Posicionable {
