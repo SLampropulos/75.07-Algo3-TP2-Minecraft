@@ -17,10 +17,10 @@ public class VistaMadera extends VistaRectangulo {
 	}
 
 	public void dibujar() {
-		pintar(Color.BROWN);
-//		this.ponerImagen("file:src/vista/imagenes/policia.png");
-		etiquetar("Madera", Color.BLACK);
+//		pintar(Color.BROWN);
+		this.ponerImagen("file:src/vista/images/Madera.png");
+//		etiquetar("Madera", Color.BLACK);
 		super.dibujar();
-//		this.ponerBotonInfo("Envia a la Carcel", "Accion");
+//		this.ponerBotonInfo("xxx", "Accion");
 	}
 }

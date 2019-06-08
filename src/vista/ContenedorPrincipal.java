@@ -60,11 +60,11 @@ public class ContenedorPrincipal extends BorderPane {
 		this.datosYBotones = new VBox();
 		datosYBotones.setSpacing(20);
 
-//		Image fondo = new Image("file:src/vista/imagenes/fondo.png");
-//		BackgroundImage imagenDeFondo = new BackgroundImage(fondo, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT,
-//				BackgroundPosition.DEFAULT, new BackgroundSize(1, 1, true, true, false, false));
-//		this.setBackground(new Background(imagenDeFondo));
-//		this.setBorder(algoPoly, datosYBotones);
+		Image fondo = new Image("file:src/vista/images/Mono2.jpg");
+		BackgroundImage imagenDeFondo = new BackgroundImage(fondo, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT,
+				BackgroundPosition.DEFAULT, new BackgroundSize(1, 1, true, true, false, false));
+		setBackground(new Background(imagenDeFondo));
+		this.setBorder(datosYBotones);
 
 		Text titulo = new Text("Cosas:");
 		titulo.setFill(Color.BLACK);
@@ -202,7 +202,7 @@ public class ContenedorPrincipal extends BorderPane {
 //		if (jugadorActual.getNombre().equals("Verde"))
 //			color = "GREEN";
 //		if (jugadorActual.getNombre().equals("Azul"))
-			color = "BLUE";
+			color = "BLACK";
 		pane.setStyle("-fx-padding: 2;" + "-fx-border-style: solid inside;" + "-fx-border-width: 7;"
 				+ "-fx-border-insets: 2;" + "-fx-border-radius: 10;" + "-fx-border-color: " + color + ";");
 	}

@@ -17,10 +17,10 @@ public class VistaPiedra extends VistaRectangulo {
 	}
 
 	public void dibujar() {
-		this.pintar(Color.GRAY);
-//		this.ponerImagen("file:src/vista/imagenes/policia.png");
-		this.etiquetar("Piedra", Color.BLACK);
+//		this.pintar(Color.GRAY);
+		this.ponerImagen("file:src/vista/images/Piedra.png");
+//		this.etiquetar("Piedra", Color.BLACK);
 		super.dibujar();
-//		this.ponerBotonInfo("Envia a la Carcel", "Accion");
+//		this.ponerBotonInfo("xxx", "Accion");
 	}
 }

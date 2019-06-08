@@ -17,10 +17,10 @@ public class VistaMetal extends VistaRectangulo {
 	}
 
 	public void dibujar() {
-		pintar(Color.GAINSBORO);
-//		this.ponerImagen("file:src/vista/imagenes/policia.png");
-		etiquetar("Metal", Color.BLACK);
+//		pintar(Color.GAINSBORO);
+		this.ponerImagen("file:src/vista/images/Metal.png");
+//		etiquetar("Metal", Color.BLACK);
 		super.dibujar();
-//		this.ponerBotonInfo("Envia a la Carcel", "Accion");
+//		this.ponerBotonInfo("xxxx", "Accion");
 	}
 }

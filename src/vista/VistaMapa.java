@@ -22,10 +22,10 @@ public class VistaMapa {
 	private double altoCelda;
 
 	public VistaMapa(ContenedorPrincipal contenedorPrincipal, GridPane pane) {
-		cantFilas = 20;
+		cantFilas = 16;
 		cantColumnas = 24;
 		anchoCelda = 36;
-		altoCelda = 30;
+		altoCelda = 36;
 
 		this.pane = pane;
 
@@ -39,14 +39,14 @@ public class VistaMapa {
 		}
 
 		for (int x = 8; x < 10; x++) {
-			for (int y = 13; y < 18; y++) {
+			for (int y = 11; y < 14; y++) {
 				Piedra piedra = new Piedra();
 				vistaCeldas.add(new VistaCelda(piedra, contenedorPrincipal, pane, x, y, anchoCelda, altoCelda));
 			}
 		}
 
-		for (int x = 22; x < 24; x++) {
-			for (int y = 18; y < 20; y++) {
+		for (int x = 20; x < 22; x++) {
+			for (int y = 14; y < 16; y++) {
 				Metal metal = new Metal();
 				vistaCeldas.add(new VistaCelda(metal, contenedorPrincipal, pane, x, y, anchoCelda, altoCelda));
 			}
@@ -78,7 +78,7 @@ public class VistaMapa {
 		fondo.setFill(Color.CHARTREUSE.desaturate());
 		pane.add(fondo, 0, 0, cantColumnas, cantFilas);
 
-		Image image = new Image("file:src/vista/imagenes/AlgoPolyLogo.png");
+		Image image = new Image("file:src/vista/images/Fondo.png");
 		ImageView imageView = new ImageView();
 		imageView.setImage(image);
 		pane.add(imageView, 0, 0, cantColumnas, cantFilas);

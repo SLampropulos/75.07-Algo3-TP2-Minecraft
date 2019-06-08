@@ -17,10 +17,10 @@ public class VistaDiamante extends VistaRectangulo {
 	}
 
 	public void dibujar() {
-		pintar(Color.GOLD);
-//		this.ponerImagen("file:src/vista/imagenes/policia.png");
-		etiquetar("Diamante", Color.BLACK);
+//		pintar(Color.GOLD);
+		this.ponerImagen("file:src/vista/images/Diamante.png");
+//		etiquetar("Diamante", Color.BLACK);
 		super.dibujar();
-//		this.ponerBotonInfo("Envia a la Carcel", "Accion");
+//		this.ponerBotonInfo("xxxx", "Accion");
 	}
 }
