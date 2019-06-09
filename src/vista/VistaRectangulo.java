@@ -20,7 +20,7 @@ import javafx.stage.StageStyle;
 
 public abstract class VistaRectangulo implements Dibujable {
 //	private AlgoPoly algoPoly;
-	private ContenedorPrincipal contenedorPrincipal;
+//	private ContenedorPrincipal contenedorPrincipal;
 	private Material material;
 	private int x;
 	private int y;
@@ -28,10 +28,9 @@ public abstract class VistaRectangulo implements Dibujable {
 	private double alto;
 	private GridPane pane;
 
-	public VistaRectangulo(Material material, ContenedorPrincipal contenedorPrincipal,
-			GridPane pane, int x, int y, double ancho, double alto) {
+	public VistaRectangulo(Material material, GridPane pane, int x, int y, double ancho, double alto) {
 //		this.algoPoly = algoPoly;
-		this.contenedorPrincipal = contenedorPrincipal;
+//		this.contenedorPrincipal = contenedorPrincipal;
 		this.material = material;
 		this.pane = pane;
 		this.x = x;
@@ -86,7 +85,7 @@ public abstract class VistaRectangulo implements Dibujable {
 		icono.setSmooth(true);
 		this.pane.add(icono, this.x, this.y);
 	}
-	
+
 //	public void ponerBotonComprar() {
 //		ImageView iconoComprar = new ImageView("file:src/vista/imagenes/changuito.png");
 //		setIcono(iconoComprar);
@@ -95,8 +94,6 @@ public abstract class VistaRectangulo implements Dibujable {
 //		iconoComprar.setOnMouseClicked(
 //				new BotonComprarHandler(this.algoPoly, (Agrupable) this.casillero, this.contenedorPrincipal));
 //	}
-
-
 
 	public void ponerBotonInfo(String texto, String titulo) {
 		ImageView iconoInfo = new ImageView("file:src/vista/imagenes/info.png");
@@ -118,7 +115,6 @@ public abstract class VistaRectangulo implements Dibujable {
 		this.pane.add(iconoCasa, x, y);
 		iconoCasa.setTranslateX(28 + i * 40);
 	}
-
 
 //	public void ponerFichasJugador() {
 //		double offset = 15;

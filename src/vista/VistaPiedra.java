@@ -6,14 +6,12 @@ import javafx.scene.paint.Color;
 
 public class VistaPiedra extends VistaRectangulo {
 
-	public VistaPiedra(Material material, ContenedorPrincipal contenedorPrincipal, GridPane pane,
-			int x, int y, double ancho, double alto) {
-		super(material, contenedorPrincipal, pane, x, y, ancho, alto);
+	public VistaPiedra(Material material, GridPane pane, int x, int y, double ancho, double alto) {
+		super(material, pane, x, y, ancho, alto);
 	}
 
-	public static VistaPiedra Instancia(Material material, ContenedorPrincipal contenedorPrincipal,
-			GridPane pane, int x, int y, double ancho, double alto) {
-		return new VistaPiedra(material, contenedorPrincipal, pane, x, y, ancho, alto);
+	public static VistaPiedra Instancia(Material material, GridPane pane, int x, int y, double ancho, double alto) {
+		return new VistaPiedra(material, pane, x, y, ancho, alto);
 	}
 
 	public void dibujar() {
