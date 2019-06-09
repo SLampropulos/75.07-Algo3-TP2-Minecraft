@@ -1,4 +1,5 @@
 import Herramientas.*;
+import Materiales.Material;
 import Materiales.Piedra;
 import org.junit.jupiter.api.Test;
 
@@ -9,7 +10,7 @@ public class PiedraTest {
 
     @Test
     public void piedraEsGolpeadaPorHachaDePiedraYNoSeReduceSuDurabilidad() {
-        Piedra piedra = new Piedra();
+        Material piedra = new Piedra();
         float durabilidad = piedra.getDurabilidad();
         HachaPiedra hacha = new HachaPiedra();
 
@@ -20,7 +21,7 @@ public class PiedraTest {
 
     @Test
     public void piedraEsGolpeadaPorHachaDeMaderaYNoSeReduceSuDurabilidad() {
-        Piedra piedra = new Piedra();
+        Material piedra = new Piedra();
         float durabilidad = piedra.getDurabilidad();
         HachaMadera hacha = new HachaMadera();
 
@@ -31,7 +32,7 @@ public class PiedraTest {
 
     @Test
     public void piedraEsGolpeadaPorHachaDeMetalYNoSeReduceSuDurabilidad() {
-        Piedra piedra = new Piedra();
+        Material piedra = new Piedra();
         float durabilidad = piedra.getDurabilidad();
         HachaMetal hacha = new HachaMetal();
 
@@ -42,7 +43,7 @@ public class PiedraTest {
 
     @Test
     public void piedraEsGolepadaPorPicoMadera(){
-        Piedra piedra = new Piedra();
+        Material piedra = new Piedra();
         float durabilidad = piedra.getDurabilidad();
         PicoMadera picoMadera = new PicoMadera();
 
@@ -54,7 +55,7 @@ public class PiedraTest {
 
     @Test
     public void piedraEsGolepadaPorPicoPiedra(){
-        Piedra piedra = new Piedra();
+        Material piedra = new Piedra();
         float durabilidad = piedra.getDurabilidad();
         PicoPiedra pico = new PicoPiedra();
 
@@ -64,7 +65,7 @@ public class PiedraTest {
     }
     @Test
     public void piedraEsGolepadaPorPicoMetal(){
-        Piedra piedra = new Piedra();
+        Material piedra = new Piedra();
         float durabilidad = piedra.getDurabilidad();
         PicoMetal pico = new PicoMetal();
 
@@ -74,7 +75,7 @@ public class PiedraTest {
     }
     @Test
     public void piedraEsGolepadaPorPicoFino(){
-        Piedra piedra = new Piedra();
+        Material piedra = new Piedra();
         float durabilidad = piedra.getDurabilidad();
         PicoFino pico = new PicoFino();
 

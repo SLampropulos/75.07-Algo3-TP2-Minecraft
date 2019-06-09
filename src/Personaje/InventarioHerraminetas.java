@@ -2,8 +2,6 @@ package Personaje;
 
 import Herramientas.HachaMadera;
 import Herramientas.Herramienta;
-import Herramientas.PicoMadera;
-
 import java.util.ArrayList;
 
 public class InventarioHerraminetas {

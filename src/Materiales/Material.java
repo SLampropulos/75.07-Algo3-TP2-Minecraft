@@ -1,6 +1,13 @@
 package Materiales;
 
+import Herramientas.HachaMadera;
+import Herramientas.HachaMetal;
+import Herramientas.HachaPiedra;
 import Herramientas.Herramienta;
+import Herramientas.PicoFino;
+import Herramientas.PicoMadera;
+import Herramientas.PicoMetal;
+import Herramientas.PicoPiedra;
 import juego.Posicionable;
 
 public abstract class Material implements Posicionable {
@@ -15,24 +22,22 @@ public abstract class Material implements Posicionable {
         return durabilidad;
     }
 
-//TODO arreglar
-    public void desgastarCon(Herramienta herramienta) {}
+//TODO ver si se puede simplificar
+    public abstract void desgastarCon(Herramienta herramienta);
 
-//   Agregar esto soluciona uno de los casteos pero no el otro
-//  
-//    public void desgastarCon(HachaMadera hacha) {}
-//    
-//    public void desgastarCon(HachaPiedra hacha) {}
-//
-//    public void desgastarCon(HachaMetal hacha) {}
-//    
-//    public void desgastarCon(PicoMadera pico) {}
-//
-//    public void desgastarCon(PicoPiedra pico) {}
-//    
-//    public void desgastarCon(PicoMetal pico) {}
-//
-//    public void desgastarCon(PicoFino pico) {}
+    public abstract void desgastarCon(HachaMadera hacha);
+    
+    public abstract void desgastarCon(HachaPiedra hacha);
+
+    public abstract void desgastarCon(HachaMetal hacha);
+    
+    public abstract void desgastarCon(PicoMadera pico);
+
+    public abstract void desgastarCon(PicoPiedra pico);
+    
+    public abstract void desgastarCon(PicoMetal pico);
+
+    public abstract void desgastarCon(PicoFino pico);
     
     protected void desgastar(float desgaste) {
         durabilidad -= desgaste;

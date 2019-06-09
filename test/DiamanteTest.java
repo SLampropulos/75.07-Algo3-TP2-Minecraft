@@ -1,4 +1,5 @@
 import Herramientas.HachaPiedra;
+import Herramientas.Herramienta;
 import Herramientas.PicoFino;
 import Herramientas.PicoPiedra;
 import Materiales.Diamante;
@@ -23,7 +24,7 @@ public class DiamanteTest {
     public void diamanteEsGolpeadoPorHachaPiedraYNoSeReduceSuDurabilidad() {
         Material diamante = new Diamante();
         float durabilidad = diamante.getDurabilidad();
-        HachaPiedra hacha = new HachaPiedra();
+        Herramienta hacha = new HachaPiedra();
 
         diamante.desgastarCon(hacha);
 
@@ -31,9 +32,9 @@ public class DiamanteTest {
     }
 
     @Test void diamanteEsGolpeadoPorUnPicoFino(){
-        Diamante diamante = new Diamante();
+        Material diamante = new Diamante();
         float durabilidad = diamante.getDurabilidad();
-        PicoFino picoFino = new PicoFino();
+        Herramienta picoFino = new PicoFino();
 
         diamante.desgastarCon(picoFino);
         assertEquals(durabilidad-20,diamante.getDurabilidad());
@@ -42,7 +43,7 @@ public class DiamanteTest {
     @Test void diamanteEsGolpeadoPorUnPicoPiedraNoPasaNada(){
         Material diamante = new Diamante();
         float durabilidad = diamante.getDurabilidad();
-        PicoPiedra picoPiedra = new PicoPiedra();
+        Herramienta picoPiedra = new PicoPiedra();
 
         diamante.desgastarCon(picoPiedra);
         assertEquals(durabilidad,diamante.getDurabilidad());

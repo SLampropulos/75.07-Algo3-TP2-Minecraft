@@ -1,8 +1,6 @@
 package Personaje;
 
-import Herramientas.HachaMadera;
 import Herramientas.Herramienta;
-import Materiales.Madera;
 import Materiales.Material;
 import juego.Mapa;
 import juego.Posicionable;
@@ -32,10 +30,10 @@ public class Jugador implements Posicionable {
 			mapa.borrar(this);
 			mapa.agregar(this, fila, columna);
 		} else {
-			Madera material = (Madera) mapa.getElementoEnCelda(fila, columna); //TODO casteo?
+			Material material = (Material) mapa.getElementoEnCelda(fila, columna);
 			if (material.getDurabilidad() > 0) {
-				HachaMadera equipado = (HachaMadera)this.getEquipado();  //TODO casteo?
-				material.desgastarCon((HachaMadera)equipado);
+				Herramienta equipado = this.getEquipado();
+				material.desgastarCon(equipado);
 			}
 			else {
 // TODO el jugador debe adquirir el material

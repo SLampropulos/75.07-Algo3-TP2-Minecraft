@@ -1,5 +1,6 @@
 import Herramientas.HachaMadera;
 import Herramientas.HachaPiedra;
+import Herramientas.Herramienta;
 import Herramientas.PicoMadera;
 import Materiales.Madera;
 import Materiales.Material;
@@ -13,9 +14,9 @@ public class MaderaTest {
 
     @Test
     public void maderaEsGolpeadaPorPicoYNoSeDesgasta() {
-        Madera madera = new Madera(); //TODO debe funcionar con Material
+        Material madera = new Madera(); //TODO debe funcionar con Material
         float durabilidad = madera.getDurabilidad();
-        PicoMadera pico = new PicoMadera();
+        Herramienta pico = new PicoMadera();
 
         madera.desgastarCon(pico);
 
@@ -24,9 +25,9 @@ public class MaderaTest {
 
     @Test
     public void maderaEsGolpeadaPorHachaDeMaderaYSeDesgasta() {
-        Madera madera = new Madera(); //TODO debe funcionar con Material
+        Material madera = new Madera(); //TODO debe funcionar con Material
         float durabilidad = madera.getDurabilidad();
-        HachaMadera hacha = new HachaMadera();
+        Herramienta hacha = new HachaMadera();
 
         madera.desgastarCon(hacha);
 
@@ -35,9 +36,9 @@ public class MaderaTest {
 
     @Test
     public void maderaEsGolpeadaPorHachaDePiedraYSeDesgasta() {
-        Madera madera = new Madera(); //TODO debe funcionar con Material
+        Material madera = new Madera(); //TODO debe funcionar con Material
         float durabilidad = madera.getDurabilidad();
-        HachaPiedra hacha = new HachaPiedra();
+        Herramienta hacha = new HachaPiedra();
 
         madera.desgastarCon(hacha);
 

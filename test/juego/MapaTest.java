@@ -107,7 +107,6 @@ class MapaTest {
 		assertEquals(15, mapa.getColumna(jugador));
 	}
 
-	//TODO Arreglar. Solo correo por los casteos especificos
 	@Test
 	void testMoverJugadorACeldaDerechaConMaderaYLaDesgasta() {
 		Mapa mapa = new Mapa();

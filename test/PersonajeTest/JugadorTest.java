@@ -1,6 +1,5 @@
 package PersonajeTest;
 
-import Herramientas.HachaMadera;
 import Herramientas.Herramienta;
 import Materiales.Madera;
 import Materiales.Material;
@@ -19,23 +18,10 @@ public class JugadorTest {
 	}
 
 	@Test
-	void personajeConHachaDeMaderaDesgastaMadera_NO_PASA() {  
+	void personajeConHachaDeMaderaDesgastaMadera() {  
 		Jugador jugador = new Jugador();
 		Herramienta herramienta = jugador.getEquipado(); 
 		Material madera = new Madera();
-
-		float durabilidadAnterior = madera.getDurabilidad();
-		madera.desgastarCon(herramienta);
-		float durabilidadPosterior = madera.getDurabilidad();
-
-		assertTrue(durabilidadPosterior < durabilidadAnterior);
-	}
-
-	@Test
-	void personajeConHachaDeMaderaDesgastaMadera_PASA() {  // se fijan cosas que no se pueden en el juego  
-		Jugador jugador = new Jugador();
-		HachaMadera herramienta = (HachaMadera)jugador.getEquipado();  //debi castear y fijar tipo HachaMadera (tendria que usar material)
-		Madera madera = new Madera(); //tendria que funcionar para cualquier material
 
 		float durabilidadAnterior = madera.getDurabilidad();
 		madera.desgastarCon(herramienta);
