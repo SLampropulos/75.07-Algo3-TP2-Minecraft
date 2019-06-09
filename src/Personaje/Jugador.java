@@ -25,6 +25,7 @@ public class Jugador implements Posicionable {
 		return equipo;
 	}
 
+	//TODO esto puede mover fuera del mapa.  pasar mover() a Mapa???
 	private void irA(int fila, int columna) {
 		if (mapa.estaVacio(fila, columna)) {
 			mapa.borrar(this);
