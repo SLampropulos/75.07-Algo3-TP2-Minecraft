@@ -30,7 +30,7 @@ public class Jugador implements Posicionable {
 			mapa.borrar(this);
 			mapa.agregar(this, fila, columna);
 		} else {
-			Material material = (Material) mapa.getElementoEnCelda(fila, columna);
+			Material material = (Material) mapa.getElementoEn(fila, columna);
 			if (material.getDurabilidad() > 0) {
 				Herramienta equipado = this.getEquipado();
 				material.desgastarCon(equipado);
