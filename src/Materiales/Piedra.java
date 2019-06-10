@@ -1,14 +1,10 @@
 package Materiales;
 
-import Herramientas.HachaMadera;
-import Herramientas.HachaMetal;
-import Herramientas.HachaPiedra;
 import Herramientas.Herramienta;
 import Herramientas.PicoFino;
 import Herramientas.PicoMadera;
 import Herramientas.PicoMetal;
 import Herramientas.PicoPiedra;
-
 
 public class Piedra extends Material {
 
@@ -21,32 +17,20 @@ public class Piedra extends Material {
 		herramienta.desgastarA(this);
 	}
 
-    @Override
-    public void desgastarCon(PicoMadera pico) {
+    public void recibirGolpeDe(PicoMadera pico) {
         this.desgastar(pico.usar());
     }
 
-    @Override
-    public void desgastarCon(PicoPiedra pico) {
-        this.desgastar(pico.usar());
-    }
-    
-    @Override
-    public void desgastarCon(PicoMetal pico) {
-        this.desgastar(pico.usar());
-    }
-    
-    @Override
-    public void desgastarCon(PicoFino pico) {
+    public void recibirGolpeDe(PicoPiedra pico) {
         this.desgastar(pico.usar());
     }
 
-	@Override
-	public void desgastarCon(HachaMadera hacha) {}
+    public void recibirGolpeDe(PicoMetal pico) {
+        this.desgastar(pico.usar());
+    }
 
-	@Override
-	public void desgastarCon(HachaPiedra hacha) {}
+    public void recibirGolpeDe(PicoFino pico) {
+        this.desgastar(pico.usar());
+    }
 
-	@Override
-	public void desgastarCon(HachaMetal hacha) {}
 }

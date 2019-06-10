@@ -1,13 +1,6 @@
 package Materiales;
 
-import Herramientas.HachaMadera;
-import Herramientas.HachaMetal;
-import Herramientas.HachaPiedra;
 import Herramientas.Herramienta;
-import Herramientas.PicoFino;
-import Herramientas.PicoMadera;
-import Herramientas.PicoMetal;
-import Herramientas.PicoPiedra;
 
 public abstract class Material{
 
@@ -21,23 +14,10 @@ public abstract class Material{
         return durabilidad;
     }
 
-//TODO ver si se puede simplificar
     public abstract void desgastarCon(Herramienta herramienta);
 
-    public abstract void desgastarCon(HachaMadera hacha);
-    
-    public abstract void desgastarCon(HachaPiedra hacha);
+    public void recibirGolpeDe(Herramienta herramienta) {}
 
-    public abstract void desgastarCon(HachaMetal hacha);
-    
-    public abstract void desgastarCon(PicoMadera pico);
-
-    public abstract void desgastarCon(PicoPiedra pico);
-    
-    public abstract void desgastarCon(PicoMetal pico);
-
-    public abstract void desgastarCon(PicoFino pico);
-    
     protected void desgastar(float desgaste) {
         durabilidad -= desgaste;
     }

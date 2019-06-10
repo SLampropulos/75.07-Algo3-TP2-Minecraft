@@ -16,21 +16,21 @@ public class HachaMetal extends Herramienta {
 
 	@Override
 	public void desgastarA(Madera madera) {
-		madera.desgastarCon(this);
+		madera.recibirGolpeDe(this);
 	}
 
 	@Override
 	public void desgastarA(Piedra piedra) {
-		piedra.desgastarCon(this);
+		piedra.recibirGolpeDe(this);
 	}
 
 	@Override
 	public void desgastarA(Metal metal) {
-		metal.desgastarCon(this);
+		metal.recibirGolpeDe(this);
 	}
 
 	@Override
 	public void desgastarA(Diamante diamante) {
-		diamante.desgastarCon(this);
+		diamante.recibirGolpeDe(this);
 	}
 }
