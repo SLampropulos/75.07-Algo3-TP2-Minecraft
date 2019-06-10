@@ -10,7 +10,7 @@ public class MetalTest {
 
     @Test
     public void metalEsGolpeadoConPicoDeMaderaYNoSeReduceSuDurabilidad() {
-    	Material metal = new Metal(); //TODO debe funcionar con Material
+    	Material metal = new Metal();
         float durabilidad = metal.getDurabilidad();
         Herramienta pico = new PicoMadera();
 
@@ -21,7 +21,7 @@ public class MetalTest {
 
     @Test
     public void metalEsGolpeadoConPicoDePiedraYSeReduceSuDurabilidad() {
-    	Material metal = new Metal(); //TODO debe funcionar con Material
+    	Material metal = new Metal();
         float durabilidad = metal.getDurabilidad();
         Herramienta pico = new PicoPiedra();
 
@@ -32,7 +32,7 @@ public class MetalTest {
     }
     @Test
     public void metalEsGolpeadoConPicoDeMetalYSeReduceSuDurabilidad() {
-    	Material metal = new Metal(); //TODO debe funcionar con Material
+    	Material metal = new Metal();
         float durabilidad = metal.getDurabilidad();
         Herramienta pico = new PicoMetal();
 
@@ -43,7 +43,7 @@ public class MetalTest {
     }
     @Test
     public void metalEsGolpeadoConPicoFinoaYSeReduceSuDurabilidad() {
-    	Material metal = new Metal(); //TODO debe funcionar con Material
+    	Material metal = new Metal();
         float durabilidad = metal.getDurabilidad();
         Herramienta pico = new PicoFino();
 
