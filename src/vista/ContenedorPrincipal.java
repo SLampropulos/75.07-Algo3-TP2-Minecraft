@@ -1,6 +1,9 @@
 package vista;
 
+import eventos.BotonAbajoHandler;
 import eventos.BotonArribaHandler;
+import eventos.BotonDerechaHandler;
+import eventos.BotonIzquierdaHandler;
 //import eventos.BotonMoverHandler;
 //import eventos.BotonPasarTurnoHandler;
 //import eventos.BotonPerderHandler;
@@ -38,17 +41,18 @@ public class ContenedorPrincipal extends BorderPane {
 	Canvas canvas;
 	GridPane paneIzquierdo;
 	Label dineroDisponible;
-	VBox datosYBotones;
+	GridPane datosYBotones;
 	Stage stage;
 	Label turno;
 
 	public ContenedorPrincipal(MineCraft mineCraft, Stage stage) {
 		this.mineCraft = mineCraft;
-		this.setIzquierda();
-		this.setPanelInformativo();
+		this.setPanelIzquierdo();
+//		this.setPanelInformativo();
+		this.setPanelDerecho();
 	}
 
-	private void setIzquierda() {
+	private void setPanelIzquierdo() {
 		paneIzquierdo = new GridPane();
 		vistaMapa = new VistaMapa(mineCraft, this, paneIzquierdo);
 		vistaMapa.dibujar();
@@ -58,10 +62,10 @@ public class ContenedorPrincipal extends BorderPane {
 		this.setLeft(paneIzquierdo);
 	}
 
-	private void setPanelInformativo() {
+	private void setPanelDerecho() {
 
-		this.datosYBotones = new VBox();
-		datosYBotones.setSpacing(20);
+		this.datosYBotones = new GridPane();
+//		datosYBotones.setSpacing(20);
 
 		Image fondo = new Image("file:src/vista/images/Mono2.jpg");
 		BackgroundImage imagenDeFondo = new BackgroundImage(fondo, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT,
@@ -72,8 +76,8 @@ public class ContenedorPrincipal extends BorderPane {
 		Text titulo = new Text("Cosas:");
 		titulo.setFill(Color.BLACK);
 		titulo.setFont(Font.font("Arial", FontWeight.BOLD, 30));
-		this.datosYBotones.getChildren().add(titulo);
-		VBox.setMargin(titulo, new Insets(10));
+		this.datosYBotones.add(titulo,0,0,3,1);
+//		VBox.setMargin(titulo, new Insets(10));
 
 //		this.mostrarJugadorActual(algoPoly.getJugadorActual().getNombre());
 
@@ -99,6 +103,8 @@ public class ContenedorPrincipal extends BorderPane {
 		this.setCenter(datosYBotones);
 	}
 
+
+
 	private void mostrarAlert(String mensaje) {
 		Alert dialogoAlerta = new Alert(AlertType.INFORMATION);
 		dialogoAlerta.setTitle("");
@@ -123,12 +129,34 @@ public class ContenedorPrincipal extends BorderPane {
 //			this.datosYBotones.getChildren().add(btnTirarDados);
 //		}
 //
-			Button btnArriba = new Button();
-			btnArriba.setText("Arriba");
-			BotonArribaHandler arribaHandler = new BotonArribaHandler(mineCraft.getJugador(), this);
-			btnArriba.setOnAction(arribaHandler);
-			VBox.setMargin(btnArriba, new Insets(15));
-			this.datosYBotones.getChildren().add(btnArriba);
+		Button btnArriba = new Button();
+		btnArriba.setText("Arriba");
+		BotonArribaHandler arribaHandler = new BotonArribaHandler(mineCraft.getJugador(), this);
+		btnArriba.setOnAction(arribaHandler);
+//		VBox.setMargin(btnArriba, new Insets(15));
+		this.datosYBotones.add(btnArriba,1,10);
+
+		Button btnIzquierda = new Button();
+		btnIzquierda.setText("Izquierda");
+		BotonIzquierdaHandler izquierdaHandler = new BotonIzquierdaHandler(mineCraft.getJugador(), this);
+		btnIzquierda.setOnAction(izquierdaHandler);
+//		VBox.setMargin(btnArriba, new Insets(15));
+		this.datosYBotones.add(btnIzquierda,0,11);
+
+		Button btnDerecha = new Button();
+		btnDerecha.setText("Derecha");
+		BotonDerechaHandler derechaHandler = new BotonDerechaHandler(mineCraft.getJugador(), this);
+		btnDerecha.setOnAction(derechaHandler);
+//		VBox.setMargin(btnArriba, new Insets(15));
+		this.datosYBotones.add(btnDerecha,2,11);
+		
+		Button btnAbajo = new Button();
+		btnAbajo.setText("Abajo");
+		BotonAbajoHandler abajoHandler = new BotonAbajoHandler(mineCraft.getJugador(), this);
+		btnAbajo.setOnAction(abajoHandler);
+//		VBox.setMargin(btnAbajo, new Insets(15));
+		this.datosYBotones.add(btnAbajo,1,12);
+
 //
 //		if (algoPoly.debePasarTurno()) {
 //			Button btnPasar = new Button();
@@ -150,41 +178,41 @@ public class ContenedorPrincipal extends BorderPane {
 //		}
 	}
 	
-	private void mostrarJugadorActual(String nombre) {
-		Image image = new Image("file:src/vista/imagenes/ficharoja.png");
-		if (nombre == "Verde")
-			image = new Image("file:src/vista/imagenes/fichaverde.png");
-		if (nombre == "Azul")
-			image = new Image("file:src/vista/imagenes/fichaazul.png");
-		ImageView imageView = new ImageView();
-		imageView.setImage(image);
-		imageView.setFitWidth(50);
-		imageView.setFitHeight(50);
-		imageView.setPreserveRatio(true);
-		imageView.setSmooth(true);
-		datosYBotones.getChildren().add(imageView);
-	}
+//	private void mostrarJugadorActual(String nombre) {
+//		Image image = new Image("file:src/vista/imagenes/ficharoja.png");
+//		if (nombre == "Verde")
+//			image = new Image("file:src/vista/imagenes/fichaverde.png");
+//		if (nombre == "Azul")
+//			image = new Image("file:src/vista/imagenes/fichaazul.png");
+//		ImageView imageView = new ImageView();
+//		imageView.setImage(image);
+//		imageView.setFitWidth(50);
+//		imageView.setFitHeight(50);
+//		imageView.setPreserveRatio(true);
+//		imageView.setSmooth(true);
+//		datosYBotones.getChildren().add(imageView);
+//	}
 
-	private void mostrarDados(double valor) {
-		Image image = new Image("file:src/vista/imagenes/dado1.png");
-		if (valor == 2)
-			image = new Image("file:src/vista/imagenes/dado2.png");
-		if (valor == 3)
-			image = new Image("file:src/vista/imagenes/dado3.png");
-		if (valor == 4)
-			image = new Image("file:src/vista/imagenes/dado4.png");
-		if (valor == 5)
-			image = new Image("file:src/vista/imagenes/dado5.png");
-		if (valor == 6)
-			image = new Image("file:src/vista/imagenes/dado6.png");
-		ImageView imageView = new ImageView();
-		imageView.setImage(image);
-		imageView.setFitWidth(50);
-		imageView.setFitHeight(50);
-		imageView.setPreserveRatio(true);
-		imageView.setSmooth(true);
-		datosYBotones.getChildren().add(imageView);
-	}
+//	private void mostrarDados(double valor) {
+//		Image image = new Image("file:src/vista/imagenes/dado1.png");
+//		if (valor == 2)
+//			image = new Image("file:src/vista/imagenes/dado2.png");
+//		if (valor == 3)
+//			image = new Image("file:src/vista/imagenes/dado3.png");
+//		if (valor == 4)
+//			image = new Image("file:src/vista/imagenes/dado4.png");
+//		if (valor == 5)
+//			image = new Image("file:src/vista/imagenes/dado5.png");
+//		if (valor == 6)
+//			image = new Image("file:src/vista/imagenes/dado6.png");
+//		ImageView imageView = new ImageView();
+//		imageView.setImage(image);
+//		imageView.setFitWidth(50);
+//		imageView.setFitHeight(50);
+//		imageView.setPreserveRatio(true);
+//		imageView.setSmooth(true);
+//		datosYBotones.getChildren().add(imageView);
+//	}
 
 //	private void setearColor(Text txt, Jugador jugador) {
 //		if (jugador.getNombre().equals("Rojo"))
@@ -197,19 +225,12 @@ public class ContenedorPrincipal extends BorderPane {
 
 	private void setBorder(Pane pane) {
 		String color = "BLACK";
-//		Jugador jugadorActual = algoPoly.getJugadorActual();
-//		if (jugadorActual.getNombre().equals("Rojo"))
-//			color = "RED";
-//		if (jugadorActual.getNombre().equals("Verde"))
-//			color = "GREEN";
-//		if (jugadorActual.getNombre().equals("Azul"))
-			color = "BLACK";
 		pane.setStyle("-fx-padding: 2;" + "-fx-border-style: solid inside;" + "-fx-border-width: 7;"
 				+ "-fx-border-insets: 2;" + "-fx-border-radius: 10;" + "-fx-border-color: " + color + ";");
 	}
 
 	public void refrescar() {
-		this.setIzquierda();
-		this.setPanelInformativo();
+		this.setPanelIzquierdo();
+		this.setPanelDerecho();
 	}
 }
