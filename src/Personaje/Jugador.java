@@ -24,18 +24,20 @@ public class Jugador {
 		return equipo;
 	}
 
+	public void golpear(Material material) {
+		equipo.golpear(material);
+	}
+
 	//TODO esto puede mover fuera del mapa.  pasar mover() a Mapa???
 	private void irA(int fila, int columna) {
 		if (mapa.estaVacio(fila, columna)) {
 			mapa.setJugador(this,fila,columna);
 		} else {
-			Material material = (Material) mapa.getMaterialEn(fila, columna);
+			Material material = mapa.getMaterialEn(fila, columna);
 			if (material.getDurabilidad() > 0) {
-				Herramienta equipado = this.getEquipado();
-				material.desgastarCon(equipado);
-			}
-			else {
-// TODO el jugador debe adquirir el material
+				this.golpear(material);
+			} else {
+				// TODO el jugador debe adquirir el material
 				mapa.borrar(material);
 			}
 		}

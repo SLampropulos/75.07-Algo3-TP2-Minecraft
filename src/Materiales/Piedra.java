@@ -18,19 +18,19 @@ public class Piedra extends Material {
 	}
 
     public void recibirGolpeDe(PicoMadera pico) {
-        this.desgastar(pico.usar());
+        this.desgastar(pico.getFuerza());
     }
 
     public void recibirGolpeDe(PicoPiedra pico) {
-        this.desgastar(pico.usar());
+        this.desgastar(pico.getFuerza());
     }
 
     public void recibirGolpeDe(PicoMetal pico) {
-        this.desgastar(pico.usar());
+        this.desgastar(pico.getFuerza());
     }
 
     public void recibirGolpeDe(PicoFino pico) {
-        this.desgastar(pico.usar());
+        this.desgastar(pico.getFuerza());
     }
 
 }

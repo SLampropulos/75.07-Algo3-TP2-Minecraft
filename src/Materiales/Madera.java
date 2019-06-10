@@ -17,15 +17,15 @@ public class Madera extends Material {
 	}
 
 	public void recibirGolpeDe(HachaMadera hacha) {
-        this.desgastar(hacha.usar());
+        this.desgastar(hacha.getFuerza());
     }
 
     public void recibirGolpeDe(HachaPiedra hacha) {
-        this.desgastar(hacha.usar());
+        this.desgastar(hacha.getFuerza());
     }
 
     public void recibirGolpeDe(HachaMetal hacha) {
-        this.desgastar(hacha.usar());
+        this.desgastar(hacha.getFuerza());
     }
 
 }

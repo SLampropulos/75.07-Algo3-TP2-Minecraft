@@ -15,7 +15,7 @@ public class Diamante extends Material {
 	}
 
     public void recibirGolpeDe(PicoFino picoFino) {
-        this.desgastar(picoFino.usar());
+        this.desgastar(picoFino.getFuerza());
     }
 
 }
