@@ -4,14 +4,20 @@ import Materiales.Diamante;
 import Materiales.Madera;
 import Materiales.Metal;
 import Materiales.Piedra;
+import Personaje.Jugador;
 
 public class MineCraft {
 
 	private Mapa mapa;
+	private Jugador jugador;
 	
 	public MineCraft() {
 		mapa = new Mapa();
 		armarMapa();
+		jugador = new Jugador();
+		jugador.setMapa(mapa);
+		mapa.setJugador(jugador, 14, 11);
+		
 	}
 
 	private void armarMapa() {
@@ -34,5 +40,9 @@ public class MineCraft {
 
 	public Mapa getMapa() {
 		return mapa;
+	}
+
+	public Jugador getJugador() {
+		return jugador;
 	}
 }

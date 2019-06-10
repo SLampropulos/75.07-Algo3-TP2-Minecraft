@@ -3,9 +3,8 @@ package Personaje;
 import Herramientas.Herramienta;
 import Materiales.Material;
 import juego.Mapa;
-import juego.Posicionable;
 
-public class Jugador implements Posicionable {
+public class Jugador {
 
 	Mapa mapa;
 
@@ -28,10 +27,9 @@ public class Jugador implements Posicionable {
 	//TODO esto puede mover fuera del mapa.  pasar mover() a Mapa???
 	private void irA(int fila, int columna) {
 		if (mapa.estaVacio(fila, columna)) {
-			mapa.borrar(this);
-			mapa.agregar(this, fila, columna);
+			mapa.setJugador(this,fila,columna);
 		} else {
-			Material material = (Material) mapa.getElementoEn(fila, columna);
+			Material material = (Material) mapa.getMaterialEn(fila, columna);
 			if (material.getDurabilidad() > 0) {
 				Herramienta equipado = this.getEquipado();
 				material.desgastarCon(equipado);

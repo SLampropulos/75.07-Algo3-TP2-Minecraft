@@ -8,9 +8,8 @@ import Herramientas.PicoFino;
 import Herramientas.PicoMadera;
 import Herramientas.PicoMetal;
 import Herramientas.PicoPiedra;
-import juego.Posicionable;
 
-public abstract class Material implements Posicionable {
+public abstract class Material{
 
     protected float durabilidad;
 

@@ -1,5 +1,6 @@
 package vista;
 
+import eventos.BotonArribaHandler;
 //import eventos.BotonMoverHandler;
 //import eventos.BotonPasarTurnoHandler;
 //import eventos.BotonPerderHandler;
@@ -28,10 +29,11 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import juego.MineCraft;
 
 public class ContenedorPrincipal extends BorderPane {
 
-//	private AlgoPoly algoPoly;
+	private MineCraft mineCraft;
 	VistaMapa vistaMapa;
 	Canvas canvas;
 	GridPane paneIzquierdo;
@@ -40,14 +42,15 @@ public class ContenedorPrincipal extends BorderPane {
 	Stage stage;
 	Label turno;
 
-	public ContenedorPrincipal(Stage stage) {
+	public ContenedorPrincipal(MineCraft mineCraft, Stage stage) {
+		this.mineCraft = mineCraft;
 		this.setIzquierda();
 		this.setPanelInformativo();
 	}
 
 	private void setIzquierda() {
 		paneIzquierdo = new GridPane();
-		vistaMapa = new VistaMapa(this, paneIzquierdo);
+		vistaMapa = new VistaMapa(mineCraft, this, paneIzquierdo);
 		vistaMapa.dibujar();
 
 		paneIzquierdo.setAlignment(Pos.CENTER);
@@ -120,14 +123,12 @@ public class ContenedorPrincipal extends BorderPane {
 //			this.datosYBotones.getChildren().add(btnTirarDados);
 //		}
 //
-//		if (algoPoly.puedeMover()) {
-//			Button btnMover = new Button();
-//			btnMover.setText("Mover Ficha");
-//			BotonMoverHandler moverHandler = new BotonMoverHandler(this.algoPoly, this);
-//			btnMover.setOnAction(moverHandler);
-//			VBox.setMargin(btnMover, new Insets(15));
-//			this.datosYBotones.getChildren().add(btnMover);
-//		}
+			Button btnArriba = new Button();
+			btnArriba.setText("Arriba");
+			BotonArribaHandler arribaHandler = new BotonArribaHandler(mineCraft.getJugador(), this);
+			btnArriba.setOnAction(arribaHandler);
+			VBox.setMargin(btnArriba, new Insets(15));
+			this.datosYBotones.getChildren().add(btnArriba);
 //
 //		if (algoPoly.debePasarTurno()) {
 //			Button btnPasar = new Button();

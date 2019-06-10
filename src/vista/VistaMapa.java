@@ -6,6 +6,7 @@ import Materiales.Diamante;
 import Materiales.Madera;
 import Materiales.Metal;
 import Materiales.Piedra;
+import Personaje.Jugador;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
@@ -23,6 +24,7 @@ public class VistaMapa {
 	private double anchoCelda;
 	private double altoCelda;
 	private MineCraft mineCraft;
+	private VistaJugador vistaJugador;
 
 	public VistaMapa(MineCraft mineCraft, ContenedorPrincipal contenedorPrincipal, GridPane pane) {
 		cantFilas = 16;
@@ -37,12 +39,18 @@ public class VistaMapa {
 		for (Celda celda : mineCraft.getMapa().getCeldas())
 			vistaCeldas.add(new VistaCelda(celda.getMaterial(), pane, celda.getColumna(),
 					celda.getFila(), anchoCelda, altoCelda));
+
+		Jugador jugador = mineCraft.getJugador();
+		vistaJugador = new VistaJugador(jugador, pane, mineCraft.getMapa().getColumna(jugador),
+				mineCraft.getMapa().getFila(jugador), anchoCelda, altoCelda);
+
 	}
 
 	public void dibujar() {
 		this.limpiar();
 		for (VistaCelda vistaCelda : vistaCeldas)
 			vistaCelda.dibujar();
+		vistaJugador.dibujar();
 	}
 
 	private void limpiar() {
