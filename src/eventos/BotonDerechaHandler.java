@@ -22,9 +22,9 @@ public class BotonDerechaHandler implements EventHandler<ActionEvent> {
 	public void handle(ActionEvent actionEvent) {
 		jugador.irDerecha();
 		
-//		URL url = getClass().getResource("/vista/sounds/SUCTION.WAV");
-//		AudioClip clip = Applet.newAudioClip(url);
-//		clip.play();
+		URL url = getClass().getResource("/vista/sounds/SUCTION.WAV");
+		AudioClip clip = Applet.newAudioClip(url);
+		clip.play();
 
 		contenedorPrincipal.refrescar();
 	}

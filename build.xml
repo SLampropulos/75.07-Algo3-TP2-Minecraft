@@ -20,8 +20,8 @@
         <mkdir dir="build/main"/>
         <mkdir dir="build/test"/>
         <mkdir dir="build/test-report"/>
-		<mkdir dir="build/vista/sounds" />
-		<copy todir="build/vista/sounds">
+		<mkdir dir="build/main/vista/sounds" />
+		<copy todir="build/main/vista/sounds">
 			<fileset dir="${srcSonidos}"
 		           includes="*"
 		  />
