@@ -24,7 +24,6 @@ public class BotonArribaHandler implements EventHandler<ActionEvent> {
 		jugador.irArriba();
 		
 		URL url = getClass().getResource("/vista/sounds/SUCTION.WAV");
-		System.out.println(url);
 		AudioClip clip = Applet.newAudioClip(url);
 		clip.play();
 
