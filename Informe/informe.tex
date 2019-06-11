@@ -57,6 +57,13 @@ Debido a detalles no especificados en la consigna del trabajo práctico, se ha d
 
 
 \section{Modelo de dominio}\label{sec:modelo}
+El diseño del trabajo consiste principalmente en las siguientes clases.
+\begin{description}
+\item[Jugador] Modela al jugador de la partida, que puede moverse en el mapa del juego. Posee un inventario de herramientas y materiales. Puede recolectar materiales y luego usarlos para fabricar herramientas.
+\item[Mapa] Modela al mundo en el cual el jugador puede moverse. El mapa es un conjunto de celdas, las cuales pueden estar vacías o ocupadas, ya sea por el jugador o por distintos materiales.
+\item[Herramienta] Es una clase abstracta que modela una herramienta genérica. Posee una durabilidad y una fuerza determinadas por el tipo específico de herramienta. Puede ser usada en materiales, reduciendo la durabilidad de éstos y también la propia.
+\item[Material] Es una clase abstracta que modela un material. Posee una durabilidad, que puede ser desgastada por una herramienta. Se encuentran distribuidas en el mapa del juego y al reducirse por completo su durabilidad puede ser obtenida por el jugador.
+\end{description}
 
 \section{Diagramas de clase}\label{sec:diagramasdeclase}
 
