@@ -73,10 +73,10 @@ public class ContenedorPrincipal extends BorderPane {
 		setBackground(new Background(imagenDeFondo));
 		this.setBorder(datosYBotones);
 
-		Text titulo = new Text("Cosas:");
+		Text titulo = new Text("Materiales: " + mineCraft.getJugador().getMateriales().size());
 		titulo.setFill(Color.BLACK);
 		titulo.setFont(Font.font("Arial", FontWeight.BOLD, 30));
-		this.datosYBotones.add(titulo,0,0,3,1);
+		this.datosYBotones.add(titulo, 0, 0, 3, 1);
 //		VBox.setMargin(titulo, new Insets(10));
 
 //		this.mostrarJugadorActual(algoPoly.getJugadorActual().getNombre());
@@ -96,14 +96,12 @@ public class ContenedorPrincipal extends BorderPane {
 //			mostrarAlert("Gano jugador: " + algoPoly.getJugadores().get(0).getNombre());
 //	        System.exit(0);  // Sale de la aplicacion
 //		}
-		
+
 		this.ponerBotones();
 
 		this.datosYBotones.setAlignment(Pos.CENTER);
 		this.setCenter(datosYBotones);
 	}
-
-
 
 	private void mostrarAlert(String mensaje) {
 		Alert dialogoAlerta = new Alert(AlertType.INFORMATION);
@@ -113,9 +111,9 @@ public class ContenedorPrincipal extends BorderPane {
 		dialogoAlerta.initStyle(StageStyle.UTILITY);
 		dialogoAlerta.showAndWait();
 	}
-	
+
 	private void ponerBotones() {
-		
+
 //		if (algoPoly.debeVenderPropiedades()) {
 //			this.mostrarAlert("Debe vender Propiedades.");
 //		}
@@ -134,28 +132,28 @@ public class ContenedorPrincipal extends BorderPane {
 		BotonArribaHandler arribaHandler = new BotonArribaHandler(mineCraft.getJugador(), this);
 		btnArriba.setOnAction(arribaHandler);
 //		VBox.setMargin(btnArriba, new Insets(15));
-		this.datosYBotones.add(btnArriba,1,10);
+		this.datosYBotones.add(btnArriba, 1, 10);
 
 		Button btnIzquierda = new Button();
 		btnIzquierda.setText("Izquierda");
 		BotonIzquierdaHandler izquierdaHandler = new BotonIzquierdaHandler(mineCraft.getJugador(), this);
 		btnIzquierda.setOnAction(izquierdaHandler);
 //		VBox.setMargin(btnArriba, new Insets(15));
-		this.datosYBotones.add(btnIzquierda,0,11);
+		this.datosYBotones.add(btnIzquierda, 0, 11);
 
 		Button btnDerecha = new Button();
 		btnDerecha.setText("Derecha");
 		BotonDerechaHandler derechaHandler = new BotonDerechaHandler(mineCraft.getJugador(), this);
 		btnDerecha.setOnAction(derechaHandler);
 //		VBox.setMargin(btnArriba, new Insets(15));
-		this.datosYBotones.add(btnDerecha,2,11);
-		
+		this.datosYBotones.add(btnDerecha, 2, 11);
+
 		Button btnAbajo = new Button();
 		btnAbajo.setText("Abajo");
 		BotonAbajoHandler abajoHandler = new BotonAbajoHandler(mineCraft.getJugador(), this);
 		btnAbajo.setOnAction(abajoHandler);
 //		VBox.setMargin(btnAbajo, new Insets(15));
-		this.datosYBotones.add(btnAbajo,1,12);
+		this.datosYBotones.add(btnAbajo, 1, 12);
 
 //
 //		if (algoPoly.debePasarTurno()) {
@@ -177,7 +175,7 @@ public class ContenedorPrincipal extends BorderPane {
 //			this.datosYBotones.getChildren().add(btnPerder);
 //		}
 	}
-	
+
 //	private void mostrarJugadorActual(String nombre) {
 //		Image image = new Image("file:src/vista/imagenes/ficharoja.png");
 //		if (nombre == "Verde")

@@ -18,6 +18,7 @@ public class Jugador {
 	Herramienta equipo;
 
 	public Jugador() {
+		materiales = new ArrayList<Material>();
 		equipo = inventarioHerraminetas.getHerramienta(0);
 	}
 
@@ -33,6 +34,10 @@ public class Jugador {
 		equipo.golpear(material);
 	}
 
+	private void agregar(Material material) {
+		materiales.add(material);
+	}
+	
 	//TODO esto puede mover fuera del mapa.  pasar mover() a Mapa???
 	private void irA(int fila, int columna) {
 		if (mapa.estaVacio(fila, columna)) {
@@ -42,7 +47,7 @@ public class Jugador {
 			if (material.getDurabilidad() > 0) {
 				this.golpear(material);
 			} else {
-				// TODO el jugador debe adquirir el material
+				agregar(material);
 				mapa.borrar(material);
 			}
 		}
