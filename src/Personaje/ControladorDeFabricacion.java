@@ -5,7 +5,7 @@ import Materiales.*;
 
 public class ControladorDeFabricacion {
 
-    Material material[][];
+    Material material[][] = new Material[3][3];
 
     public ControladorDeFabricacion(){
         this.setMaterial();
