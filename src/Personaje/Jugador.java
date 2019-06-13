@@ -14,12 +14,12 @@ public class Jugador {
 
 
 //	FabricadorHerramientas fabricadorHerramientas = new FabricadorHerramientas();
-	InventarioHerraminetas inventarioHerraminetas = new InventarioHerraminetas();
+	InventarioHerramientas inventarioHerramientas = new InventarioHerramientas();
 	Herramienta equipo;
 
 	public Jugador() {
 		materiales = new ArrayList<Material>();
-		equipo = inventarioHerraminetas.getHerramienta(0);
+		equipo = inventarioHerramientas.getHerramienta(0);
 	}
 
 	public void setMapa(Mapa mapa) {

@@ -63,7 +63,7 @@ public class Mapa {
 		columnaJugador = columna;
 	}
 
-	public int getFila(Jugador jugador2) {
+	public int getFila(Jugador jugador) {
 		return filaJugador;
 	}
 

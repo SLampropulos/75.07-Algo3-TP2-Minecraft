@@ -4,27 +4,27 @@ import Herramientas.HachaMadera;
 import Herramientas.Herramienta;
 import java.util.ArrayList;
 
-public class InventarioHerraminetas {
+public class InventarioHerramientas {
 
-    ArrayList herraminetas = new ArrayList();
+    ArrayList herramientas = new ArrayList();
 
-    public InventarioHerraminetas() {
-        herraminetas.add( new HachaMadera());
+    public InventarioHerramientas() {
+        herramientas.add( new HachaMadera());
     }
 
     public int sizeHerramineta() {
-        return herraminetas.size();
+        return herramientas.size();
     }
 
     public void add(Herramienta herramienta) {
-        herraminetas.add(herramienta);
+        herramientas.add(herramienta);
     }
 
     public Herramienta getHerramienta(int i) {
-        return (Herramienta) herraminetas.get(i);
+        return (Herramienta) herramientas.get(i);
     }
 
     public void remove(Herramienta herramienta) {
-        herraminetas.remove(herramienta);
+        herramientas.remove(herramienta);
     }
 }
