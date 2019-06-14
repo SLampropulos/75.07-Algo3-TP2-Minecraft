@@ -2,10 +2,6 @@ package vista;
 
 import java.util.ArrayList;
 
-import Materiales.Diamante;
-import Materiales.Madera;
-import Materiales.Metal;
-import Materiales.Piedra;
 import Personaje.Jugador;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -36,14 +32,17 @@ public class VistaMapa {
 		this.pane = pane;
 
 		vistaCeldas = new ArrayList<VistaCelda>();
-		for (Celda celda : mineCraft.getMapa().getCeldas())
-			vistaCeldas.add(new VistaCelda(celda.getMaterial(), pane, celda.getColumna(),
-					celda.getFila(), anchoCelda, altoCelda));
+		Celda[][] grilla = mineCraft.getMapa().getCeldas();
+
+		for (int i = 0; i < 16; i++) {
+			for (int j = 0; j < 24; j++) {
+				vistaCeldas.add(new VistaCelda(grilla[i][j].getMaterial(), pane, j, i, anchoCelda, altoCelda));
+			}
+		}
 
 		Jugador jugador = mineCraft.getJugador();
 		vistaJugador = new VistaJugador(jugador, pane, mineCraft.getMapa().getColumna(jugador),
 				mineCraft.getMapa().getFila(jugador), anchoCelda, altoCelda);
-
 	}
 
 	public void dibujar() {

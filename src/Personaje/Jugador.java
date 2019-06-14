@@ -48,7 +48,7 @@ public class Jugador {
 				this.golpear(material);
 			} else {
 				agregar(material);
-				mapa.borrar(material);
+				mapa.borrar(fila, columna);
 			}
 		}
 	}

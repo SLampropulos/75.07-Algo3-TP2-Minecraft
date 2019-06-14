@@ -1,6 +1,7 @@
 package juego;
 
 import Materiales.Material;
+import Materiales.MaterialNull;
 
 public class Celda {
 	private Material material;
@@ -24,4 +25,17 @@ public class Celda {
 	public int getColumna() {
 		return columna;
 	}
+
+	public boolean estaVacia() {
+		return material instanceof MaterialNull;
+	}
+
+	public void agregar(Material unMaterial) {
+		material = unMaterial;
+	}
+
+	public void borrarMaterial() {
+		material = new MaterialNull();
+	}
+
 }
