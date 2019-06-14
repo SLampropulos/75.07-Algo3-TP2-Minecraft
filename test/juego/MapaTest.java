@@ -46,7 +46,7 @@ class MapaTest {
 
 		mapa.setJugador(jugador, 10, 15);
 		jugador.setMapa(mapa);
-		jugador.irDerecha();
+		jugador.derecha();
 
 		assertEquals(10, mapa.getFila(jugador));
 		assertEquals(16, mapa.getColumna(jugador));
@@ -59,7 +59,7 @@ class MapaTest {
 
 		mapa.setJugador(jugador, 10, 15);
 		jugador.setMapa(mapa);
-		jugador.irIzquierda();
+		jugador.izquierda();
 
 		assertEquals(10, mapa.getFila(jugador));
 		assertEquals(14, mapa.getColumna(jugador));
@@ -72,7 +72,7 @@ class MapaTest {
 
 		mapa.setJugador(jugador, 10, 15);
 		jugador.setMapa(mapa);
-		jugador.irArriba();
+		jugador.arriba();
 
 		assertEquals(9, mapa.getFila(jugador));
 		assertEquals(15, mapa.getColumna(jugador));
@@ -85,7 +85,7 @@ class MapaTest {
 
 		mapa.setJugador(jugador, 10, 15);
 		jugador.setMapa(mapa);
-		jugador.irAbajo();
+		jugador.abajo();
 
 		assertEquals(11, mapa.getFila(jugador));
 		assertEquals(15, mapa.getColumna(jugador));
@@ -100,7 +100,7 @@ class MapaTest {
 		Jugador jugador = new Jugador();
 		mapa.setJugador(jugador, 10, 15);
 		jugador.setMapa(mapa);
-		jugador.irDerecha();
+		jugador.derecha();
 
 		assertEquals(unaMadera, mapa.getMaterialEn(10, 16));
 		assertEquals(10, mapa.getFila(jugador));
@@ -117,7 +117,7 @@ class MapaTest {
 		mapa.setJugador(jugador, 10, 15);
 		jugador.setMapa(mapa);
 		float durabilidadInicial = unaMadera.getDurabilidad();
-		jugador.irDerecha();
+		jugador.derecha();
 
 		assertTrue(unaMadera.getDurabilidad() < durabilidadInicial);
 	}

@@ -21,8 +21,7 @@ public class Mapa {
 		}
 	}
 
-	public void agregar(Material material, int fila, int columna) // TODO excepcion si ocupado
-	{
+	public void agregar(Material material, int fila, int columna) { // TODO excepcion si ocupado
 		celdas[fila][columna].agregar(material);
 	}
 
@@ -30,7 +29,7 @@ public class Mapa {
 		return celdas[fila][columna].getMaterial();
 	}
 
-	public boolean estaVacio(int fila, int columna) {  //TODO contemplar jugador
+	public boolean estaVacio(int fila, int columna) { // TODO contemplar jugador
 		return celdas[fila][columna].estaVacia();
 	}
 
@@ -54,6 +53,38 @@ public class Mapa {
 
 	public Celda[][] getCeldas() {
 		return celdas;
+	}
+
+	// TODO esto puede mover fuera del mapa.
+	private void jugadorA(int fila, int columna) {
+		if (estaVacio(fila, columna)) {
+			filaJugador = fila;
+			columnaJugador = columna;
+		} else {
+			Material material = getMaterialEn(fila, columna);
+			if (material.getDurabilidad() > 0) {
+				jugador.golpear(material);
+			} else {
+				jugador.agregarMaterial(material);
+				borrar(fila, columna);
+			}
+		}
+	}
+
+	public void izquierda() {
+		jugadorA(filaJugador, columnaJugador - 1);
+	}
+
+	public void derecha() {
+		jugadorA(filaJugador, columnaJugador + 1);
+	}
+
+	public void arriba() {
+		jugadorA(filaJugador - 1, columnaJugador);
+	}
+
+	public void abajo() {
+		jugadorA(filaJugador + 1, columnaJugador);
 	}
 
 }

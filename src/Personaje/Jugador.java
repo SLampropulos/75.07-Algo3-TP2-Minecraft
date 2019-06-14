@@ -37,36 +37,21 @@ public class Jugador {
 	public void agregarHerramienta(Herramienta herramienta) {
 		inventarioHerramientas.add(herramienta);
 	}
-
-	//TODO esto puede mover fuera del mapa.  pasar mover() a Mapa???
-	private void irA(int fila, int columna) {
-		if (mapa.estaVacio(fila, columna)) {
-			mapa.setJugador(this,fila,columna);
-		} else {
-			Material material = mapa.getMaterialEn(fila, columna);
-			if (material.getDurabilidad() > 0) {
-				this.golpear(material);
-			} else {
-				agregarMaterial(material);
-				mapa.borrar(fila, columna);
-			}
-		}
+	
+	public void izquierda() {
+		mapa.izquierda();
 	}
 
-	public void irIzquierda() {
-		irA(mapa.getFila(this), mapa.getColumna(this) - 1);
+	public void derecha() {
+		mapa.derecha();
 	}
 
-	public void irDerecha() {
-		irA(mapa.getFila(this), mapa.getColumna(this) + 1);
+	public void arriba() {
+		mapa.arriba();
 	}
 
-	public void irArriba() {
-		irA(mapa.getFila(this) - 1, mapa.getColumna(this));
-	}
-
-	public void irAbajo() {
-		irA(mapa.getFila(this) + 1, mapa.getColumna(this));
+	public void abajo() {
+		mapa.abajo();
 	}
 
 }
