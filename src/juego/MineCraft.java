@@ -1,10 +1,10 @@
 package juego;
 
-import Materiales.Diamante;
-import Materiales.Madera;
-import Materiales.Metal;
-import Materiales.Piedra;
-import Personaje.Jugador;
+import materiales.Diamante;
+import materiales.Madera;
+import materiales.Metal;
+import materiales.Piedra;
+import personaje.Jugador;
 
 public class MineCraft {
 

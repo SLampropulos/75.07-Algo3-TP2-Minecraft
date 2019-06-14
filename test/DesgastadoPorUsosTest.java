@@ -1,5 +1,6 @@
-import Herramientas.Desgastador.DesgastadorPorUsos;
 import org.junit.jupiter.api.Test;
+
+import herramientas.desgastador.DesgastadorPorUsos;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

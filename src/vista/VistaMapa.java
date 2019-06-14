@@ -2,7 +2,6 @@ package vista;
 
 import java.util.ArrayList;
 
-import Personaje.Jugador;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
@@ -10,6 +9,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import juego.Celda;
 import juego.MineCraft;
+import personaje.Jugador;
 
 public class VistaMapa {
 

@@ -2,13 +2,12 @@ package eventos;
 
 import vista.ContenedorPrincipal;
 
-import Personaje.Jugador;
-
 import java.applet.Applet;
 import java.applet.AudioClip;
 import java.net.URL;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import personaje.Jugador;
 
 public class BotonArribaHandler implements EventHandler<ActionEvent> {
 	private Jugador jugador;

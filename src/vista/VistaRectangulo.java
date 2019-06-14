@@ -3,8 +3,6 @@ package vista;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 
 public abstract class VistaRectangulo implements Dibujable {
 	private int x;
@@ -17,7 +15,6 @@ public abstract class VistaRectangulo implements Dibujable {
 		this.y = y;
 	}
 
-
 	public void ponerImagen(String sImagen) {
 		Image image = new Image(sImagen);
 		ImageView imageView = new ImageView();
@@ -26,7 +23,6 @@ public abstract class VistaRectangulo implements Dibujable {
 		imageView.setTranslateX(10);
 		imageView.setTranslateY(0);
 	}
-
 
 	public void dibujar() {
 	}

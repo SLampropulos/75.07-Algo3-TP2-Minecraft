@@ -1,8 +1,8 @@
 package juego;
 
-import Materiales.Material;
-import Materiales.MaterialNull;
-import Personaje.Jugador;
+import materiales.Material;
+import materiales.MaterialNull;
+import personaje.Jugador;
 
 public class Mapa {
 

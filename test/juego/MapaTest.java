@@ -4,9 +4,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import Materiales.Madera;
-import Materiales.Piedra;
-import Personaje.Jugador;
+import materiales.Madera;
+import materiales.Piedra;
+import personaje.Jugador;
 
 class MapaTest {
 

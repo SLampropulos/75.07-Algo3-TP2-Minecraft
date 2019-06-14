@@ -1,8 +1,9 @@
 package vista;
 
 import java.lang.reflect.Constructor;
-import Materiales.Material;
+
 import javafx.scene.layout.GridPane;
+import materiales.Material;
 
 public class VistaCelda {
 	private Dibujable dibujable;

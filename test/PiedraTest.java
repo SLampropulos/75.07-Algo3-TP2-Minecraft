@@ -1,6 +1,7 @@
-import Herramientas.*;
-import Materiales.Material;
-import Materiales.Piedra;
+import herramientas.*;
+import materiales.Material;
+import materiales.Piedra;
+
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

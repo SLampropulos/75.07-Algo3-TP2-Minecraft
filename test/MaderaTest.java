@@ -1,9 +1,9 @@
-import Herramientas.HachaMadera;
-import Herramientas.HachaPiedra;
-import Herramientas.Herramienta;
-import Herramientas.PicoMadera;
-import Materiales.Madera;
-import Materiales.Material;
+import herramientas.HachaMadera;
+import herramientas.HachaPiedra;
+import herramientas.Herramienta;
+import herramientas.PicoMadera;
+import materiales.Madera;
+import materiales.Material;
 
 import org.junit.jupiter.api.Test;
 

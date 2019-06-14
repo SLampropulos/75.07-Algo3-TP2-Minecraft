@@ -1,7 +1,7 @@
 package juego;
 
-import Materiales.Material;
-import Materiales.MaterialNull;
+import materiales.Material;
+import materiales.MaterialNull;
 
 public class Celda {
 	private Material material;
