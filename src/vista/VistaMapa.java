@@ -34,7 +34,7 @@ public class VistaMapa {
 
 		for (int i = 0; i < 16; i++) {
 			for (int j = 0; j < 24; j++) {
-				vistaCeldas.add(new VistaCelda(grilla[i][j].getMaterial(), pane, j, i, anchoCelda, altoCelda));
+				vistaCeldas.add(new VistaCelda(grilla[i][j].getMaterial(), pane, j, i));
 			}
 		}
 

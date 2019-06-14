@@ -1,28 +1,21 @@
 package vista;
 
-import java.lang.reflect.Method;
-
+import java.lang.reflect.Constructor;
 import Materiales.Material;
 import javafx.scene.layout.GridPane;
 
 public class VistaCelda {
 	private Dibujable dibujable;
 
-	public VistaCelda(Material material, GridPane pane, int x, int y, double ancho, double alto) {
+	public VistaCelda(Material material, GridPane pane, int x, int y) {
 
-		@SuppressWarnings("rawtypes")
-		Class[] param = new Class[5];
-		param[0] = GridPane.class;
-		param[1] = int.class;
-		param[2] = int.class;
-		param[3] = double.class;
-		param[4] = double.class;
 		String nombreClase = "vista.Vista" + material.getClass().getSimpleName();
 
 		try {
 			Class<?> clase = Class.forName(nombreClase);
-			Method metodo = clase.getDeclaredMethod("Instancia", param);
-			dibujable = (Dibujable) metodo.invoke(null, pane, x, y, ancho, alto);
+			Constructor<?> constructor = clase.getConstructor(GridPane.class, int.class, int.class);
+			dibujable = (Dibujable) constructor.newInstance(pane, x, y);
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
