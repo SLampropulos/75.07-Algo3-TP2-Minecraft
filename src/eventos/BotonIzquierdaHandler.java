@@ -20,7 +20,7 @@ public class BotonIzquierdaHandler implements EventHandler<ActionEvent> {
 
 	@Override
 	public void handle(ActionEvent actionEvent) {
-		jugador.irIzquierda();
+		jugador.izquierda();
 		
 		URL url = getClass().getResource("/vista/sounds/SUCTION.WAV");
 		AudioClip clip = Applet.newAudioClip(url);

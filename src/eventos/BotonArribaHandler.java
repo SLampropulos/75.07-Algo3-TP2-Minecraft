@@ -21,7 +21,7 @@ public class BotonArribaHandler implements EventHandler<ActionEvent> {
 
 	@Override
 	public void handle(ActionEvent actionEvent) {
-		jugador.irArriba();
+		jugador.arriba();
 		
 		URL url = getClass().getResource("/vista/sounds/SUCTION.WAV");
 		AudioClip clip = Applet.newAudioClip(url);
