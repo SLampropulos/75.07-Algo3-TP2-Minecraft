@@ -12,7 +12,7 @@ public class InventarioHerramientas {
         herramientas.add( new HachaMadera());
     }
 
-    public int sizeHerramineta() {
+    public int cantidadDeHerramientas() {
         return herramientas.size();
     }
 

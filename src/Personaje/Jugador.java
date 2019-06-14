@@ -1,25 +1,21 @@
 package Personaje;
 
-import java.util.ArrayList;
-
 import Herramientas.Herramienta;
 import Materiales.Material;
 import juego.Mapa;
 
 public class Jugador {
 
-	Mapa mapa;
-	
-	ArrayList<Material> materiales;
-
-
-//	FabricadorHerramientas fabricadorHerramientas = new FabricadorHerramientas();
-	InventarioHerramientas inventarioHerramientas = new InventarioHerramientas();
-	Herramienta equipo;
+	private Mapa mapa;
+	//FabricadorHerramientas fabricadorHerramientas = new FabricadorHerramientas();
+	private InventarioHerramientas inventarioHerramientas;
+	private InventarioMateriales inventarioMateriales;
+	private Herramienta equipado;
 
 	public Jugador() {
-		materiales = new ArrayList<Material>();
-		equipo = inventarioHerramientas.getHerramienta(0);
+		inventarioHerramientas = new InventarioHerramientas();
+		inventarioMateriales = new InventarioMateriales();
+		equipado = inventarioHerramientas.getHerramienta(0);
 	}
 
 	public void setMapa(Mapa mapa) {
@@ -27,17 +23,21 @@ public class Jugador {
 	}
 
 	public Herramienta getEquipado() {
-		return equipo;
+		return equipado;
 	}
 
 	public void golpear(Material material) {
-		equipo.golpear(material);
+		equipado.golpear(material);
 	}
 
-	private void agregar(Material material) {
-		materiales.add(material);
+	public void agregarMaterial(Material material) {
+		inventarioMateriales.agregar(material);
 	}
-	
+
+	public void agregarHerramienta(Herramienta herramienta) {
+		inventarioHerramientas.add(herramienta);
+	}
+
 	//TODO esto puede mover fuera del mapa.  pasar mover() a Mapa???
 	private void irA(int fila, int columna) {
 		if (mapa.estaVacio(fila, columna)) {
@@ -47,7 +47,7 @@ public class Jugador {
 			if (material.getDurabilidad() > 0) {
 				this.golpear(material);
 			} else {
-				agregar(material);
+				agregarMaterial(material);
 				mapa.borrar(fila, columna);
 			}
 		}
@@ -68,8 +68,5 @@ public class Jugador {
 	public void irAbajo() {
 		irA(mapa.getFila(this) + 1, mapa.getColumna(this));
 	}
-	
-	public ArrayList<Material> getMateriales() {
-		return materiales;
-	}
+
 }
