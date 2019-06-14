@@ -61,7 +61,7 @@ public class ContenedorPrincipal extends BorderPane {
 		setBackground(new Background(imagenDeFondo));
 		this.setBorder(datosYBotones);
 
-		Text titulo = new Text("Materiales: " + mineCraft.getJugador().getMateriales().size());
+		Text titulo = new Text("Materiales: ");
 		titulo.setFill(Color.BLACK);
 		titulo.setFont(Font.font("Arial", FontWeight.BOLD, 30));
 		this.datosYBotones.add(titulo, 0, 0, 3, 1);

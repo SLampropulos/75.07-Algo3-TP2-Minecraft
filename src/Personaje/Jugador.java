@@ -1,25 +1,21 @@
 package Personaje;
 
-import java.util.ArrayList;
-
 import Herramientas.Herramienta;
 import Materiales.Material;
 import juego.Mapa;
 
 public class Jugador {
 
-	Mapa mapa;
-	
-	ArrayList<Material> materiales;
-
-
-//	FabricadorHerramientas fabricadorHerramientas = new FabricadorHerramientas();
-	InventarioHerramientas inventarioHerramientas = new InventarioHerramientas();
-	Herramienta equipo;
+	private Mapa mapa;
+	//FabricadorHerramientas fabricadorHerramientas = new FabricadorHerramientas();
+	private InventarioHerramientas inventarioHerramientas;
+	private InventarioMateriales inventarioMateriales;
+	private Herramienta equipado;
 
 	public Jugador() {
-		materiales = new ArrayList<Material>();
-		equipo = inventarioHerramientas.getHerramienta(0);
+		inventarioHerramientas = new InventarioHerramientas();
+		inventarioMateriales = new InventarioMateriales();
+		equipado = inventarioHerramientas.getHerramienta(0);
 	}
 
 	public void setMapa(Mapa mapa) {
@@ -27,15 +23,19 @@ public class Jugador {
 	}
 
 	public Herramienta getEquipado() {
-		return equipo;
+		return equipado;
 	}
 
 	public void golpear(Material material) {
-		equipo.golpear(material);
+		equipado.golpear(material);
 	}
 
-	public void agregar(Material material) {
-		materiales.add(material);
+	public void agregarMaterial(Material material) {
+		inventarioMateriales.agregar(material);
+	}
+
+	public void agregarHerramienta(Herramienta herramienta) {
+		inventarioHerramientas.add(herramienta);
 	}
 	
 	public void izquierda() {
@@ -53,8 +53,5 @@ public class Jugador {
 	public void abajo() {
 		mapa.abajo();
 	}
-	
-	public ArrayList<Material> getMateriales() {
-		return materiales;
-	}
+
 }

@@ -65,7 +65,7 @@ public class Mapa {
 			if (material.getDurabilidad() > 0) {
 				jugador.golpear(material);
 			} else {
-				jugador.agregar(material);
+				jugador.agregarMaterial(material);
 				borrar(fila, columna);
 			}
 		}

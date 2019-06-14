@@ -1,5 +1,6 @@
 package PersonajeTest;
 
+import Herramientas.HachaMadera;
 import Herramientas.Herramienta;
 import Herramientas.PicoMadera;
 import Personaje.InventarioHerramientas;
@@ -10,27 +11,33 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class InventarioHerramientasTest {
 
     @Test
-    void inventarioIniciaCorrecatmente(){
-        InventarioHerramientas inventarioHerramientas = new InventarioHerramientas();
-        int cantElementos = inventarioHerramientas.sizeHerramineta();
-        assertEquals(1,cantElementos);
+    void inventarioIniciaConUnHachaDeMadera() {
+        InventarioHerramientas inventario = new InventarioHerramientas();
+        Herramienta herramienta = inventario.getHerramienta(0);
+        assertEquals(HachaMadera.class, herramienta.getClass());
     }
 
     @Test
-    void inventarioAgregaHerramineta(){
+    void inventarioIniciaConTamanioCorrecto(){
+        InventarioHerramientas inventarioHerramientas = new InventarioHerramientas();
+        int cantidadDeElementos = inventarioHerramientas.cantidadDeHerramientas();
+        assertEquals(1,cantidadDeElementos);
+    }
+
+    @Test
+    void inventarioAgregaHerramientaYAumentaTamanio(){
         InventarioHerramientas inventarioHerramientas = new InventarioHerramientas();
         inventarioHerramientas.add(new PicoMadera());
-        int cantElementos = inventarioHerramientas.sizeHerramineta();
+        int cantElementos = inventarioHerramientas.cantidadDeHerramientas();
         assertEquals(2,cantElementos);
     }
 
     @Test
-    void inventarioDesechaUnaHerramienta(){
+    void inventarioDesechaUnaHerramientaYDisminuyeTamanio(){
         InventarioHerramientas inventarioHerramientas = new InventarioHerramientas();
         Herramienta hacha = inventarioHerramientas.getHerramienta(0);
         inventarioHerramientas.remove(hacha);
-
-        assertEquals(0, inventarioHerramientas.sizeHerramineta());
+        assertEquals(0, inventarioHerramientas.cantidadDeHerramientas());
     }
 
 }
