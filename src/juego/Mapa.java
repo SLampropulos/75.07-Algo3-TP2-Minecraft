@@ -16,7 +16,7 @@ public class Mapa {
 		celdas = new Celda[16][24];
 		for (int i = 0; i < 16; i++) {
 			for (int j = 0; j < 24; j++) {
-				celdas[i][j] = new Celda(new MaterialNull(), i, j);
+				celdas[i][j] = new Celda(new MaterialNull());
 			}
 		}
 	}

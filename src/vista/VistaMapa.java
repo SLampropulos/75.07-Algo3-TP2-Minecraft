@@ -19,7 +19,6 @@ public class VistaMapa {
 	private int cantColumnas;
 	private double anchoCelda;
 	private double altoCelda;
-	private MineCraft mineCraft;
 	private VistaJugador vistaJugador;
 
 	public VistaMapa(MineCraft mineCraft, ContenedorPrincipal contenedorPrincipal, GridPane pane) {
@@ -28,7 +27,6 @@ public class VistaMapa {
 		anchoCelda = 36;
 		altoCelda = 36;
 
-		this.mineCraft = mineCraft;
 		this.pane = pane;
 
 		vistaCeldas = new ArrayList<VistaCelda>();
@@ -41,7 +39,7 @@ public class VistaMapa {
 		}
 
 		Jugador jugador = mineCraft.getJugador();
-		vistaJugador = new VistaJugador(jugador, pane, mineCraft.getMapa().getColumna(jugador),
+		vistaJugador = new VistaJugador(pane, mineCraft.getMapa().getColumna(jugador),
 				mineCraft.getMapa().getFila(jugador), anchoCelda, altoCelda);
 	}
 
@@ -53,9 +51,6 @@ public class VistaMapa {
 	}
 
 	private void limpiar() {
-//		pane.setHgap(0);
-//		pane.setVgap(0);
-
 		for (int x = 0; x < cantColumnas; x++)
 			pane.add(new Rectangle(0, 0, anchoCelda, altoCelda), x, 0);
 		for (int y = 0; y < cantFilas; y++)
@@ -73,8 +68,6 @@ public class VistaMapa {
 	}
 
 	public void update() {
-//		for (Celda celda : mineCraft.getMapa().getCeldas())
-//			vistaCeldas.add(new VistaCelda(celda.getMaterial(), contenedorPrincipal, pane, 4, 5, anchoCelda, altoCelda));
 		dibujar();
 	}
 }
