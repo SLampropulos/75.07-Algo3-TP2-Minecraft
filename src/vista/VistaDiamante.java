@@ -1,24 +1,19 @@
 package vista;
 
-import Materiales.Material;
 import javafx.scene.layout.GridPane;
-import javafx.scene.paint.Color;
 
 public class VistaDiamante extends VistaRectangulo {
 
-	public VistaDiamante(Material material, GridPane pane, int x, int y, double ancho, double alto) {
-		super(material, pane, x, y, ancho, alto);
+	public VistaDiamante(GridPane pane, int x, int y, double ancho, double alto) {
+		super(pane, x, y, ancho, alto);
 	}
 
-	public static VistaDiamante Instancia(Material material, GridPane pane, int x, int y, double ancho, double alto) {
-		return new VistaDiamante(material, pane, x, y, ancho, alto);
+	public static VistaDiamante Instancia(GridPane pane, int x, int y, double ancho, double alto) {
+		return new VistaDiamante(pane, x, y, ancho, alto);
 	}
 
 	public void dibujar() {
-//		pintar(Color.GOLD);
-		this.ponerImagen("file:src/vista/images/Diamante.png");
-//		etiquetar("Diamante", Color.BLACK);
+		ponerImagen("file:src/vista/images/Diamante.png");
 		super.dibujar();
-//		this.ponerBotonInfo("xxxx", "Accion");
 	}
 }
