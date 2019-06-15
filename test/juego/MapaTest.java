@@ -10,6 +10,9 @@ import personaje.Jugador;
 
 class MapaTest {
 
+	private final int cantidadDeFilas = 16;
+	private final int cantidadDeColumnas = 24;
+
 	@Test
 	void testAgregarMaderaPosicionVacia() {
 		Mapa mapa = new Mapa();
@@ -120,6 +123,58 @@ class MapaTest {
 		jugador.derecha();
 
 		assertTrue(unaMadera.getDurabilidad() < durabilidadInicial);
+	}
+
+	@Test
+	void testMoverJugadorFueraDeLimiteIzquierdoNoHaceNada() {
+		Mapa mapa = new Mapa();
+		Jugador jugador = new Jugador();
+		jugador.setMapa(mapa);
+		mapa.setJugador(jugador, 0, 0);
+
+		jugador.izquierda();
+
+		assertEquals(0, mapa.getFilaJugador());
+		assertEquals(0, mapa.getColumnaJugador());
+	}
+
+	@Test
+	void testMoverJugadorFueraDeLimiteDerechoNoHaceNada() {
+		Mapa mapa = new Mapa();
+		Jugador jugador = new Jugador();
+		jugador.setMapa(mapa);
+		mapa.setJugador(jugador, 0, cantidadDeColumnas);
+
+		jugador.derecha();
+
+		assertEquals(0, mapa.getFilaJugador());
+		assertEquals(cantidadDeColumnas, mapa.getColumnaJugador());
+	}
+
+	@Test
+	void testMoverJugadorFueraDeLimiteSuperiorNoHaceNada() {
+		Mapa mapa = new Mapa();
+		Jugador jugador = new Jugador();
+		jugador.setMapa(mapa);
+		mapa.setJugador(jugador, 0, 0);
+
+		jugador.arriba();
+
+		assertEquals(0, mapa.getFilaJugador());
+		assertEquals(0, mapa.getColumnaJugador());
+	}
+
+	@Test
+	void testMoverJugadorFueraDeLimiteInferiorNoHaceNada() {
+		Mapa mapa = new Mapa();
+		Jugador jugador = new Jugador();
+		jugador.setMapa(mapa);
+		mapa.setJugador(jugador, cantidadDeFilas, 0);
+
+		jugador.abajo();
+
+		assertEquals(cantidadDeFilas, mapa.getFilaJugador());
+		assertEquals(0, mapa.getColumnaJugador());
 	}
 
 }
