@@ -6,22 +6,23 @@ import java.util.ArrayList;
 
 public class InventarioHerramientas {
 
-    ArrayList herramientas = new ArrayList();
+    private ArrayList<Herramienta> herramientas;
 
     public InventarioHerramientas() {
-        herramientas.add( new HachaMadera());
+        herramientas = new ArrayList<>();
+        herramientas.add(new HachaMadera());
     }
 
     public int cantidadDeHerramientas() {
         return herramientas.size();
     }
 
-    public void add(Herramienta herramienta) {
+    public void agregar(Herramienta herramienta) {
         herramientas.add(herramienta);
     }
 
-    public Herramienta getHerramienta(int i) {
-        return (Herramienta) herramientas.get(i);
+    public Herramienta obtenerHerramienta(int i) {
+        return herramientas.get(i);
     }
 
     public void remove(Herramienta herramienta) {

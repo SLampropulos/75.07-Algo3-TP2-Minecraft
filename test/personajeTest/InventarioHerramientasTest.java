@@ -14,7 +14,7 @@ public class InventarioHerramientasTest {
     @Test
     void inventarioIniciaConUnHachaDeMadera() {
         InventarioHerramientas inventario = new InventarioHerramientas();
-        Herramienta herramienta = inventario.getHerramienta(0);
+        Herramienta herramienta = inventario.obtenerHerramienta(0);
         assertEquals(HachaMadera.class, herramienta.getClass());
     }
 
@@ -28,7 +28,7 @@ public class InventarioHerramientasTest {
     @Test
     void inventarioAgregaHerramientaYAumentaTamanio(){
         InventarioHerramientas inventarioHerramientas = new InventarioHerramientas();
-        inventarioHerramientas.add(new PicoMadera());
+        inventarioHerramientas.agregar(new PicoMadera());
         int cantElementos = inventarioHerramientas.cantidadDeHerramientas();
         assertEquals(2,cantElementos);
     }
@@ -36,7 +36,7 @@ public class InventarioHerramientasTest {
     @Test
     void inventarioDesechaUnaHerramientaYDisminuyeTamanio(){
         InventarioHerramientas inventarioHerramientas = new InventarioHerramientas();
-        Herramienta hacha = inventarioHerramientas.getHerramienta(0);
+        Herramienta hacha = inventarioHerramientas.obtenerHerramienta(0);
         inventarioHerramientas.remove(hacha);
         assertEquals(0, inventarioHerramientas.cantidadDeHerramientas());
     }

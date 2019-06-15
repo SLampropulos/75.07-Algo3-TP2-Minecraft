@@ -15,7 +15,7 @@ public class Jugador {
 	public Jugador() {
 		inventarioHerramientas = new InventarioHerramientas();
 		inventarioMateriales = new InventarioMateriales();
-		equipado = inventarioHerramientas.getHerramienta(0);
+		equipado = inventarioHerramientas.obtenerHerramienta(0);
 	}
 
 	public void setMapa(Mapa mapa) {
@@ -35,7 +35,7 @@ public class Jugador {
 	}
 
 	public void agregarHerramienta(Herramienta herramienta) {
-		inventarioHerramientas.add(herramienta);
+		inventarioHerramientas.agregar(herramienta);
 	}
 	
 	public void izquierda() {

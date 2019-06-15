@@ -12,11 +12,11 @@ public class InventarioMateriales {
     private HashMap<Class, ArrayList<Material>> materiales;
 
     public InventarioMateriales() {
-        materiales = new HashMap<Class, ArrayList<Material>>();
-        materiales.put(Madera.class, new ArrayList<Material>());
-        materiales.put(Metal.class, new ArrayList<Material>());
-        materiales.put(Piedra.class, new ArrayList<Material>());
-        materiales.put(Diamante.class, new ArrayList<Material>());
+        materiales = new HashMap<>();
+        materiales.put(Madera.class, new ArrayList<>());
+        materiales.put(Metal.class, new ArrayList<>());
+        materiales.put(Piedra.class, new ArrayList<>());
+        materiales.put(Diamante.class, new ArrayList<>());
     }
 
     public void agregar(Material material) {
