@@ -1,22 +1,23 @@
 package juego;
 
 import materiales.Material;
-import materiales.MaterialNull;
 import personaje.Jugador;
 
 public class Mapa {
 
-	private Celda[][] celdas;
+	private final int cantidadDeFilas = 16;
+	private final int cantidadDeColumnas = 24;
 
+	private Celda[][] celdas;
 	private Jugador jugador;
 	private int filaJugador;
 	private int columnaJugador;
 
 	public Mapa() {
-		celdas = new Celda[16][24];
-		for (int i = 0; i < 16; i++) {
-			for (int j = 0; j < 24; j++) {
-				celdas[i][j] = new Celda(new MaterialNull());
+		celdas = new Celda[cantidadDeFilas][cantidadDeColumnas];
+		for (int i = 0; i < cantidadDeFilas; i++) {
+			for (int j = 0; j < cantidadDeColumnas; j++) {
+				celdas[i][j] = new Celda();
 			}
 		}
 	}
@@ -43,11 +44,11 @@ public class Mapa {
 		columnaJugador = columna;
 	}
 
-	public int getFila(Jugador jugador) {
+	public int getFilaJugador() {
 		return filaJugador;
 	}
 
-	public int getColumna(Jugador jugador) {
+	public int getColumnaJugador() {
 		return columnaJugador;
 	}
 
@@ -55,8 +56,9 @@ public class Mapa {
 		return celdas;
 	}
 
-	// TODO esto puede mover fuera del mapa.
 	private void jugadorA(int fila, int columna) {
+		if (fila >= cantidadDeFilas || fila < 0 || columna >= cantidadDeColumnas || columna < 0)
+			return;
 		if (estaVacio(fila, columna)) {
 			filaJugador = fila;
 			columnaJugador = columna;

@@ -35,8 +35,8 @@ class MapaTest {
 		Mapa mapa = new Mapa();
 		Jugador jugador = new Jugador();
 		mapa.setJugador(jugador, 10, 15);
-		assertEquals(10, mapa.getFila(jugador));
-		assertEquals(15, mapa.getColumna(jugador));
+		assertEquals(10, mapa.getFilaJugador());
+		assertEquals(15, mapa.getColumnaJugador());
 	}
 
 	@Test
@@ -48,8 +48,8 @@ class MapaTest {
 		jugador.setMapa(mapa);
 		jugador.derecha();
 
-		assertEquals(10, mapa.getFila(jugador));
-		assertEquals(16, mapa.getColumna(jugador));
+		assertEquals(10, mapa.getFilaJugador());
+		assertEquals(16, mapa.getColumnaJugador());
 	}
 
 	@Test
@@ -61,8 +61,8 @@ class MapaTest {
 		jugador.setMapa(mapa);
 		jugador.izquierda();
 
-		assertEquals(10, mapa.getFila(jugador));
-		assertEquals(14, mapa.getColumna(jugador));
+		assertEquals(10, mapa.getFilaJugador());
+		assertEquals(14, mapa.getColumnaJugador());
 	}
 
 	@Test
@@ -74,8 +74,8 @@ class MapaTest {
 		jugador.setMapa(mapa);
 		jugador.arriba();
 
-		assertEquals(9, mapa.getFila(jugador));
-		assertEquals(15, mapa.getColumna(jugador));
+		assertEquals(9, mapa.getFilaJugador());
+		assertEquals(15, mapa.getColumnaJugador());
 	}
 
 	@Test
@@ -87,8 +87,8 @@ class MapaTest {
 		jugador.setMapa(mapa);
 		jugador.abajo();
 
-		assertEquals(11, mapa.getFila(jugador));
-		assertEquals(15, mapa.getColumna(jugador));
+		assertEquals(11, mapa.getFilaJugador());
+		assertEquals(15, mapa.getColumnaJugador());
 	}
 
 	@Test
@@ -103,8 +103,8 @@ class MapaTest {
 		jugador.derecha();
 
 		assertEquals(unaMadera, mapa.getMaterialEn(10, 16));
-		assertEquals(10, mapa.getFila(jugador));
-		assertEquals(15, mapa.getColumna(jugador));
+		assertEquals(10, mapa.getFilaJugador());
+		assertEquals(15, mapa.getColumnaJugador());
 	}
 
 	@Test

@@ -6,8 +6,8 @@ import materiales.MaterialNull;
 public class Celda {
 	private Material material;
 	
-	Celda(Material material) {
-		this.material = material;
+	Celda() {
+		material = new MaterialNull();
 	}
 
 	public Material getMaterial() {

@@ -39,8 +39,8 @@ public class VistaMapa {
 		}
 
 		Jugador jugador = mineCraft.getJugador();
-		vistaJugador = new VistaJugador(pane, mineCraft.getMapa().getColumna(jugador),
-				mineCraft.getMapa().getFila(jugador), anchoCelda, altoCelda);
+		vistaJugador = new VistaJugador(pane, mineCraft.getMapa().getColumnaJugador(),
+				mineCraft.getMapa().getFilaJugador(), anchoCelda, altoCelda);
 	}
 
 	public void dibujar() {
