@@ -57,7 +57,7 @@ public class Mapa {
 	}
 
 	private boolean estaDentroLimites(int fila, int columna) {
-		return (fila < cantidadDeFilas && fila >= 0 || columna < cantidadDeColumnas || columna >= 0);
+		return (fila < cantidadDeFilas && fila >= 0 && columna < cantidadDeColumnas && columna >= 0);
 	}
 
 	private void jugadorA(int fila, int columna) {
