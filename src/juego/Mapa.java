@@ -56,21 +56,24 @@ public class Mapa {
 		return celdas;
 	}
 
+	private boolean estaDentroLimites(int fila, int columna) {
+		return (fila < cantidadDeFilas && fila >= 0 || columna < cantidadDeColumnas || columna >= 0);
+	}
+
 	private void jugadorA(int fila, int columna) {
-		if (fila >= cantidadDeFilas || fila < 0 || columna >= cantidadDeColumnas || columna < 0)
-			return;
-		if (estaVacio(fila, columna)) {
-			filaJugador = fila;
-			columnaJugador = columna;
-		} else {
-			Material material = getMaterialEn(fila, columna);
-			if (material.getDurabilidad() > 0) {
-				jugador.golpear(material);
+		if (estaDentroLimites(fila, columna))
+			if (estaVacio(fila, columna)) {
+				filaJugador = fila;
+				columnaJugador = columna;
 			} else {
-				jugador.agregarMaterial(material);
-				borrar(fila, columna);
+				Material material = getMaterialEn(fila, columna);
+				if (material.getDurabilidad() > 0) {
+					jugador.golpear(material);
+				} else {
+					jugador.agregarMaterial(material);
+					borrar(fila, columna);
+				}
 			}
-		}
 	}
 
 	public void izquierda() {
