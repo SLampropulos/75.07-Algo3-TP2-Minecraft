@@ -1,27 +1,34 @@
 package personaje;
 
+import excepciones.ExceptionFabricacionNoValida;
 import herramientas.Herramienta;
 import materiales.Material;
 import materiales.MaterialNull;
+import personaje.patronesConstruccion.*;
 
 import java.util.ArrayList;
-
-import excepciones.ExceptionFabricacionNoValida;
 
 public class FabricadorHerramientas {
 
     Material componentes[][] = new Material[3][3];
-    ControladorDeFabricacion controladorFabricador;
+    ArrayList<PatronConstruccion> patronesContrucciones = new ArrayList<PatronConstruccion>();
 
     public FabricadorHerramientas(){
         this.setComponentes();
-        controladorFabricador = new ControladorDeFabricacion();
+        patronesContrucciones.add(new PatronHachaMadera());
+        patronesContrucciones.add(new PatronHachaPiedra());
+        patronesContrucciones.add(new PatronHachaMetal());
+        patronesContrucciones.add(new PatronPicoMadera());
+        patronesContrucciones.add(new PatronPicoPiedra());
+        patronesContrucciones.add(new PatronPicoMetal());
+        patronesContrucciones.add(new PatronPicoFino());
+
     }
 
     private void setComponentes(){
         for(int i=0; i<3; i++){
             for(int j=0; j<3; j++){
-                componentes[i][j] = new MaterialNull();
+                componentes[i][j] = MaterialNull.getInstancia();
             }
         }
     }
@@ -43,17 +50,17 @@ public class FabricadorHerramientas {
     }
 
     public Herramienta fabricar() {
-        Herramienta fabricada = controladorFabricador.fabricar(componentes);
-        if (null == fabricada) {
-            new ExceptionFabricacionNoValida();
+        Herramienta herramientaFabricada = null;
+        for (int i = 0; i < patronesContrucciones.size(); i++){
+            PatronConstruccion patronConstruccionActual = patronesContrucciones.get(i);
+            if( patronConstruccionActual.comparar(componentes)){return patronConstruccionActual.fabricar();}
         }
-        this.setComponentes();
-        return fabricada;
+        return herramientaFabricada;
     }
 
     public Material remover(int columna, int fila) {
         Material materialRetirado = componentes[columna][fila];
-        componentes[columna][fila] = new MaterialNull();
+        componentes[columna][fila] = MaterialNull.getInstancia();
         return materialRetirado;
     }
 }

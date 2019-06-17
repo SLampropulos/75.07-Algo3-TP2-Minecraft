@@ -7,7 +7,7 @@ public class Celda {
 	private Material material;
 	
 	Celda() {
-		material = new MaterialNull();
+		material = MaterialNull.getInstancia();
 	}
 
 	public Material getMaterial() {
@@ -23,7 +23,7 @@ public class Celda {
 	}
 
 	public void borrarMaterial() {
-		material = new MaterialNull();
+		material = MaterialNull.getInstancia();
 	}
 
 }
