@@ -9,7 +9,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import juego.Celda;
 import juego.MineCraft;
-import personaje.Jugador;
+//import personaje.Jugador;
 
 public class VistaMapa {
 
@@ -38,7 +38,7 @@ public class VistaMapa {
 			}
 		}
 
-		Jugador jugador = mineCraft.getJugador();
+//		Jugador jugador = mineCraft.getJugador();
 		vistaJugador = new VistaJugador(pane, mineCraft.getMapa().getColumnaJugador(),
 				mineCraft.getMapa().getFilaJugador(), anchoCelda, altoCelda);
 	}

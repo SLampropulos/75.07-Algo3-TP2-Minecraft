@@ -3,12 +3,10 @@ package juego;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
-import herramientas.HachaMadera;
 import materiales.Diamante;
 import materiales.Madera;
 import materiales.Metal;
 import materiales.Piedra;
-import personaje.Jugador;
 
 class JuegoInicioMaterialesTest {
 
