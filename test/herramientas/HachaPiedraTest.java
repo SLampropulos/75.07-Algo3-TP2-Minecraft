@@ -10,13 +10,13 @@ import materiales.Material;
 import materiales.Metal;
 import materiales.Piedra;
 
-class HachaMaderaTest {
-
-	int durabilidadEsperada=98; //para inicial = 100 y DesgastadorLineal  Fuerza = 2
+class HachaPiedraTest {
+	
+	int durabilidadEsperada=195; //para inicial = 200 y DesgastadorLineal Fuerza = 5
 	
     @Test
-    public void HachaDeMaderaGolpeaMaderaYSeDesgastaElHacha() {
-        Herramienta hacha = new HachaMadera();
+    public void HachaDePiedraGolpeaMaderaYSeDesgastaElHacha() {
+        Herramienta hacha = new HachaPiedra();
     	Material madera = new Madera();
  
     	hacha.golpear(madera);
@@ -25,8 +25,8 @@ class HachaMaderaTest {
     }
 
     @Test
-    public void HachaDeMaderaGolpeaPiedraYSeDesgastaElHacha() {
-        Herramienta hacha = new HachaMadera();
+    public void HachaDePiedraGolpeaPiedraYSeDesgastaElHacha() {
+        Herramienta hacha = new HachaPiedra();
     	Material piedra = new Piedra();
  
     	hacha.golpear(piedra);
@@ -35,8 +35,8 @@ class HachaMaderaTest {
     }
 
     @Test
-    public void HachaDeMaderaGolpeaMetalYSeDesgastaElHacha() {
-        Herramienta hacha = new HachaMadera();
+    public void HachaDePiedraGolpeaMetalYSeDesgastaElHacha() {
+        Herramienta hacha = new HachaPiedra();
     	Material metal = new Metal();
  
     	hacha.golpear(metal);
@@ -45,8 +45,8 @@ class HachaMaderaTest {
     }
 
     @Test
-    public void HachaDeMaderaGolpeaDiamanteYSeDesgastaElHacha() {
-        Herramienta hacha = new HachaMadera();
+    public void HachaDePiedraGolpeaDiamanteYSeDesgastaElHacha() {
+        Herramienta hacha = new HachaPiedra();
     	Material diamante = new Diamante();
  
     	hacha.golpear(diamante);
