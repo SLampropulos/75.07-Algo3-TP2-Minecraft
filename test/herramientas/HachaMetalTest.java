@@ -11,46 +11,46 @@ import materiales.Metal;
 import materiales.Piedra;
 
 class HachaMetalTest {
-	
-	int durabilidadEsperada=395; //para inicial = 400 y DesgastadorLineal  Fuerza = 10 (usa 10/2)
-	
-    @Test
-    public void HachaDeMetalGolpeaMaderaYSeDesgastaElHacha() {
-        Herramienta hacha = new HachaMetal();
-    	Material madera = new Madera();
- 
-    	hacha.golpear(madera);
 
-        assertEquals(durabilidadEsperada, hacha.getDurabilidad());
-    }
+	float durabilidadEsperada = 400 - 10 / 2; // para inicial = 400 y DesgastadorLineal Fuerza = 10 (usa 10/2)
 
-    @Test
-    public void HachaDeMetalGolpeaPiedraYSeDesgastaElHacha() {
-        Herramienta hacha = new HachaMetal();
-    	Material piedra = new Piedra();
- 
-    	hacha.golpear(piedra);
+	@Test
+	public void HachaDeMetalGolpeaMaderaYSeDesgastaElHacha() {
+		Herramienta hacha = new HachaMetal();
+		Material madera = new Madera();
 
-        assertEquals(durabilidadEsperada, hacha.getDurabilidad());
-    }
+		hacha.golpear(madera);
 
-    @Test
-    public void HachaDeMetalGolpeaMetalYSeDesgastaElHacha() {
-        Herramienta hacha = new HachaMetal();
-    	Material metal = new Metal();
- 
-    	hacha.golpear(metal);
+		assertEquals(durabilidadEsperada, hacha.getDurabilidad());
+	}
 
-        assertEquals(durabilidadEsperada, hacha.getDurabilidad());
-    }
+	@Test
+	public void HachaDeMetalGolpeaPiedraYSeDesgastaElHacha() {
+		Herramienta hacha = new HachaMetal();
+		Material piedra = new Piedra();
 
-    @Test
-    public void HachaDeMetalGolpeaDiamanteYSeDesgastaElHacha() {
-        Herramienta hacha = new HachaMetal();
-    	Material diamante = new Diamante();
- 
-    	hacha.golpear(diamante);
+		hacha.golpear(piedra);
 
-        assertEquals(durabilidadEsperada, hacha.getDurabilidad());
-    }
+		assertEquals(durabilidadEsperada, hacha.getDurabilidad());
+	}
+
+	@Test
+	public void HachaDeMetalGolpeaMetalYSeDesgastaElHacha() {
+		Herramienta hacha = new HachaMetal();
+		Material metal = new Metal();
+
+		hacha.golpear(metal);
+
+		assertEquals(durabilidadEsperada, hacha.getDurabilidad());
+	}
+
+	@Test
+	public void HachaDeMetalGolpeaDiamanteYSeDesgastaElHacha() {
+		Herramienta hacha = new HachaMetal();
+		Material diamante = new Diamante();
+
+		hacha.golpear(diamante);
+
+		assertEquals(durabilidadEsperada, hacha.getDurabilidad());
+	}
 }
