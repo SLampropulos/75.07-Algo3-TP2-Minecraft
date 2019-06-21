@@ -1,3 +1,4 @@
+package herramientas;
 import herramientas.HachaMadera;
 import herramientas.HachaMetal;
 import herramientas.HachaPiedra;
