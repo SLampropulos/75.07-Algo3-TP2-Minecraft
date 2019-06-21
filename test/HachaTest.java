@@ -2,6 +2,8 @@ import herramientas.HachaMadera;
 import herramientas.HachaMetal;
 import herramientas.HachaPiedra;
 import herramientas.Herramienta;
+import materiales.Diamante;
+import materiales.Material;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -77,5 +79,14 @@ public class HachaTest {
         float durabilidad = hachaMetal.getDurabilidad();
         hachaMetal.desgastar();
         assertEquals(durabilidad-(hachaMetal.getFuerza()/2),hachaMetal.getDurabilidad());
+    }
+
+    @Test
+    void hachaSeUtilizaContraMaterialNoAdecuadoYSeDesgasta(){
+        Herramienta herramienta = new HachaMadera();
+        Material material = new Diamante();
+        herramienta.golpear(material);
+
+        assertEquals(herramienta.getDurabilidad(), 98);
     }
 }

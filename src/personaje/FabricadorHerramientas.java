@@ -1,5 +1,6 @@
 package personaje;
 
+import excepciones.EspacioOcupadoException;
 import excepciones.ExceptionFabricacionNoValida;
 import herramientas.Herramienta;
 import materiales.Material;
@@ -42,7 +43,8 @@ public class FabricadorHerramientas {
         }
         return listaElementos;
     }
-    public void agregar(Material material, int columna, int fila) {
+    public void agregar(Material material, int columna, int fila) throws EspacioOcupadoException {
+        if(componentes[columna][fila] != MaterialNull.getInstancia())throw new EspacioOcupadoException();
         componentes[columna][fila] = material;
     }
     public Material obtener(int columna, int fila) {

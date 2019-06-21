@@ -1,5 +1,6 @@
 package personajeTest;
 
+import excepciones.EspacioOcupadoException;
 import herramientas.HachaMetal;
 import herramientas.Herramienta;
 import herramientas.PicoMadera;
@@ -26,7 +27,7 @@ public class FabricadorHerramientasTest {
     }
 
     @Test
-    void fabricadorAniadeUnMaterial(){
+    void fabricadorAniadeUnMaterial() throws EspacioOcupadoException {
         FabricadorHerramientas fabricadorHerramientas = new FabricadorHerramientas();
         Material madera = new Madera();
         fabricadorHerramientas.agregar(madera,1,1);
@@ -34,7 +35,7 @@ public class FabricadorHerramientasTest {
         assertEquals(madera,fabricadorHerramientas.obtener(1,1));
     }
     @Test
-    void fabricadorCreaUnPicoMadera(){
+    void fabricadorCreaUnPicoMadera() throws EspacioOcupadoException {
         FabricadorHerramientas fabricadorHerramientas = new FabricadorHerramientas();
         Material madera = new Madera();
         for(int i=0; i<3; i++){
@@ -48,7 +49,7 @@ public class FabricadorHerramientasTest {
         assertEquals(herramientaFabricada.getClass(), PicoMadera.class);
     }
     @Test
-    void fabricadorQuitaUnElemento(){
+    void fabricadorQuitaUnElemento() throws EspacioOcupadoException {
         FabricadorHerramientas fabricadorHerramientas = new FabricadorHerramientas();
         Material madera = new Madera();
         fabricadorHerramientas.agregar(madera,1,1);
@@ -57,7 +58,7 @@ public class FabricadorHerramientasTest {
         assertTrue(madera != fabricadorHerramientas.obtener(1,1));
     }
     @Test
-    void fabricadorFabricaHachaDeMetal(){
+    void fabricadorFabricaHachaDeMetal() throws EspacioOcupadoException {
         FabricadorHerramientas fabricadorHerramientas = new FabricadorHerramientas();
         Material metal = new Metal();
         Material madera = new Madera();
@@ -70,5 +71,21 @@ public class FabricadorHerramientasTest {
         Herramienta herramienta = fabricadorHerramientas.fabricar();
 
         assertEquals(herramienta.getClass(), HachaMetal.class);
+    }
+
+    @Test
+    void fabricadorAgregaUnMaterialEnDondeYaHayUnoTieraExcepcion() throws EspacioOcupadoException {
+        FabricadorHerramientas fabricadorHerramientas = new FabricadorHerramientas();
+        Material madera = new Madera();
+        Material metal = new Metal();
+
+        fabricadorHerramientas.agregar(madera,0,0);
+        try{
+            fabricadorHerramientas.agregar(metal,0,0);
+        }
+        catch (EspacioOcupadoException e){
+        }
+
+        assertEquals(Madera.class, fabricadorHerramientas.obtener(0,0).getClass());
     }
 }
