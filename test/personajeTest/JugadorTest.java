@@ -7,6 +7,9 @@ import personaje.Jugador;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class JugadorTest {
@@ -30,4 +33,27 @@ public class JugadorTest {
 
 		assertTrue(durabilidadPosterior < durabilidadAnterior);
 	}
+
+	@Test
+	void personajeSeleccionaUnMaterial(){
+		Jugador jugador = new Jugador();
+
+		ArrayList<Material> materiales= jugador.getMaterialSeleccionado();
+
+		assertTrue(materiales == null);
+	}
+
+	@Test
+	void personajeSelecciona(){
+		Jugador jugador = new Jugador();
+		ArrayList<Material> materiales;
+		jugador.agregarMaterial(new Madera());
+		jugador.setMaterialSeleccionado(Madera.class);
+		materiales = jugador.getMaterialSeleccionado();
+		Material material = materiales.get(0);
+
+		assertEquals(material.getClass(),Madera.class);
+		assertEquals(materiales.size(),1);
+	}
+
 }

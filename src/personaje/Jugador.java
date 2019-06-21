@@ -1,16 +1,20 @@
 package personaje;
 
+import excepciones.EspacioOcupadoException;
 import herramientas.Herramienta;
 import juego.Mapa;
 import materiales.Material;
 
+import java.util.ArrayList;
+
 public class Jugador {
 
 	private Mapa mapa;
-	//FabricadorHerramientas fabricadorHerramientas = new FabricadorHerramientas();
+	FabricadorHerramientas fabricadorHerramientas = new FabricadorHerramientas();
 	private InventarioHerramientas inventarioHerramientas;
 	private InventarioMateriales inventarioMateriales;
 	private Herramienta equipado;
+	private ArrayList<Material> materialSeleccionado;
 
 	public Jugador() {
 		inventarioHerramientas = new InventarioHerramientas();
@@ -20,6 +24,10 @@ public class Jugador {
 
 	public void setMapa(Mapa mapa) {
 		this.mapa = mapa;
+	}
+
+	public void setMaterialSeleccionado(Class clase){
+		materialSeleccionado = inventarioMateriales.getMateriales(clase);
 	}
 
 	public Herramienta getEquipado() {
@@ -37,7 +45,16 @@ public class Jugador {
 	public void agregarHerramienta(Herramienta herramienta) {
 		inventarioHerramientas.agregar(herramienta);
 	}
-	
+
+	public void fabricarHerramienta(){
+
+	}
+
+	public void ubicarMaterial(int posicion1, int posicion2) throws EspacioOcupadoException {
+		Material materialAUbicar = materialSeleccionado.remove(0);
+		fabricadorHerramientas.agregar(materialAUbicar,posicion1,posicion2);
+	}
+
 	public void izquierda() {
 		mapa.izquierda();
 	}
@@ -54,4 +71,7 @@ public class Jugador {
 		mapa.abajo();
 	}
 
+	public ArrayList<Material> getMaterialSeleccionado() {
+		return materialSeleccionado;
+	}
 }

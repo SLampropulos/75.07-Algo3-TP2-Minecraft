@@ -44,4 +44,8 @@ public class InventarioMateriales {
     public int cantidadDeDiamante() {
         return materiales.get(Diamante.class).size();
     }
+
+    public ArrayList<Material> getMateriales(Class clase) {
+        return materiales.get(clase);
+    }
 }
