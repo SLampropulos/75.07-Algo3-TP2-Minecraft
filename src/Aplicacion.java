@@ -3,8 +3,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import juego.MineCraft;
-
-import vista.ContenedorPrincipal;
+import vista.PantallaInicio;
 
 
 public class Aplicacion extends Application  {
@@ -14,16 +13,15 @@ public class Aplicacion extends Application  {
 	}
 
     @Override
-    public void start(final Stage stage) throws Exception {
+    public void start(Stage stage) throws Exception {
 
         stage.setTitle("AlgoMineCraft");
 
         MineCraft mineCraft = new MineCraft();  // Crea el modelo
 
-        ContenedorPrincipal contenedorPrincipal = new ContenedorPrincipal(mineCraft, stage);
-        Scene escenaJuego = new Scene(contenedorPrincipal, 1160, 640);
-        stage.setScene(escenaJuego);
-
+        PantallaInicio pantallaInicio = new PantallaInicio(stage, mineCraft);
+        Scene escenaInicial = new Scene(pantallaInicio, 1160, 640);
+        stage.setScene(escenaInicial);
         stage.show();
 
     }
