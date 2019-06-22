@@ -28,31 +28,26 @@ public class ContenedorPrincipal extends BorderPane {
 
 	private MineCraft mineCraft;
 	VistaMapa vistaMapa;
-	Canvas canvas;
 	GridPane paneIzquierdo;
-	Label dineroDisponible;
 	GridPane datosYBotones;
-	Stage stage;
-	Label turno;
 
 	public ContenedorPrincipal(MineCraft mineCraft, Stage stage) {
 		this.mineCraft = mineCraft;
+		this.paneIzquierdo = new GridPane();
+
+		vistaMapa = new VistaMapa(mineCraft, this, paneIzquierdo);
 		this.setPanelIzquierdo();
 		this.setPanelDerecho();
 	}
 
 	private void setPanelIzquierdo() {
-		paneIzquierdo = new GridPane();
-		vistaMapa = new VistaMapa(mineCraft, this, paneIzquierdo);
 		vistaMapa.dibujar();
-
 		paneIzquierdo.setAlignment(Pos.CENTER);
 		this.setBorder(paneIzquierdo);
 		this.setLeft(paneIzquierdo);
 	}
 
 	private void setPanelDerecho() {
-
 		this.datosYBotones = new GridPane();
 
 		Image fondo = new Image("file:src/vista/images/Mono2.jpg");
@@ -76,25 +71,25 @@ public class ContenedorPrincipal extends BorderPane {
 
 		Button btnArriba = new Button();
 		btnArriba.setText("Arriba");
-		BotonArribaHandler arribaHandler = new BotonArribaHandler(mineCraft.getJugador(), this);
+		BotonArribaHandler arribaHandler = new BotonArribaHandler(mineCraft.getJugador(), this, vistaMapa.getVistaJugador());
 		btnArriba.setOnAction(arribaHandler);
 		this.datosYBotones.add(btnArriba, 1, 10);
 
 		Button btnIzquierda = new Button();
 		btnIzquierda.setText("Izquierda");
-		BotonIzquierdaHandler izquierdaHandler = new BotonIzquierdaHandler(mineCraft.getJugador(), this);
+		BotonIzquierdaHandler izquierdaHandler = new BotonIzquierdaHandler(mineCraft.getJugador(), this, vistaMapa.getVistaJugador());
 		btnIzquierda.setOnAction(izquierdaHandler);
 		this.datosYBotones.add(btnIzquierda, 0, 11);
 
 		Button btnDerecha = new Button();
 		btnDerecha.setText("Derecha");
-		BotonDerechaHandler derechaHandler = new BotonDerechaHandler(mineCraft.getJugador(), this);
+		BotonDerechaHandler derechaHandler = new BotonDerechaHandler(mineCraft.getJugador(), this, vistaMapa.getVistaJugador());
 		btnDerecha.setOnAction(derechaHandler);
 		this.datosYBotones.add(btnDerecha, 2, 11);
 
 		Button btnAbajo = new Button();
 		btnAbajo.setText("Abajo");
-		BotonAbajoHandler abajoHandler = new BotonAbajoHandler(mineCraft.getJugador(), this);
+		BotonAbajoHandler abajoHandler = new BotonAbajoHandler(mineCraft.getJugador(), this, vistaMapa.getVistaJugador());
 		btnAbajo.setOnAction(abajoHandler);
 		this.datosYBotones.add(btnAbajo, 1, 12);
 
@@ -109,4 +104,5 @@ public class ContenedorPrincipal extends BorderPane {
 		this.setPanelIzquierdo();
 		this.setPanelDerecho();
 	}
+
 }

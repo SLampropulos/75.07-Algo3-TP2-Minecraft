@@ -1,7 +1,6 @@
 package vista;
 
 import java.util.ArrayList;
-
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
@@ -9,7 +8,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import juego.Celda;
 import juego.MineCraft;
-//import personaje.Jugador;
+
 
 public class VistaMapa {
 
@@ -19,7 +18,9 @@ public class VistaMapa {
 	private int cantColumnas;
 	private double anchoCelda;
 	private double altoCelda;
+	private Celda[][] grilla;
 	private VistaJugador vistaJugador;
+	private MineCraft mineCraft;
 
 	public VistaMapa(MineCraft mineCraft, ContenedorPrincipal contenedorPrincipal, GridPane pane) {
 		cantFilas = 16;
@@ -30,24 +31,36 @@ public class VistaMapa {
 		this.pane = pane;
 
 		vistaCeldas = new ArrayList<VistaCelda>();
-		Celda[][] grilla = mineCraft.getMapa().getCeldas();
+		grilla = mineCraft.getMapa().getCeldas();
 
-		for (int i = 0; i < 16; i++) {
-			for (int j = 0; j < 24; j++) {
-				vistaCeldas.add(new VistaCelda(grilla[i][j].getMaterial(), pane, j, i));
-			}
-		}
+		this.actualizarVistaCeldas();
 
 //		Jugador jugador = mineCraft.getJugador();
 		vistaJugador = new VistaJugador(pane, mineCraft.getMapa().getColumnaJugador(),
 				mineCraft.getMapa().getFilaJugador(), anchoCelda, altoCelda);
+		this.mineCraft = mineCraft;
+	}
+
+	public VistaJugador getVistaJugador() {
+		return vistaJugador;
 	}
 
 	public void dibujar() {
+		this.actualizarVistaCeldas();
 		this.limpiar();
 		for (VistaCelda vistaCelda : vistaCeldas)
 			vistaCelda.dibujar();
-		vistaJugador.dibujar();
+		vistaJugador.dibujar(mineCraft.getMapa().getColumnaJugador(), mineCraft.getMapa().getFilaJugador());
+	}
+
+	private void actualizarVistaCeldas() {
+		ArrayList<VistaCelda> nuevas = new ArrayList<>();
+		for (int i = 0; i < 16; i++) {
+			for (int j = 0; j < 24; j++) {
+				nuevas.add(new VistaCelda(grilla[i][j].getMaterial(), pane, j, i));
+			}
+		}
+		this.vistaCeldas = nuevas;
 	}
 
 	private void limpiar() {
@@ -67,7 +80,4 @@ public class VistaMapa {
 
 	}
 
-	public void update() {
-		dibujar();
-	}
 }
