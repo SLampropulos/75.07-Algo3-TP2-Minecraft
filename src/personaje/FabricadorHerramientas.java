@@ -34,15 +34,16 @@ public class FabricadorHerramientas {
         }
     }
 
-    public ArrayList getElementosFabricacoderes() {
-        ArrayList listaElementos = new ArrayList();
+    public ArrayList<Material> getMateriales() {
+        ArrayList<Material> listaElementos = new ArrayList<>();
         for(int i=0; i<3;i++) {
             for (int j = 0; j < 3; j++) {
-                listaElementos.add(componentes[i][j]);
+                listaElementos.add( remover(i, j) );
             }
         }
         return listaElementos;
     }
+
     public void agregar(Material material, int columna, int fila) throws EspacioOcupadoException {
         if(componentes[columna][fila] != MaterialNull.getInstancia())throw new EspacioOcupadoException();
         componentes[columna][fila] = material;
@@ -51,13 +52,12 @@ public class FabricadorHerramientas {
         return componentes[columna][fila];
     }
 
-    public Herramienta fabricar() {
-        Herramienta herramientaFabricada = null;
+    public Herramienta fabricar() throws ExceptionFabricacionNoValida {
         for (int i = 0; i < patronesContrucciones.size(); i++){
             PatronConstruccion patronConstruccionActual = patronesContrucciones.get(i);
             if( patronConstruccionActual.comparar(componentes)){return patronConstruccionActual.fabricar();}
         }
-        return herramientaFabricada;
+        throw new ExceptionFabricacionNoValida();
     }
 
     public Material remover(int columna, int fila) {
@@ -65,4 +65,5 @@ public class FabricadorHerramientas {
         componentes[columna][fila] = MaterialNull.getInstancia();
         return materialRetirado;
     }
+
 }

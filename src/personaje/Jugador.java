@@ -1,6 +1,8 @@
 package personaje;
 
 import excepciones.EspacioOcupadoException;
+import excepciones.ExceptionFabricacionNoValida;
+import excepciones.NoHayMaterialException;
 import herramientas.Herramienta;
 import juego.Mapa;
 import materiales.Material;
@@ -10,32 +12,40 @@ import java.util.ArrayList;
 public class Jugador {
 
 	private Mapa mapa;
-	FabricadorHerramientas fabricadorHerramientas = new FabricadorHerramientas();
+	private FabricadorHerramientas fabricadorHerramientas = new FabricadorHerramientas();
 	private InventarioHerramientas inventarioHerramientas;
 	private InventarioMateriales inventarioMateriales;
 	private Herramienta equipado;
-	private ArrayList<Material> materialSeleccionado;
+	//private ArrayList<Material> materialSeleccionado;
 
 	public Jugador() {
 		inventarioHerramientas = new InventarioHerramientas();
 		inventarioMateriales = new InventarioMateriales();
-		equipado = inventarioHerramientas.obtenerHerramienta(0);
+		setEquipadoPorDefecto();
 	}
 
 	public void setMapa(Mapa mapa) {
 		this.mapa = mapa;
 	}
 
-	public void setMaterialSeleccionado(Class clase){
+	/*public void setMaterialSeleccionado(Class clase){
 		materialSeleccionado = inventarioMateriales.getMateriales(clase);
-	}
+	}*/
 
 	public Herramienta getEquipado() {
 		return equipado;
 	}
 
+	private void setEquipadoPorDefecto() {
+		equipado = inventarioHerramientas.obtenerHerramienta(0);
+	}
+
 	public void golpear(Material material) {
 		equipado.golpear(material);
+		if (equipado.getDurabilidad() <= 0) {
+			inventarioHerramientas.remove(equipado);
+			setEquipadoPorDefecto();
+		}
 	}
 
 	public void agregarMaterial(Material material) {
@@ -46,14 +56,37 @@ public class Jugador {
 		inventarioHerramientas.agregar(herramienta);
 	}
 
-	public void fabricarHerramienta(){
-
+	public void fabricarHerramienta() {
+		try {
+			inventarioHerramientas.agregar( fabricadorHerramientas.fabricar() );
+		} catch (ExceptionFabricacionNoValida e) {
+			cancelarFabricacion();
+		}
 	}
 
-	public void ubicarMaterial(int posicion1, int posicion2) throws EspacioOcupadoException {
+	public void cancelarFabricacion() {
+		for (Material material : fabricadorHerramientas.getMateriales())
+			agregarMaterial(material);
+	}
+
+	public void agregarMaterialAlFabricador(Class tipoDeMaterial, int fila, int columna) {
+		Material material;
+		try {
+			material = inventarioMateriales.quitar(tipoDeMaterial);
+		} catch (NoHayMaterialException e) {
+			return;
+		}
+		try {
+			fabricadorHerramientas.agregar( material, fila, columna );
+		} catch (EspacioOcupadoException e) {
+			agregarMaterial(material);
+		}
+	}
+
+	/*public void ubicarMaterial(int posicion1, int posicion2) throws EspacioOcupadoException {
 		Material materialAUbicar = materialSeleccionado.remove(0);
 		fabricadorHerramientas.agregar(materialAUbicar,posicion1,posicion2);
-	}
+	}*/
 
 	public void izquierda() {
 		mapa.izquierda();
@@ -71,7 +104,7 @@ public class Jugador {
 		mapa.abajo();
 	}
 
-	public ArrayList<Material> getMaterialSeleccionado() {
+	/*public ArrayList<Material> getMaterialSeleccionado() {
 		return materialSeleccionado;
-	}
+	}*/
 }
