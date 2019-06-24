@@ -56,15 +56,37 @@ public class ContenedorPrincipal extends BorderPane {
 		setBackground(new Background(imagenDeFondo));
 		this.setBorder(datosYBotones);
 
-		Text titulo = new Text("Materiales: ");
-		titulo.setFill(Color.BLACK);
-		titulo.setFont(Font.font("Arial", FontWeight.BOLD, 30));
-		this.datosYBotones.add(titulo, 0, 0, 3, 1);
-
-		this.ponerBotones();
+		ponerMateriales();
+		
+		ponerBotones();
 
 		this.datosYBotones.setAlignment(Pos.CENTER);
 		this.setCenter(datosYBotones);
+	}
+	
+	
+	private void ponerMateriales() {
+		
+		//TODO poner con imagenes
+		Text lblMaderas = new Text("Maderas: " + mineCraft.getJugador().cantidadDeMadera());
+		lblMaderas.setFill(Color.BLACK);
+		lblMaderas.setFont(Font.font("Arial", FontWeight.BOLD, 30));
+		this.datosYBotones.add(lblMaderas, 0, 0, 3, 1);
+		
+		Text lblPiedras = new Text("Piedras: " + mineCraft.getJugador().cantidadDePiedra());
+		lblPiedras.setFill(Color.BLACK);
+		lblPiedras.setFont(Font.font("Arial", FontWeight.BOLD, 30));
+		this.datosYBotones.add(lblPiedras, 0, 1, 3, 1);
+		
+		Text lblMetales = new Text("Metal: " + mineCraft.getJugador().cantidadDeMetal());
+		lblMetales.setFill(Color.BLACK);
+		lblMetales.setFont(Font.font("Arial", FontWeight.BOLD, 30));
+		this.datosYBotones.add(lblMetales, 0, 2, 3, 1);
+
+		Text lblDiamantes = new Text("Diamantes: " + mineCraft.getJugador().cantidadDeDiamante());
+		lblDiamantes.setFill(Color.BLACK);
+		lblDiamantes.setFont(Font.font("Arial", FontWeight.BOLD, 30));
+		this.datosYBotones.add(lblDiamantes, 0, 3, 3, 1);
 	}
 
 	private void ponerBotones() {

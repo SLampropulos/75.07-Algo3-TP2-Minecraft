@@ -104,6 +104,23 @@ public class Jugador {
 		mapa.abajo();
 	}
 
+	public int cantidadDeMadera() {
+		return inventarioMateriales.cantidadDeMadera();
+	}
+	
+	public int cantidadDePiedra() {
+		return inventarioMateriales.cantidadDePiedra();
+	}
+	
+	public int cantidadDeMetal() {
+		return inventarioMateriales.cantidadDeMetal();
+	}
+	
+	public int cantidadDeDiamante() {
+		return inventarioMateriales.cantidadDeDiamante();
+	}
+	
+
 	/*public ArrayList<Material> getMaterialSeleccionado() {
 		return materialSeleccionado;
 	}*/
