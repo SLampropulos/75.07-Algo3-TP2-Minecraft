@@ -7,8 +7,10 @@ import herramientas.PicoPiedra;
 
 public class Metal extends Material {
 
+	static final int DURABILIDAD = 50;
+	
     public Metal(){
-        super(50);
+        super(DURABILIDAD);
     }
 
 	@Override
@@ -17,15 +19,15 @@ public class Metal extends Material {
 	}
 
 	public void recibirGolpeDe(PicoPiedra pico) {
-        this.desgastar(pico.getFuerza());
+        this.desgastar(pico.obtenerFuerza());
     }
 
 	public void recibirGolpeDe(PicoMetal pico) {
-        this.desgastar(pico.getFuerza());
+        this.desgastar(pico.obtenerFuerza());
     }
 
 	public void recibirGolpeDe(PicoFino pico) {
-        this.desgastar(pico.getFuerza());
+        this.desgastar(pico.obtenerFuerza());
     }
 
 }

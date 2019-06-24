@@ -5,8 +5,10 @@ import herramientas.PicoFino;
 
 public class Diamante extends Material {
 
+	static final int DURABILIDAD = 100;
+	
     public Diamante() {
-        super(100);
+        super(DURABILIDAD);
     }
 
 	@Override
@@ -15,7 +17,7 @@ public class Diamante extends Material {
 	}
 
     public void recibirGolpeDe(PicoFino picoFino) {
-        this.desgastar(picoFino.getFuerza());
+        this.desgastar(picoFino.obtenerFuerza());
     }
 
 }
