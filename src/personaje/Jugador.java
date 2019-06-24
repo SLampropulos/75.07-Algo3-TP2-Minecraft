@@ -121,6 +121,10 @@ public class Jugador {
 	}
 	
 
+	public FabricadorHerramientas getFabricadorHerramientas() {
+		return fabricadorHerramientas;
+	}
+	
 	/*public ArrayList<Material> getMaterialSeleccionado() {
 		return materialSeleccionado;
 	}*/

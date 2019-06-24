@@ -23,6 +23,7 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import juego.MineCraft;
+import personaje.FabricadorHerramientas;
 
 public class ContenedorPrincipal extends BorderPane {
 
@@ -58,6 +59,8 @@ public class ContenedorPrincipal extends BorderPane {
 
 		ponerMateriales();
 		
+		ponerFabricadorHerramientas();
+		
 		ponerBotones();
 
 		this.datosYBotones.setAlignment(Pos.CENTER);
@@ -89,6 +92,12 @@ public class ContenedorPrincipal extends BorderPane {
 		this.datosYBotones.add(lblDiamantes, 0, 3, 3, 1);
 	}
 
+	private void ponerFabricadorHerramientas() {
+		FabricadorHerramientas fabricador = mineCraft.getJugador().getFabricadorHerramientas();
+		
+	}
+	
+	
 	private void ponerBotones() {
 
 		Button btnArriba = new Button();
