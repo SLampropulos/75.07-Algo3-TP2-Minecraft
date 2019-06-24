@@ -7,10 +7,10 @@ import javafx.scene.layout.GridPane;
 public abstract class VistaRectangulo implements Dibujable {
 	private int x;
 	private int y;
-	private GridPane pane;
+	private GridPane panel;
 
-	public VistaRectangulo(GridPane pane, int x, int y) {
-		this.pane = pane;
+	public VistaRectangulo(GridPane panel, int x, int y) {
+		this.panel = panel;
 		this.x = x;
 		this.y = y;
 	}
