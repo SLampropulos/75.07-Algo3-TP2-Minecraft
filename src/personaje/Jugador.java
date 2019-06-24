@@ -122,7 +122,7 @@ public class Jugador {
 	
 
 	public FabricadorHerramientas getFabricadorHerramientas() {
-		return fabricadorHerramientas;
+		return fabricadorHerramientas;  //TODO ver
 	}
 	
 	/*public ArrayList<Material> getMaterialSeleccionado() {

@@ -94,7 +94,8 @@ public class ContenedorPrincipal extends BorderPane {
 
 	private void ponerFabricadorHerramientas() {
 		FabricadorHerramientas fabricador = mineCraft.getJugador().getFabricadorHerramientas();
-		
+	
+		//TODO
 	}
 	
 	
