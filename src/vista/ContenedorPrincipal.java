@@ -24,7 +24,10 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import juego.MineCraft;
+import materiales.Diamante;
 import materiales.Madera;
+import materiales.Metal;
+import materiales.Piedra;
 import personaje.FabricadorHerramientas;
 
 public class ContenedorPrincipal extends BorderPane {
@@ -77,25 +80,34 @@ public class ContenedorPrincipal extends BorderPane {
 	private void ponerMateriales() {
 
 		// TODO poner con imagenes
-		Text lblMaderas = new Text("Maderas: " + mineCraft.getJugador().cantidadDeMadera());
+		
+		VistaCelda vistaMadera = new VistaCelda(new Madera(), datosYBotones, 0, 0);
+		vistaMadera.dibujar();
+		Text lblMaderas = new Text("x" + mineCraft.getJugador().cantidadDeMadera());
 		lblMaderas.setFill(Color.BLACK);
 		lblMaderas.setFont(Font.font("Arial", FontWeight.BOLD, 30));
-		this.datosYBotones.add(lblMaderas, 0, 0, 3, 1);
+		this.datosYBotones.add(lblMaderas, 1, 0);
 
-		Text lblPiedras = new Text("Piedras: " + mineCraft.getJugador().cantidadDePiedra());
+		VistaCelda vistaPiedra = new VistaCelda(new Piedra(), datosYBotones, 0, 1);
+		vistaPiedra.dibujar();
+		Text lblPiedras = new Text("x" + mineCraft.getJugador().cantidadDePiedra());
 		lblPiedras.setFill(Color.BLACK);
 		lblPiedras.setFont(Font.font("Arial", FontWeight.BOLD, 30));
-		this.datosYBotones.add(lblPiedras, 0, 1, 3, 1);
+		this.datosYBotones.add(lblPiedras, 1, 1);
 
-		Text lblMetales = new Text("Metal: " + mineCraft.getJugador().cantidadDeMetal());
+		VistaCelda vistaMetal = new VistaCelda(new Metal(), datosYBotones, 0, 2);
+		vistaMetal.dibujar();
+		Text lblMetales = new Text("x" + mineCraft.getJugador().cantidadDeMetal());
 		lblMetales.setFill(Color.BLACK);
 		lblMetales.setFont(Font.font("Arial", FontWeight.BOLD, 30));
-		this.datosYBotones.add(lblMetales, 0, 2, 3, 1);
+		this.datosYBotones.add(lblMetales, 1, 2);
 
-		Text lblDiamantes = new Text("Diamantes: " + mineCraft.getJugador().cantidadDeDiamante());
+		VistaCelda vistaDiamante = new VistaCelda(new Diamante(), datosYBotones, 0, 3);
+		vistaDiamante.dibujar();
+		Text lblDiamantes = new Text("x" + mineCraft.getJugador().cantidadDeDiamante());
 		lblDiamantes.setFill(Color.BLACK);
 		lblDiamantes.setFont(Font.font("Arial", FontWeight.BOLD, 30));
-		this.datosYBotones.add(lblDiamantes, 0, 3, 3, 1);
+		this.datosYBotones.add(lblDiamantes, 1, 3);
 	}
 
 	private void ponerFabricadorHerramientas() {
