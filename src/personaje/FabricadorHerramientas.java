@@ -1,7 +1,7 @@
 package personaje;
 
-import excepciones.EspacioOcupadoException;
-import excepciones.ExceptionFabricacionNoValida;
+import excepciones.FabricacionNoValidaExcepcion;
+import excepciones.EspacioOcupadoExcepcion;
 import herramientas.Herramienta;
 import materiales.Material;
 import materiales.MaterialNull;
@@ -11,59 +11,66 @@ import java.util.ArrayList;
 
 public class FabricadorHerramientas {
 
-    Material componentes[][] = new Material[3][3];
-    ArrayList<PatronConstruccion> patronesContrucciones = new ArrayList<PatronConstruccion>();
+	//Declaración de constantes
+	final int CANTIDAD_FILAS_PATRON = 3;
+	final int CANTIDAD_COLUMNAS_PATRON = 3;
+	
+	//Declaración de variables
+    Material componentes[][] = new Material[CANTIDAD_FILAS_PATRON][CANTIDAD_COLUMNAS_PATRON]; //Mirar luego
+    ArrayList<PatronConstruccion> patronesContruccion = new ArrayList<PatronConstruccion>();
 
+    //Constructor
     public FabricadorHerramientas(){
-        this.setComponentes();
-        patronesContrucciones.add(new PatronHachaMadera());
-        patronesContrucciones.add(new PatronHachaPiedra());
-        patronesContrucciones.add(new PatronHachaMetal());
-        patronesContrucciones.add(new PatronPicoMadera());
-        patronesContrucciones.add(new PatronPicoPiedra());
-        patronesContrucciones.add(new PatronPicoMetal());
-        patronesContrucciones.add(new PatronPicoFino());
-
+        this.inicializarPatron();
+        patronesContruccion.add(new PatronHachaMadera());
+        patronesContruccion.add(new PatronHachaPiedra());
+        patronesContruccion.add(new PatronHachaMetal());
+        patronesContruccion.add(new PatronPicoMadera());
+        patronesContruccion.add(new PatronPicoPiedra());
+        patronesContruccion.add(new PatronPicoMetal());
+        patronesContruccion.add(new PatronPicoFino());
     }
 
-    private void setComponentes(){
-        for(int i=0; i<3; i++){
-            for(int j=0; j<3; j++){
-                componentes[i][j] = MaterialNull.getInstancia();
+    //Post: Se inicializan los elementos del auxiliar del patrón
+    private void inicializarPatron(){
+        for(int i = 0; i < CANTIDAD_FILAS_PATRON; i++){
+            for(int j = 0; j < CANTIDAD_COLUMNAS_PATRON; j++){
+                componentes[i][j] = MaterialNull.obtenerInstancia();
             }
         }
     }
 
-    public ArrayList<Material> getMateriales() {
-        ArrayList<Material> listaElementos = new ArrayList<>();
-        for(int i=0; i<3;i++) {
-            for (int j = 0; j < 3; j++) {
-                listaElementos.add( remover(i, j) );
+    //Post: Se indican los elementos cargados en el patrón
+    public ArrayList<Material> obtenerElementosFabricadores() {
+        ArrayList listaElementos = new ArrayList();
+        for(int i = 0; i < CANTIDAD_FILAS_PATRON; i++) {
+            for (int j = 0; j < CANTIDAD_COLUMNAS_PATRON; j++) {
+                listaElementos.add(componentes[i][j]);
             }
         }
         return listaElementos;
     }
-
-    public void agregar(Material material, int columna, int fila) throws EspacioOcupadoException {
-        if(componentes[columna][fila] != MaterialNull.getInstancia())throw new EspacioOcupadoException();
+    
+    public void agregar(Material material, int columna, int fila) throws EspacioOcupadoExcepcion {
+    	if(componentes[columna][fila] != MaterialNull.obtenerInstancia())throw new EspacioOcupadoExcepcion();
         componentes[columna][fila] = material;
     }
+    
     public Material obtener(int columna, int fila) {
         return componentes[columna][fila];
     }
 
-    public Herramienta fabricar() throws ExceptionFabricacionNoValida {
-        for (int i = 0; i < patronesContrucciones.size(); i++){
-            PatronConstruccion patronConstruccionActual = patronesContrucciones.get(i);
+    public Herramienta fabricar() throws FabricacionNoValidaExcepcion {
+        for (int i = 0; i < patronesContruccion.size(); i++){
+            PatronConstruccion patronConstruccionActual = patronesContruccion.get(i);
             if( patronConstruccionActual.comparar(componentes)){return patronConstruccionActual.fabricar();}
         }
-        throw new ExceptionFabricacionNoValida();
+        throw new FabricacionNoValidaExcepcion();
     }
 
     public Material remover(int columna, int fila) {
         Material materialRetirado = componentes[columna][fila];
-        componentes[columna][fila] = MaterialNull.getInstancia();
+        componentes[columna][fila] = MaterialNull.obtenerInstancia();
         return materialRetirado;
     }
-
 }

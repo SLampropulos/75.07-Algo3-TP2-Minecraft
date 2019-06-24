@@ -5,47 +5,51 @@ import materiales.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import excepciones.NoHayMaterialException;
+import excepciones.NoHayMaterialExcepcion;
 
 public class InventarioMateriales {
 
-    private HashMap<Class, ArrayList<Material>> materiales;
+	//Declaración de variables
+    private HashMap<Class, ArrayList<Material>> inventario;
 
+    //Constructor
     public InventarioMateriales() {
-        materiales = new HashMap<>();
-        materiales.put(Madera.class, new ArrayList<>());
-        materiales.put(Metal.class, new ArrayList<>());
-        materiales.put(Piedra.class, new ArrayList<>());
-        materiales.put(Diamante.class, new ArrayList<>());
+        inventario = new HashMap<>();
+        inventario.put(Madera.class, new ArrayList<>());
+        inventario.put(Metal.class, new ArrayList<>());
+        inventario.put(Piedra.class, new ArrayList<>());
+        inventario.put(Diamante.class, new ArrayList<>());
     }
 
+    //Post: Se agrega un material al inventario
     public void agregar(Material material) {
-        materiales.get(material.getClass()).add(material);
+    	inventario.get(material.getClass());
     }
 
-    public Material quitar(Class clase) throws NoHayMaterialException {
-        if ( materiales.get(clase).size() == 0 )
-            throw new NoHayMaterialException();
-        return materiales.get(clase).remove(0);
+    //Post: Se elimina un material del inventario
+    public Material quitar(Class clase) throws NoHayMaterialExcepcion {
+        if ( inventario.get(clase).size() == 0 )
+            throw new NoHayMaterialExcepcion();
+        return inventario.get(clase).remove(0);
     }
 
+    //Post: Se devuelve la cantidad del material disponible
     public int cantidadDeMadera() {
-        return materiales.get(Madera.class).size();
+        return inventario.get(Madera.class).size();
     }
 
+    //Post: Se devuelve la cantidad del material disponible
     public int cantidadDeMetal() {
-        return materiales.get(Metal.class).size();
+        return inventario.get(Metal.class).size();
     }
 
+    //Post: Se devuelve la cantidad del material disponible
     public int cantidadDePiedra() {
-        return materiales.get(Piedra.class).size();
+        return inventario.get(Piedra.class).size();
     }
 
+    //Post: Se devuelve la cantidad del material disponible
     public int cantidadDeDiamante() {
-        return materiales.get(Diamante.class).size();
-    }
-
-    public ArrayList<Material> getMateriales(Class clase) {
-        return materiales.get(clase);
+        return inventario.get(Diamante.class).size();
     }
 }
