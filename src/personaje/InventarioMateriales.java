@@ -23,7 +23,7 @@ public class InventarioMateriales {
 
     //Post: Se agrega un material al inventario
     public void agregar(Material material) {
-    	inventario.get(material.getClass());
+    	(inventario.get(material.getClass())).add(material);
     }
 
     //Post: Se elimina un material del inventario
