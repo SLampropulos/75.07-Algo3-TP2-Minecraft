@@ -23,6 +23,7 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import juego.MineCraft;
+import materiales.Madera;
 import personaje.FabricadorHerramientas;
 
 public class ContenedorPrincipal extends BorderPane {
@@ -58,29 +59,29 @@ public class ContenedorPrincipal extends BorderPane {
 		this.setBorder(datosYBotones);
 
 		ponerMateriales();
-		
+
 		ponerFabricadorHerramientas();
-		
+
 		ponerBotones();
 
 		this.datosYBotones.setAlignment(Pos.CENTER);
 		this.setCenter(datosYBotones);
+		this.datosYBotones.setGridLinesVisible(true); //TODO sacar
 	}
-	
-	
+
 	private void ponerMateriales() {
-		
-		//TODO poner con imagenes
+
+		// TODO poner con imagenes
 		Text lblMaderas = new Text("Maderas: " + mineCraft.getJugador().cantidadDeMadera());
 		lblMaderas.setFill(Color.BLACK);
 		lblMaderas.setFont(Font.font("Arial", FontWeight.BOLD, 30));
 		this.datosYBotones.add(lblMaderas, 0, 0, 3, 1);
-		
+
 		Text lblPiedras = new Text("Piedras: " + mineCraft.getJugador().cantidadDePiedra());
 		lblPiedras.setFill(Color.BLACK);
 		lblPiedras.setFont(Font.font("Arial", FontWeight.BOLD, 30));
 		this.datosYBotones.add(lblPiedras, 0, 1, 3, 1);
-		
+
 		Text lblMetales = new Text("Metal: " + mineCraft.getJugador().cantidadDeMetal());
 		lblMetales.setFill(Color.BLACK);
 		lblMetales.setFont(Font.font("Arial", FontWeight.BOLD, 30));
@@ -94,39 +95,48 @@ public class ContenedorPrincipal extends BorderPane {
 
 	private void ponerFabricadorHerramientas() {
 		FabricadorHerramientas fabricador = mineCraft.getJugador().getFabricadorHerramientas();
-	
-		//TODO
+
+		VistaCelda[][] matriz = new VistaCelda[3][3];
+		Madera madera = new Madera();  //TODO va lo que saque del fabricador
+		for (int i = 0; i < 3; i++)
+			for (int j = 0; j < 3; j++) {
+				matriz[i][j] = new VistaCelda(madera, datosYBotones, i, j+4);
+				matriz[i][j].dibujar();
+			}
 	}
-	
-	
+
 	private void ponerBotones() {
 
 		Button btnArriba = new Button();
 		btnArriba.setText("Arriba");
-		BotonArribaHandler arribaHandler = new BotonArribaHandler(mineCraft.getJugador(), this, vistaMapa.getVistaJugador());
+		BotonArribaHandler arribaHandler = new BotonArribaHandler(mineCraft.getJugador(), this,
+				vistaMapa.getVistaJugador());
 		btnArriba.setOnAction(arribaHandler);
 		this.datosYBotones.add(btnArriba, 1, 10);
 
 		Button btnIzquierda = new Button();
 		btnIzquierda.setText("Izquierda");
-		BotonIzquierdaHandler izquierdaHandler = new BotonIzquierdaHandler(mineCraft.getJugador(), this, vistaMapa.getVistaJugador());
+		BotonIzquierdaHandler izquierdaHandler = new BotonIzquierdaHandler(mineCraft.getJugador(), this,
+				vistaMapa.getVistaJugador());
 		btnIzquierda.setOnAction(izquierdaHandler);
 		this.datosYBotones.add(btnIzquierda, 0, 11);
 
 		Button btnDerecha = new Button();
 		btnDerecha.setText("Derecha");
-		BotonDerechaHandler derechaHandler = new BotonDerechaHandler(mineCraft.getJugador(), this, vistaMapa.getVistaJugador());
+		BotonDerechaHandler derechaHandler = new BotonDerechaHandler(mineCraft.getJugador(), this,
+				vistaMapa.getVistaJugador());
 		btnDerecha.setOnAction(derechaHandler);
 		this.datosYBotones.add(btnDerecha, 2, 11);
 
 		Button btnAbajo = new Button();
 		btnAbajo.setText("Abajo");
-		BotonAbajoHandler abajoHandler = new BotonAbajoHandler(mineCraft.getJugador(), this, vistaMapa.getVistaJugador());
+		BotonAbajoHandler abajoHandler = new BotonAbajoHandler(mineCraft.getJugador(), this,
+				vistaMapa.getVistaJugador());
 		btnAbajo.setOnAction(abajoHandler);
 		this.datosYBotones.add(btnAbajo, 1, 12);
 
 	}
-	
+
 	private void setBorder(Pane pane) {
 		pane.setStyle("-fx-padding: 2;-fx-border-style: solid inside;-fx-border-width: 7;"
 				+ "-fx-border-insets: 2;-fx-border-radius: 10;-fx-border-color:BLACK;");
