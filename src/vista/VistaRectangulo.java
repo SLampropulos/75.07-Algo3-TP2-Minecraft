@@ -19,7 +19,7 @@ public abstract class VistaRectangulo implements Dibujable {
 		Image image = new Image(sImagen);
 		ImageView imageView = new ImageView();
 		imageView.setImage(image);
-		this.pane.add(imageView, x, y);
+		this.panel.add(imageView, x, y);
 		imageView.setTranslateX(10);
 		imageView.setTranslateY(0);
 	}
