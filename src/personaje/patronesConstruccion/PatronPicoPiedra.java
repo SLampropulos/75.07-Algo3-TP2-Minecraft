@@ -8,11 +8,11 @@ import materiales.Piedra;
 public class PatronPicoPiedra extends PatronConstruccion {
 
     public PatronPicoPiedra(){
-        material[0][0] = new Piedra();
-        material[1][0] = new Piedra();
-        material[1][1] = new Madera();
-        material[1][2] = new Madera();
-        material[2][0] = new Piedra();
+    	patron[0][0] = new Piedra();
+    	patron[1][0] = new Piedra();
+    	patron[1][1] = new Madera();
+    	patron[1][2] = new Madera();
+    	patron[2][0] = new Piedra();
     }
 
     @Override

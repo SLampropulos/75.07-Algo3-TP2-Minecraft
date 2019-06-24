@@ -8,11 +8,11 @@ import materiales.Metal;
 public class PatronHachaMetal extends PatronConstruccion {
 
     public PatronHachaMetal(){
-        material[0][0] = new Metal();
-        material[0][1] = new Metal();
-        material[1][0] = new Metal();
-        material[1][1] = new Madera();
-        material[1][2] = new Madera();
+        patron[0][0] = new Metal();
+        patron[0][1] = new Metal();
+        patron[1][0] = new Metal();
+        patron[1][1] = new Madera();
+        patron[1][2] = new Madera();
     }
 
     @Override

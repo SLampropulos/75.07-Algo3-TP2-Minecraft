@@ -7,11 +7,11 @@ import materiales.Madera;
 public class PatronHachaMadera extends PatronConstruccion {
 
     public PatronHachaMadera(){
-        material[0][0] = new Madera();
-        material[0][1] = new Madera();
-        material[1][0] = new Madera();
-        material[1][1] = new Madera();
-        material[1][2] = new Madera();
+        patron[0][0] = new Madera();
+        patron[0][1] = new Madera();
+        patron[1][0] = new Madera();
+        patron[1][1] = new Madera();
+        patron[1][2] = new Madera();
     }
 
     @Override

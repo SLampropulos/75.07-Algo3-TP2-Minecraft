@@ -9,12 +9,12 @@ import materiales.Piedra;
 public class PatronPicoFino extends PatronConstruccion {
 
     public PatronPicoFino(){
-        material[0][0] = new Metal();
-        material[0][1] = new Piedra();
-        material[1][0] = new Metal();
-        material[1][1] = new Madera();
-        material[1][2] = new Madera();
-        material[2][0] = new Metal();
+    	patron[0][0] = new Metal();
+    	patron[0][1] = new Piedra();
+    	patron[1][0] = new Metal();
+    	patron[1][1] = new Madera();
+    	patron[1][2] = new Madera();
+    	patron[2][0] = new Metal();
     }
 
     @Override

@@ -8,11 +8,11 @@ import materiales.Metal;
 public class PatronPicoMetal extends PatronConstruccion {
 
     public PatronPicoMetal(){
-        material[0][0] = new Metal();
-        material[1][0] = new Metal();
-        material[2][0] = new Metal();
-        material[1][1] = new Madera();
-        material[1][2] = new Madera();
+    	patron[0][0] = new Metal();
+    	patron[1][0] = new Metal();
+    	patron[2][0] = new Metal();
+    	patron[1][1] = new Madera();
+    	patron[1][2] = new Madera();
     }
 
     @Override
