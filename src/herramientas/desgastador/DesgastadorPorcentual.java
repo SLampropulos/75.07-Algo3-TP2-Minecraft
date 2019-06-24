@@ -2,17 +2,17 @@ package herramientas.desgastador;
 
 public class DesgastadorPorcentual implements Desgastador {
 
-    private int porcentaje;
-    private int durabilidad;
+    private float porcentaje;
+    private float durabilidad;
 
-    public DesgastadorPorcentual(int durabilidadDada, int indiceDesgaste) {
+    public DesgastadorPorcentual(float durabilidadDada, float indiceDesgaste) {
         durabilidad = durabilidadDada;
         porcentaje = indiceDesgaste;
     }
 
     @Override
-    public int calcularDesgaste() {
-        int desgaste = durabilidad * porcentaje / 100;
+    public float calcularDesgaste() {
+        float desgaste = durabilidad*porcentaje/100;
         durabilidad -= desgaste;
         return desgaste;
     }

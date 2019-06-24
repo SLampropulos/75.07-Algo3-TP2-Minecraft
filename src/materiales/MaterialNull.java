@@ -4,15 +4,13 @@ import herramientas.Herramienta;
 
 public class MaterialNull extends Material {
     private static MaterialNull primeraInstancia = null;
-    static final int DURABILIDAD_PERMANENTE = 999999;
-    static final MaterialNull NO_INICIALIZADA = null;
-    
+
     private MaterialNull() {
-        super(DURABILIDAD_PERMANENTE);
+        super(999999);
     }
 
-    public static MaterialNull obtenerInstancia(){
-        if(primeraInstancia == NO_INICIALIZADA){
+    public static MaterialNull getInstancia(){
+        if(primeraInstancia == null){
             primeraInstancia = new MaterialNull();
             return primeraInstancia;
         }

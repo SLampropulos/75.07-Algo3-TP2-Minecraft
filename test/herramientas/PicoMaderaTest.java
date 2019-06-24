@@ -12,7 +12,7 @@ import materiales.Piedra;
 
 class PicoMaderaTest {
 
-	int durabilidadEsperada=98; //para inicial = 100 y DesgastadorLineal  Fuerza = 2
+	float durabilidadEsperada=98; //para inicial = 100 y DesgastadorLineal  Fuerza = 2
 	
     @Test
     public void PicoDeMaderaGolpeaMaderaYSeDesgastaElPico() {
@@ -21,7 +21,7 @@ class PicoMaderaTest {
  
     	Pico.golpear(madera);
 
-        assertEquals(durabilidadEsperada, Pico.obtenerDurabilidad());
+        assertEquals(durabilidadEsperada, Pico.getDurabilidad());
     }
 
     @Test
@@ -31,7 +31,7 @@ class PicoMaderaTest {
  
     	Pico.golpear(piedra);
 
-        assertEquals(durabilidadEsperada, Pico.obtenerDurabilidad());
+        assertEquals(durabilidadEsperada, Pico.getDurabilidad());
     }
 
     @Test
@@ -41,7 +41,7 @@ class PicoMaderaTest {
  
     	Pico.golpear(metal);
 
-        assertEquals(durabilidadEsperada, Pico.obtenerDurabilidad());
+        assertEquals(durabilidadEsperada, Pico.getDurabilidad());
     }
 
     @Test
@@ -51,6 +51,6 @@ class PicoMaderaTest {
  
     	Pico.golpear(diamante);
 
-        assertEquals(durabilidadEsperada, Pico.obtenerDurabilidad());
+        assertEquals(durabilidadEsperada, Pico.getDurabilidad());
     }
 }

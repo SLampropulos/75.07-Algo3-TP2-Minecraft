@@ -7,10 +7,8 @@ import herramientas.Herramienta;
 
 public class Madera extends Material {
 
-	static final int DURABILIDAD = 10;
-	
     public Madera() {
-        super(DURABILIDAD);
+        super(10);
     }
 
 	@Override
@@ -19,15 +17,15 @@ public class Madera extends Material {
 	}
 
 	public void recibirGolpeDe(HachaMadera hacha) {
-        this.desgastar(hacha.obtenerFuerza());
+        this.desgastar(hacha.getFuerza());
     }
 
     public void recibirGolpeDe(HachaPiedra hacha) {
-        this.desgastar(hacha.obtenerFuerza());
+        this.desgastar(hacha.getFuerza());
     }
 
     public void recibirGolpeDe(HachaMetal hacha) {
-        this.desgastar(hacha.obtenerFuerza());
+        this.desgastar(hacha.getFuerza());
     }
 
 }

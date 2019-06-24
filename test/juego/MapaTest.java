@@ -4,11 +4,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import excepciones.NoHayHerramientaExcepcion;
 import materiales.Madera;
 import materiales.Piedra;
 import personaje.Jugador;
-import juego.Mapa;
 
 class MapaTest {
 
@@ -20,9 +18,9 @@ class MapaTest {
 		Mapa mapa = new Mapa();
 		Madera unaMadera = new Madera();
 
-		mapa.agregarMaterial(unaMadera, 5, 6);
+		mapa.agregar(unaMadera, 5, 6);
 
-		assertEquals(unaMadera, mapa.obtenerMaterialEn(5, 6));
+		assertEquals(unaMadera, mapa.getMaterialEn(5, 6));
 	}
 
 	@Test
@@ -30,198 +28,153 @@ class MapaTest {
 		Mapa mapa = new Mapa();
 		Piedra unaPiedra = new Piedra();
 
-		mapa.agregarMaterial(unaPiedra, 8, 9);
+		mapa.agregar(unaPiedra, 8, 9);
 
-		assertEquals(unaPiedra, mapa.obtenerMaterialEn(8, 9));
+		assertEquals(unaPiedra, mapa.getMaterialEn(8, 9));
 	}
 
 	@Test
 	void testAgregarJugadorPosicionVacia() {
 		Mapa mapa = new Mapa();
 		Jugador jugador = new Jugador();
-		mapa.declararJugador(jugador, 10, 15);
-		assertEquals(10, mapa.obtenerFilaJugador());
-		assertEquals(15, mapa.obtenerColumnaJugador());
+		mapa.setJugador(jugador, 10, 15);
+		assertEquals(10, mapa.getFilaJugador());
+		assertEquals(15, mapa.getColumnaJugador());
 	}
 
 	@Test
-	void testMoverJugadorACeldaDerechaVacia() throws NoHayHerramientaExcepcion {
+	void testMoverJugadorACeldaDerechaVacia() {
 		Mapa mapa = new Mapa();
 		Jugador jugador = new Jugador();
 
-		mapa.declararJugador(jugador, 10, 15);
-		jugador.declararMapa(mapa);
-		try {
-			jugador.derecha();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		mapa.setJugador(jugador, 10, 15);
+		jugador.setMapa(mapa);
+		jugador.derecha();
 
-		assertEquals(10, mapa.obtenerFilaJugador());
-		assertEquals(16, mapa.obtenerColumnaJugador());
+		assertEquals(10, mapa.getFilaJugador());
+		assertEquals(16, mapa.getColumnaJugador());
 	}
 
 	@Test
-	void testMoverJugadorACeldaIzquierdaVacia() throws NoHayHerramientaExcepcion {
+	void testMoverJugadorACeldaIzquierdaVacia() {
 		Mapa mapa = new Mapa();
 		Jugador jugador = new Jugador();
 
-		mapa.declararJugador(jugador, 10, 15);
-		jugador.declararMapa(mapa);
-		try {
-			jugador.izquierda();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		mapa.setJugador(jugador, 10, 15);
+		jugador.setMapa(mapa);
+		jugador.izquierda();
 
-		assertEquals(10, mapa.obtenerFilaJugador());
-		assertEquals(14, mapa.obtenerColumnaJugador());
+		assertEquals(10, mapa.getFilaJugador());
+		assertEquals(14, mapa.getColumnaJugador());
 	}
 
 	@Test
-	void testMoverJugadorACeldaSuperiorVacia() throws NoHayHerramientaExcepcion {
+	void testMoverJugadorACeldaSuperiorVacia() {
 		Mapa mapa = new Mapa();
 		Jugador jugador = new Jugador();
 
-		mapa.declararJugador(jugador, 10, 15);
-		jugador.declararMapa(mapa);
-		try {
-			jugador.arriba();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		mapa.setJugador(jugador, 10, 15);
+		jugador.setMapa(mapa);
+		jugador.arriba();
 
-		assertEquals(9, mapa.obtenerFilaJugador());
-		assertEquals(15, mapa.obtenerColumnaJugador());
+		assertEquals(9, mapa.getFilaJugador());
+		assertEquals(15, mapa.getColumnaJugador());
 	}
 
 	@Test
-	void testMoverJugadorACeldaInferiorVacia() throws NoHayHerramientaExcepcion {
+	void testMoverJugadorACeldaInferiorVacia() {
 		Mapa mapa = new Mapa();
 		Jugador jugador = new Jugador();
 
-		mapa.declararJugador(jugador, 10, 15);
-		jugador.declararMapa(mapa);
-		try {
-			jugador.abajo();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		mapa.setJugador(jugador, 10, 15);
+		jugador.setMapa(mapa);
+		jugador.abajo();
 
-		assertEquals(11, mapa.obtenerFilaJugador());
-		assertEquals(15, mapa.obtenerColumnaJugador());
+		assertEquals(11, mapa.getFilaJugador());
+		assertEquals(15, mapa.getColumnaJugador());
 	}
 
 	@Test
-	void testMoverJugadorACeldaDerechaConMaderaYNoSeMueve() throws NoHayHerramientaExcepcion {
+	void testMoverJugadorACeldaDerechaConMaderaYNoSeMueve() {
 		Mapa mapa = new Mapa();
 		Madera unaMadera = new Madera();
 
-		mapa.agregarMaterial(unaMadera, 10, 16);
+		mapa.agregar(unaMadera, 10, 16);
 		Jugador jugador = new Jugador();
-		mapa.declararJugador(jugador, 10, 15);
-		jugador.declararMapa(mapa);
-		try {
-			jugador.derecha();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		mapa.setJugador(jugador, 10, 15);
+		jugador.setMapa(mapa);
+		jugador.derecha();
 
-		assertEquals(unaMadera, mapa.obtenerMaterialEn(10, 16));
-		assertEquals(10, mapa.obtenerFilaJugador());
-		assertEquals(15, mapa.obtenerColumnaJugador());
+		assertEquals(unaMadera, mapa.getMaterialEn(10, 16));
+		assertEquals(10, mapa.getFilaJugador());
+		assertEquals(15, mapa.getColumnaJugador());
 	}
 
 	@Test
-	void testMoverJugadorACeldaDerechaConMaderaYLaDesgasta() throws NoHayHerramientaExcepcion {
+	void testMoverJugadorACeldaDerechaConMaderaYLaDesgasta() {
 		Mapa mapa = new Mapa();
 		Madera unaMadera = new Madera();
 
-		mapa.agregarMaterial(unaMadera, 10, 16);
+		mapa.agregar(unaMadera, 10, 16);
 		Jugador jugador = new Jugador();
-		mapa.declararJugador(jugador, 10, 15);
-		jugador.declararMapa(mapa);
-		float durabilidadInicial = unaMadera.obtenerDurabilidad();
-		try {
-			jugador.derecha();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		mapa.setJugador(jugador, 10, 15);
+		jugador.setMapa(mapa);
+		float durabilidadInicial = unaMadera.getDurabilidad();
+		jugador.derecha();
 
-		assertTrue(unaMadera.obtenerDurabilidad() < durabilidadInicial);
+		assertTrue(unaMadera.getDurabilidad() < durabilidadInicial);
 	}
 
 	@Test
-	void testMoverJugadorFueraDeLimiteIzquierdoNoHaceNada() throws NoHayHerramientaExcepcion {
+	void testMoverJugadorFueraDeLimiteIzquierdoNoHaceNada() {
 		Mapa mapa = new Mapa();
 		Jugador jugador = new Jugador();
-		jugador.declararMapa(mapa);
-		mapa.declararJugador(jugador, 0, 0);
+		jugador.setMapa(mapa);
+		mapa.setJugador(jugador, 0, 0);
 
 		jugador.izquierda();
 
-		assertEquals(0, mapa.obtenerFilaJugador());
-		assertEquals(0, mapa.obtenerColumnaJugador());
+		assertEquals(0, mapa.getFilaJugador());
+		assertEquals(0, mapa.getColumnaJugador());
 	}
 
 	@Test
-	void testMoverJugadorFueraDeLimiteDerechoNoHaceNada() throws NoHayHerramientaExcepcion {
+	void testMoverJugadorFueraDeLimiteDerechoNoHaceNada() {
 		Mapa mapa = new Mapa();
 		Jugador jugador = new Jugador();
-		jugador.declararMapa(mapa);
-		mapa.declararJugador(jugador, 0, cantidadDeColumnas);
+		jugador.setMapa(mapa);
+		mapa.setJugador(jugador, 0, cantidadDeColumnas);
 
-		try {
-			jugador.derecha();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		jugador.derecha();
 
-		assertEquals(0, mapa.obtenerFilaJugador());
-		assertEquals(cantidadDeColumnas, mapa.obtenerColumnaJugador());
+		assertEquals(0, mapa.getFilaJugador());
+		assertEquals(cantidadDeColumnas, mapa.getColumnaJugador());
 	}
 
 	@Test
-	void testMoverJugadorFueraDeLimiteSuperiorNoHaceNada() throws NoHayHerramientaExcepcion {
+	void testMoverJugadorFueraDeLimiteSuperiorNoHaceNada() {
 		Mapa mapa = new Mapa();
 		Jugador jugador = new Jugador();
-		jugador.declararMapa(mapa);
-		mapa.declararJugador(jugador, 0, 0);
+		jugador.setMapa(mapa);
+		mapa.setJugador(jugador, 0, 0);
 
-		try {
-			jugador.arriba();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		jugador.arriba();
 
-		assertEquals(0, mapa.obtenerFilaJugador());
-		assertEquals(0, mapa.obtenerColumnaJugador());
+		assertEquals(0, mapa.getFilaJugador());
+		assertEquals(0, mapa.getColumnaJugador());
 	}
 
 	@Test
-	void testMoverJugadorFueraDeLimiteInferiorNoHaceNada() throws NoHayHerramientaExcepcion {
+	void testMoverJugadorFueraDeLimiteInferiorNoHaceNada() {
 		Mapa mapa = new Mapa();
 		Jugador jugador = new Jugador();
-		jugador.declararMapa(mapa);
-		mapa.declararJugador(jugador, cantidadDeFilas, 0);
+		jugador.setMapa(mapa);
+		mapa.setJugador(jugador, cantidadDeFilas, 0);
 
-		try {
-			jugador.abajo();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		jugador.abajo();
 
-		assertEquals(cantidadDeFilas, mapa.obtenerFilaJugador());
-		assertEquals(0, mapa.obtenerColumnaJugador());
+		assertEquals(cantidadDeFilas, mapa.getFilaJugador());
+		assertEquals(0, mapa.getColumnaJugador());
 	}
 
 }

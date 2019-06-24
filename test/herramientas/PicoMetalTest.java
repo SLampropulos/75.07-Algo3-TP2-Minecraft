@@ -12,7 +12,7 @@ import materiales.Piedra;
 
 class PicoMetalTest {
 
-	int durabilidadEsperada = 400; // no disminuye la durabilidad pero se rompe al 12
+	float durabilidadEsperada = 400; // no disminuye la durabilidad pero se rompe al 12
 
 	@Test
 	public void PicoDeMetalGolpeaMaderaYSeDesgastaElPico() {
@@ -21,7 +21,7 @@ class PicoMetalTest {
 
 		Pico.golpear(madera);
 
-		assertEquals(durabilidadEsperada, Pico.obtenerDurabilidad());
+		assertEquals(durabilidadEsperada, Pico.getDurabilidad());
 	}
 
 	@Test
@@ -31,7 +31,7 @@ class PicoMetalTest {
 
 		Pico.golpear(piedra);
 
-		assertEquals(durabilidadEsperada, Pico.obtenerDurabilidad());
+		assertEquals(durabilidadEsperada, Pico.getDurabilidad());
 	}
 
 	@Test
@@ -41,7 +41,7 @@ class PicoMetalTest {
 
 		Pico.golpear(metal);
 
-		assertEquals(durabilidadEsperada, Pico.obtenerDurabilidad());
+		assertEquals(durabilidadEsperada, Pico.getDurabilidad());
 	}
 
 	@Test
@@ -51,6 +51,6 @@ class PicoMetalTest {
 
 		Pico.golpear(diamante);
 
-		assertEquals(durabilidadEsperada, Pico.obtenerDurabilidad());
+		assertEquals(durabilidadEsperada, Pico.getDurabilidad());
 	}
 }

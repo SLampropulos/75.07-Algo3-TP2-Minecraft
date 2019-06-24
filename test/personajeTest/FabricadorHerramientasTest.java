@@ -1,7 +1,7 @@
 package personajeTest;
 
-import excepciones.EspacioOcupadoExcepcion;
-import excepciones.FabricacionNoValidaExcepcion;
+import excepciones.EspacioOcupadoException;
+import excepciones.ExceptionFabricacionNoValida;
 import herramientas.HachaMetal;
 import herramientas.Herramienta;
 import herramientas.PicoMadera;
@@ -21,13 +21,13 @@ public class FabricadorHerramientasTest {
     @Test
     void fabicradorSeIniciaVacio(){
         FabricadorHerramientas fabrHerramientas = new FabricadorHerramientas();
-        ArrayList componentesFabricacion = fabrHerramientas.obtenerElementosFabricadores();
+        ArrayList componentesFabricacion = fabrHerramientas.getMateriales();
         int cantComponentesFabricacion = 9;
         assertEquals(cantComponentesFabricacion,componentesFabricacion.size());
     }
 
     @Test
-    void fabricadorAniadeUnMaterial() throws EspacioOcupadoExcepcion {
+    void fabricadorAniadeUnMaterial() throws EspacioOcupadoException {
         FabricadorHerramientas fabricadorHerramientas = new FabricadorHerramientas();
         Material madera = new Madera();
         fabricadorHerramientas.agregar(madera,1,1);
@@ -35,7 +35,7 @@ public class FabricadorHerramientasTest {
         assertEquals(madera,fabricadorHerramientas.obtener(1,1));
     }
     @Test
-    void fabricadorCreaUnPicoMadera() throws EspacioOcupadoExcepcion, FabricacionNoValidaExcepcion {
+    void fabricadorCreaUnPicoMadera() throws EspacioOcupadoException, ExceptionFabricacionNoValida {
         FabricadorHerramientas fabricadorHerramientas = new FabricadorHerramientas();
         Material madera = new Madera();
         for(int i=0; i<3; i++){
@@ -49,7 +49,7 @@ public class FabricadorHerramientasTest {
         assertEquals(herramientaFabricada.getClass(), PicoMadera.class);
     }
     @Test
-    void fabricadorQuitaUnElemento() throws EspacioOcupadoExcepcion {
+    void fabricadorQuitaUnElemento() throws EspacioOcupadoException {
         FabricadorHerramientas fabricadorHerramientas = new FabricadorHerramientas();
         Material madera = new Madera();
         fabricadorHerramientas.agregar(madera,1,1);
@@ -58,7 +58,7 @@ public class FabricadorHerramientasTest {
         assertTrue(madera != fabricadorHerramientas.obtener(1,1));
     }
     @Test
-    void fabricadorFabricaHachaDeMetal() throws EspacioOcupadoExcepcion, FabricacionNoValidaExcepcion {
+    void fabricadorFabricaHachaDeMetal() throws EspacioOcupadoException, ExceptionFabricacionNoValida {
         FabricadorHerramientas fabricadorHerramientas = new FabricadorHerramientas();
         Material metal = new Metal();
         Material madera = new Madera();
@@ -74,14 +74,14 @@ public class FabricadorHerramientasTest {
     }
 
     @Test
-    void fabricadorAgregaUnMaterialEnDondeYaHayUnoTieraExcepcion() throws EspacioOcupadoExcepcion {
+    void fabricadorAgregaUnMaterialEnDondeYaHayUnoTieraExcepcion() throws EspacioOcupadoException {
         FabricadorHerramientas fabricadorHerramientas = new FabricadorHerramientas();
         Material madera = new Madera();
         Material metal = new Metal();
 
         fabricadorHerramientas.agregar(madera,0,0);
 
-        assertThrows(EspacioOcupadoExcepcion.class, ()->{ fabricadorHerramientas.agregar(metal,0,0); });
+        assertThrows(EspacioOcupadoException.class, ()->{ fabricadorHerramientas.agregar(metal,0,0); });
     }
 
 }

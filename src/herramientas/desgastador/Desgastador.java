@@ -2,5 +2,5 @@ package herramientas.desgastador;
 
 public interface Desgastador {
 
-    int calcularDesgaste();
+    float calcularDesgaste();
 }
