@@ -5,7 +5,7 @@ import personaje.InventarioMateriales;
 
 import org.junit.jupiter.api.Test;
 
-import excepciones.NoHayMaterialException;
+import excepciones.NoHayMaterialExcepcion;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -128,7 +128,7 @@ public class InventarioMaterialesTest {
     }
 
     @Test
-    void inventarioSeQuitaMaterialYEsDevueltoCorrectamente() throws NoHayMaterialException {
+    void inventarioSeQuitaMaterialYEsDevueltoCorrectamente() throws NoHayMaterialExcepcion {
         InventarioMateriales inventario = new InventarioMateriales();
         Material madera = new Madera();
 
@@ -142,7 +142,7 @@ public class InventarioMaterialesTest {
     void inventarioVacioTiraExcepcionSiSeIntentaObtenerMaterial() {
         InventarioMateriales inventario = new InventarioMateriales();
 
-        assertThrows(NoHayMaterialException.class, ()->{inventario.quitar(Madera.class);});
+        assertThrows(NoHayMaterialExcepcion.class, ()->{inventario.quitar(Madera.class);});
     }
 
     @Test
@@ -166,7 +166,7 @@ public class InventarioMaterialesTest {
         try {
             inventario.quitar(Madera.class);
             inventario.quitar(Madera.class);
-        } catch (NoHayMaterialException e) {
+        } catch (NoHayMaterialExcepcion e) {
             assertTrue(false);
         }
 

@@ -14,7 +14,7 @@ public class HachaTest {
     @Test
     void seCreaHachaMaderaConDurabilidadCorrecta(){
         Herramienta hachaMadera = new HachaMadera();
-        float durabilidad = hachaMadera.getDurabilidad();
+        int durabilidad = hachaMadera.obtenerDurabilidad();
 
         assertEquals(durabilidad, 100);
     }
@@ -22,23 +22,23 @@ public class HachaTest {
     @Test
     void seCreaHachaMaderaConFuerzaCorrecta(){
         HachaMadera hachaMadera = new HachaMadera();
-        float fuerza = hachaMadera.getFuerza();
+        int fuerza = hachaMadera.obtenerFuerza();
         assertEquals(fuerza, 2);
     }
 
     @Test
     void seDesgastaUnaHachaDeMadera(){
         HachaMadera hachaMadera = new HachaMadera();
-        float durabilidad = hachaMadera.getDurabilidad();
+        int durabilidad = hachaMadera.obtenerDurabilidad();
         hachaMadera.desgastar();
 
-        assertEquals(durabilidad-2, hachaMadera.getDurabilidad());
+        assertEquals(durabilidad-2, hachaMadera.obtenerDurabilidad());
     }
 
     @Test
     void seCreaHachaPiedraConDurabilidadCorrecta(){
         Herramienta hachaPiedra = new HachaPiedra();
-        float durabilidad = hachaPiedra.getDurabilidad();
+        int durabilidad = hachaPiedra.obtenerDurabilidad();
 
         assertEquals(durabilidad, 200);
     }
@@ -46,7 +46,7 @@ public class HachaTest {
     @Test
     void seCreaHachaPiedraConFuerzaCorrecta(){
         Herramienta hachaPiedra = new HachaPiedra();
-        float fuerza = hachaPiedra.getFuerza();
+        int fuerza = hachaPiedra.obtenerFuerza();
 
         assertEquals(fuerza, 5);
     }
@@ -54,32 +54,32 @@ public class HachaTest {
     @Test
     void seDesgastaUnaHachaDePiedra(){
         HachaPiedra hachaPiedra = new HachaPiedra();
-        float durabilidad = hachaPiedra.getDurabilidad();
+        int durabilidad = hachaPiedra.obtenerDurabilidad();
         hachaPiedra.desgastar();
 
-        assertEquals(durabilidad-5, hachaPiedra.getDurabilidad());
+        assertEquals(durabilidad-5, hachaPiedra.obtenerDurabilidad());
     }
 
     @Test
     void seCreaHachaMetalConDurabilidadCorrecta(){
         HachaMetal hachaMetal= new HachaMetal();
-        float durabilidad = hachaMetal.getDurabilidad();
+        int durabilidad = hachaMetal.obtenerDurabilidad();
         assertEquals(400, durabilidad);
     }
 
     @Test
     void seCreaHachaMetalConFuerzaCorrecta(){
         HachaMetal hachaMetal = new HachaMetal();
-        float fuerza = hachaMetal.getFuerza();
+        int fuerza = hachaMetal.obtenerFuerza();
         assertEquals(10,fuerza);
     }
 
     @Test
     void seCreaHachaMetalSeDesgastaCorrectamente(){
         HachaMetal hachaMetal = new HachaMetal();
-        float durabilidad = hachaMetal.getDurabilidad();
+        int durabilidad = hachaMetal.obtenerDurabilidad();
         hachaMetal.desgastar();
-        assertEquals(durabilidad-(hachaMetal.getFuerza()/2),hachaMetal.getDurabilidad());
+        assertEquals(durabilidad-(hachaMetal.obtenerFuerza()/2),hachaMetal.obtenerDurabilidad());
     }
 
     @Test
@@ -88,6 +88,6 @@ public class HachaTest {
         Material material = new Diamante();
         herramienta.golpear(material);
 
-        assertEquals(herramienta.getDurabilidad(), 98);
+        assertEquals(herramienta.obtenerDurabilidad(), 98);
     }
 }

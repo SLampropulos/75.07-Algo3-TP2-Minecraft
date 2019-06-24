@@ -15,15 +15,15 @@ class JuegoInicioJugadorTest {
 	@Test
 	void testCrearJuegoYQuedaJugadorBienUbicadoEnElMapa() {
 		MineCraft mineCraft = new MineCraft();
-		Mapa mapa = mineCraft.getMapa();
-		assertEquals(filaJugadorEsperada, mapa.getFilaJugador());
-		assertEquals(columnaJugadorEsperada, mapa.getColumnaJugador());
+		Mapa mapa = mineCraft.obtenerMapa();
+		assertEquals(filaJugadorEsperada, mapa.obtenerFilaJugador());
+		assertEquals(columnaJugadorEsperada, mapa.obtenerColumnaJugador());
 	}
 	
 	@Test
 	void testCrearJuegoYQuedaJugadorConHachaMadera() {
 		MineCraft mineCraft = new MineCraft();
-		Jugador jugador = mineCraft.getJugador();
-		assertEquals(true, jugador.getEquipado() instanceof HachaMadera);
+		Jugador jugador = mineCraft.obtenerJugador();
+		assertEquals(true, jugador.obtenerHerramientaEquipada() instanceof HachaMadera);
 	}
 }

@@ -12,8 +12,8 @@ import materiales.Piedra;
 
 class PicoFinoTest {
 
-	float durabilidadEsperada1 = (float) (1000 * .9); // para inicial = 1000 y DesgastadorPorcentual
-	float durabilidadEsperada2 = (float) (1000 * .9 *.9);
+	int durabilidadEsperada1 = (int) (1000 * .9); // para inicial = 1000 y DesgastadorPorcentual
+	int durabilidadEsperada2 = (int) (1000 * .9 *.9);
 
 	@Test
 	public void PicoFinoGolpeaMaderaYSeDesgastaElPico() {
@@ -21,10 +21,10 @@ class PicoFinoTest {
 		Material madera = new Madera();
 
 		Pico.golpear(madera);
-		assertEquals(durabilidadEsperada1, Pico.getDurabilidad());
+		assertEquals(durabilidadEsperada1, Pico.obtenerDurabilidad());
 
 		Pico.golpear(madera);
-		assertEquals(durabilidadEsperada2, Pico.getDurabilidad());
+		assertEquals(durabilidadEsperada2, Pico.obtenerDurabilidad());
 }
 
 	@Test
@@ -33,10 +33,10 @@ class PicoFinoTest {
 		Material piedra = new Piedra();
 
 		Pico.golpear(piedra);
-		assertEquals(durabilidadEsperada1, Pico.getDurabilidad());
+		assertEquals(durabilidadEsperada1, Pico.obtenerDurabilidad());
 
 		Pico.golpear(piedra);
-		assertEquals(durabilidadEsperada2, Pico.getDurabilidad());
+		assertEquals(durabilidadEsperada2, Pico.obtenerDurabilidad());
 	}
 
 	@Test
@@ -45,10 +45,10 @@ class PicoFinoTest {
 		Material metal = new Metal();
 
 		Pico.golpear(metal);
-		assertEquals(durabilidadEsperada1, Pico.getDurabilidad());
+		assertEquals(durabilidadEsperada1, Pico.obtenerDurabilidad());
 
 		Pico.golpear(metal);
-		assertEquals(durabilidadEsperada2, Pico.getDurabilidad());
+		assertEquals(durabilidadEsperada2, Pico.obtenerDurabilidad());
 	}
 
 	@Test
@@ -57,9 +57,9 @@ class PicoFinoTest {
 		Material diamante = new Diamante();
 
 		Pico.golpear(diamante);
-		assertEquals(durabilidadEsperada1, Pico.getDurabilidad());
+		assertEquals(durabilidadEsperada1, Pico.obtenerDurabilidad());
 
 		Pico.golpear(diamante);
-		assertEquals(durabilidadEsperada2, Pico.getDurabilidad());
+		assertEquals(durabilidadEsperada2, Pico.obtenerDurabilidad());
 	}
 }

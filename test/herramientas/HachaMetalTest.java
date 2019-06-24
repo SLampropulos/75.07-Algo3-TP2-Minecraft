@@ -12,7 +12,7 @@ import materiales.Piedra;
 
 class HachaMetalTest {
 
-	float durabilidadEsperada = 400 - 10 / 2; // para inicial = 400 y DesgastadorLineal Fuerza = 10 (usa 10/2)
+	int durabilidadEsperada = 400 - 10 / 2; // para inicial = 400 y DesgastadorLineal Fuerza = 10 (usa 10/2)
 
 	@Test
 	public void HachaDeMetalGolpeaMaderaYSeDesgastaElHacha() {
@@ -21,7 +21,7 @@ class HachaMetalTest {
 
 		hacha.golpear(madera);
 
-		assertEquals(durabilidadEsperada, hacha.getDurabilidad());
+		assertEquals(durabilidadEsperada, hacha.obtenerDurabilidad());
 	}
 
 	@Test
@@ -31,7 +31,7 @@ class HachaMetalTest {
 
 		hacha.golpear(piedra);
 
-		assertEquals(durabilidadEsperada, hacha.getDurabilidad());
+		assertEquals(durabilidadEsperada, hacha.obtenerDurabilidad());
 	}
 
 	@Test
@@ -41,7 +41,7 @@ class HachaMetalTest {
 
 		hacha.golpear(metal);
 
-		assertEquals(durabilidadEsperada, hacha.getDurabilidad());
+		assertEquals(durabilidadEsperada, hacha.obtenerDurabilidad());
 	}
 
 	@Test
@@ -51,6 +51,6 @@ class HachaMetalTest {
 
 		hacha.golpear(diamante);
 
-		assertEquals(durabilidadEsperada, hacha.getDurabilidad());
+		assertEquals(durabilidadEsperada, hacha.obtenerDurabilidad());
 	}
 }

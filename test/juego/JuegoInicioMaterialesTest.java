@@ -26,44 +26,44 @@ class JuegoInicioMaterialesTest {
 	@Test
 	void testCrearJuegoYQuedanMaderasBienUbicadasEnElMapa() {
 		MineCraft mineCraft = new MineCraft();
-		Mapa mapa = mineCraft.getMapa();
+		Mapa mapa = mineCraft.obtenerMapa();
 		Celda celda;
 		for (int i = 0; i < filasMadera.length; i++) {
-			celda = mapa.getCeldas()[filasMadera[i]][columnasMadera[i]];
-			assertEquals(true, celda.getMaterial() instanceof Madera);
+			celda = mapa.obtenerCeldas()[filasMadera[i]][columnasMadera[i]];
+			assertEquals(true, celda.obtenerMaterial() instanceof Madera);
 		}
 	}
 
 	@Test
 	void testCrearJuegoYQuedanPiedrasBienUbicadasEnElMapa() {
 		MineCraft mineCraft = new MineCraft();
-		Mapa mapa = mineCraft.getMapa();
+		Mapa mapa = mineCraft.obtenerMapa();
 		Celda celda;
 		for (int i = 0; i < filasPiedra.length; i++) {
-			celda = mapa.getCeldas()[filasPiedra[i]][columnasPiedra[i]];
-			assertEquals(true, celda.getMaterial() instanceof Piedra);
+			celda = mapa.obtenerCeldas()[filasPiedra[i]][columnasPiedra[i]];
+			assertEquals(true, celda.obtenerMaterial() instanceof Piedra);
 		}
 	}
 
 	@Test
 	void testCrearJuegoYQuedanMetalesBienUbicadosEnElMapa() {
 		MineCraft mineCraft = new MineCraft();
-		Mapa mapa = mineCraft.getMapa();
+		Mapa mapa = mineCraft.obtenerMapa();
 		Celda celda;
 		for (int i = 0; i < filasMetal.length; i++) {
-			celda = mapa.getCeldas()[filasMetal[i]][columnasMetal[i]];
-			assertEquals(true, celda.getMaterial() instanceof Metal);
+			celda = mapa.obtenerCeldas()[filasMetal[i]][columnasMetal[i]];
+			assertEquals(true, celda.obtenerMaterial() instanceof Metal);
 		}
 	}
 
 	@Test
 	void testCrearJuegoYQuedanDiamantesBienUbicadosEnElMapa() {
 		MineCraft mineCraft = new MineCraft();
-		Mapa mapa = mineCraft.getMapa();
+		Mapa mapa = mineCraft.obtenerMapa();
 		Celda celda;
 		for (int i = 0; i < filasDiamante.length; i++) {
-			celda = mapa.getCeldas()[filasDiamante[i]][columnasDiamante[i]];
-			assertEquals(true, celda.getMaterial() instanceof Diamante);
+			celda = mapa.obtenerCeldas()[filasDiamante[i]][columnasDiamante[i]];
+			assertEquals(true, celda.obtenerMaterial() instanceof Diamante);
 		}
 	}
 }

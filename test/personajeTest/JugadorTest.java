@@ -19,19 +19,19 @@ public class JugadorTest {
 	@Test
 	void personajeSeCreaAdecuadamente() {
 		Jugador jugador = new Jugador();
-		Herramienta hacha = jugador.getEquipado();
+		Herramienta hacha = jugador.obtenerHerramientaEquipada();
 		assertTrue(hacha != null);
 	}
 
 	@Test
 	void personajeConHachaDeMaderaDesgastaMadera() {  
 		Jugador jugador = new Jugador();
-		Herramienta herramienta = jugador.getEquipado(); 
+		Herramienta herramienta = jugador.obtenerHerramientaEquipada(); 
 		Material madera = new Madera();
 
-		float durabilidadAnterior = madera.getDurabilidad();
+		float durabilidadAnterior = madera.obtenerDurabilidad();
 		madera.desgastarCon(herramienta);
-		float durabilidadPosterior = madera.getDurabilidad();
+		float durabilidadPosterior = madera.obtenerDurabilidad();
 
 		assertTrue(durabilidadPosterior < durabilidadAnterior);
 	}
