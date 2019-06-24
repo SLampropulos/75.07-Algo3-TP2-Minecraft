@@ -4,6 +4,7 @@ import eventos.BotonAbajoHandler;
 import eventos.BotonArribaHandler;
 import eventos.BotonDerechaHandler;
 import eventos.BotonIzquierdaHandler;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Button;
@@ -64,9 +65,13 @@ public class ContenedorPrincipal extends BorderPane {
 
 		ponerBotones();
 
-		this.datosYBotones.setAlignment(Pos.CENTER);
-		this.setCenter(datosYBotones);
-		this.datosYBotones.setGridLinesVisible(true); //TODO sacar
+		datosYBotones.setAlignment(Pos.CENTER);
+		setCenter(datosYBotones);
+		datosYBotones.setGridLinesVisible(true); // TODO sacar
+//		datosYBotones.setPadding(new Insets(10, 10, 10, 10));
+		datosYBotones.setHgap(12);
+		datosYBotones.setVgap(12);
+
 	}
 
 	private void ponerMateriales() {
@@ -97,10 +102,10 @@ public class ContenedorPrincipal extends BorderPane {
 		FabricadorHerramientas fabricador = mineCraft.getJugador().getFabricadorHerramientas();
 
 		VistaCelda[][] matriz = new VistaCelda[3][3];
-		Madera madera = new Madera();  //TODO va lo que saque del fabricador
+		Madera madera = new Madera(); // TODO va lo que saque del fabricador
 		for (int i = 0; i < 3; i++)
 			for (int j = 0; j < 3; j++) {
-				matriz[i][j] = new VistaCelda(madera, datosYBotones, i, j+4);
+				matriz[i][j] = new VistaCelda(madera, datosYBotones, i, j + 5);
 				matriz[i][j].dibujar();
 			}
 	}
