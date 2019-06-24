@@ -10,10 +10,10 @@ import materiales.Material;
 
 public class Jugador {
 
-	//Definición de constantes
+	//DefiniciÃ³n de constantes
 	static final int HERRAMIENTA_INICIAL = 0;
 	
-	//Declaración de variables
+	//DeclaraciÃ³n de variables
 	private Mapa mapa;
 	FabricadorHerramientas fabricadorHerramientas = new FabricadorHerramientas();
 	private InventarioHerramientas inventarioHerramientas;
@@ -44,7 +44,7 @@ public class Jugador {
 	}
 
 	//Post: Se obtiene la herramienta equipada
-	public Herramienta obtenerHerramientaEquipado() {
+	public Herramienta obtenerHerramientaEquipada() {
 		return herramientaEquipada;
 	}
 
