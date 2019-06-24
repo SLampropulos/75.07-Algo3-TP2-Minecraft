@@ -3,6 +3,8 @@ package eventos;
 import java.applet.Applet;
 import java.applet.AudioClip;
 import java.net.URL;
+
+import excepciones.NoHayHerramientaExcepcion;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import personaje.Jugador;
@@ -22,7 +24,12 @@ public class BotonAbajoHandler implements EventHandler<ActionEvent> {
 
 	@Override
 	public void handle(ActionEvent actionEvent) {
-		jugador.abajo();
+		try {
+			jugador.abajo();
+		} catch (NoHayHerramientaExcepcion e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		URL url = getClass().getResource("/vista/sounds/SUCTION.WAV");
 		AudioClip clip = Applet.newAudioClip(url);
