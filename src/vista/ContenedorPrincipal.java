@@ -252,8 +252,8 @@ public class ContenedorPrincipal extends BorderPane {
 	}
 
 	private void setBorder(Pane pane) {
-		pane.setStyle("-fx-padding: 2;-fx-border-style: solid inside;-fx-border-width: 7;"
-				+ "-fx-border-insets: 2;-fx-border-radius: 10;-fx-border-color:BLACK;");
+		pane.setStyle("-fx-padding: 2;-fx-border-style: solid inside;-fx-border-width: 5;"
+				+ "-fx-border-insets: 2;-fx-border-radius: 1;-fx-border-color:DARKBLUE;");
 	}
 
 	public void refrescar() {
