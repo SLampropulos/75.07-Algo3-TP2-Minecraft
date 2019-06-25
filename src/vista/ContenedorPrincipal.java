@@ -94,19 +94,12 @@ public class ContenedorPrincipal extends BorderPane {
 		paneDerecho.setHgap(12);
 		paneDerecho.setVgap(12);
 
-		// TODO sacar
-		Text lblH = new Text(
-				"#Herramientas: " + mineCraft.getJugador().getInventarioHerramientas().cantidadDeHerramientas());
-		lblH.setFont(Font.font("Arial", FontWeight.BOLD, 16));
-		paneDerecho.add(lblH, 0, 14, 3, 1);
 	}
 
 	private void setPaneInferior() {
 		ImageView imageView;
 		InventarioHerramientas inventario=mineCraft.getJugador().getInventarioHerramientas();
 
-//		Rectangle fondo = new Rectangle(0, 0, 60, 32); // TODO sacar
-//		fondo.setFill(Color.BLUE);
 		paneInferior.getChildren().clear();
 
 		for (int i = 0; i < inventario.cantidadDeHerramientas(); i++) {
