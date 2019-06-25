@@ -25,12 +25,12 @@ public class BotonIzquierdaHandler implements EventHandler<ActionEvent> {
 	public void handle(ActionEvent actionEvent) {
 		jugador.izquierda();
 		
-		URL url = getClass().getResource("/vista/sounds/SUCTION.WAV");
-		AudioClip clip = Applet.newAudioClip(url);
-		clip.play();
+//		URL url = getClass().getResource("/vista/sounds/SUCTION.WAV");
+//		AudioClip clip = Applet.newAudioClip(url);
+//		clip.play();
 
 		this.vistaJugador.setImagen("file:src/vista/images/JugadorIzquierda.png");
+		
 		contenedorPrincipal.refrescar();
 	}
-
 }

@@ -24,9 +24,10 @@ public class BotonAbajoHandler implements EventHandler<ActionEvent> {
 	public void handle(ActionEvent actionEvent) {
 		jugador.abajo();
 		
-		URL url = getClass().getResource("/vista/sounds/SUCTION.WAV");
-		AudioClip clip = Applet.newAudioClip(url);
-		clip.play();
+//		URL url = getClass().getResource("/vista/sounds/SUCTION.WAV");
+//		AudioClip clip = Applet.newAudioClip(url);
+//		clip.play();
+		
 		vistaJugador.setImagen("file:src/vista/images/JugadorAbajo.png");
 
 		contenedorPrincipal.refrescar();

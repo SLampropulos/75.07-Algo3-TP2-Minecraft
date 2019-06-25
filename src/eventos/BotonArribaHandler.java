@@ -25,11 +25,12 @@ public class BotonArribaHandler implements EventHandler<ActionEvent> {
 	public void handle(ActionEvent actionEvent) {
 		jugador.arriba();
 		
-		URL url = getClass().getResource("/vista/sounds/SUCTION.WAV");
-		AudioClip clip = Applet.newAudioClip(url);
-		clip.play();
+//		URL url = getClass().getResource("/vista/sounds/SUCTION.WAV");
+//		AudioClip clip = Applet.newAudioClip(url);
+//		clip.play();
 
 		vistaJugador.setImagen("file:src/vista/images/JugadorArriba.png");
+		
 		contenedorPrincipal.refrescar();
 	}
 }
