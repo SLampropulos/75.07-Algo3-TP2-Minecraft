@@ -64,7 +64,8 @@ public class VistaMapa {
 	}
 
 	private void limpiar() {
-		for (int x = 0; x < cantColumnas; x++)
+		pane.getChildren().clear();
+		for (int x = 0; x < cantColumnas; x++)  //TODO fijar sin estos inventos
 			pane.add(new Rectangle(0, 0, anchoCelda, altoCelda), x, 0);
 		for (int y = 0; y < cantFilas; y++)
 			pane.add(new Rectangle(0, 0, anchoCelda, altoCelda), 0, y);

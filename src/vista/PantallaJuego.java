@@ -10,7 +10,7 @@ import javafx.scene.layout.*;
 abstract class PantallaJuego extends StackPane {
 
     void setImagenDeFondo(String rutaImagen) {
-        BackgroundImage backgroundImage = new BackgroundImage(new Image(rutaImagen, 1160, 640, false, true),
+        BackgroundImage backgroundImage = new BackgroundImage(new Image(rutaImagen, 1160, 680, false, true),
                 BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
                 BackgroundSize.DEFAULT);
         this.setBackground(new Background(backgroundImage));

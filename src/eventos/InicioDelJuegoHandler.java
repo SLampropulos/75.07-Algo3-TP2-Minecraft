@@ -19,7 +19,7 @@ public class InicioDelJuegoHandler implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent actionEvent) {
-        Scene scene = new Scene(new ContenedorPrincipal(juego, stage), 1160, 640);
+        Scene scene = new Scene(new ContenedorPrincipal(juego, stage), 1160, 680);
         stage.setScene(scene);
     }
 }
