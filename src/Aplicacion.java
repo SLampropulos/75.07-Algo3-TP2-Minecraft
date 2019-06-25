@@ -17,7 +17,7 @@ public class Aplicacion extends Application {
 
 		MineCraft mineCraft = new MineCraft(); // Crea el modelo
 
-		PantallaInicio pantallaInicio = new PantallaInicio(stage, mineCraft);
+		PantallaInicio pantallaInicio = new PantallaInicio(stage, mineCraft, 1160, 680);
 		EscenaJuego escenaInicial = new EscenaJuego(pantallaInicio);
 		stage.setScene(escenaInicial);
 		stage.show();

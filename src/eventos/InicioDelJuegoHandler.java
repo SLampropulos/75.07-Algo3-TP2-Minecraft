@@ -9,17 +9,21 @@ import vista.ContenedorPrincipal;
 
 public class InicioDelJuegoHandler implements EventHandler<ActionEvent> {
 
-    MineCraft juego;
-    Stage stage;
+	MineCraft mineCraft;
+	Stage stage;
+	int anchoPantalla;
+	int altoPantalla;
 
-    public InicioDelJuegoHandler(MineCraft juego, Stage stage) {
-        this.juego = juego;
-        this.stage = stage;
-    }
+	public InicioDelJuegoHandler(MineCraft mineCraft, Stage stage, int anchoPantalla, int altoPantalla) {
+		this.mineCraft = mineCraft;
+		this.stage = stage;
+		this.anchoPantalla = anchoPantalla;
+		this.altoPantalla = altoPantalla;
+	}
 
-    @Override
-    public void handle(ActionEvent actionEvent) {
-        Scene scene = new Scene(new ContenedorPrincipal(juego, stage), 1160, 680);
-        stage.setScene(scene);
-    }
+	@Override
+	public void handle(ActionEvent actionEvent) {
+		Scene scene = new Scene(new ContenedorPrincipal(mineCraft, stage), anchoPantalla, altoPantalla);
+		stage.setScene(scene);
+	}
 }
