@@ -9,7 +9,7 @@ import excepciones.NoHayMaterialException;
 public class InventarioMateriales {
 
     private HashMap<Class, ArrayList<Material>> materiales;
-    private Material materialSeleccionado;
+    private Class materialSeleccionado;
 
     public InventarioMateriales() {
         materiales = new HashMap<>();
@@ -28,6 +28,12 @@ public class InventarioMateriales {
             throw new NoHayMaterialException();
         return materiales.get(clase).remove(0);
     }
+    public Material quitar() throws NoHayMaterialException {
+        if ( materiales.get(materialSeleccionado).size() == 0 )
+            throw new NoHayMaterialException();
+        return materiales.get(materialSeleccionado).remove(0);
+    }
+
 
     public int cantidadDeMadera() {
         return materiales.get(Madera.class).size();
@@ -46,16 +52,14 @@ public class InventarioMateriales {
     }
 
 	public Material quitarSeleccionado() throws NoHayMaterialException {  //TODO ver
-        if ( materiales.get(materialSeleccionado.getClass()).size() == 0 )
+        if(materialSeleccionado == null) return MaterialNull.getInstancia();
+        if ( materiales.get(materialSeleccionado).size() == 0 )
             throw new NoHayMaterialException();
-        Material material = materiales.get(materialSeleccionado.getClass()).remove(0);
-        materialSeleccionado = null;
+        Material material = materiales.get(materialSeleccionado).remove(0);
         return material;
 	}
 
-	public void seleccionarMaterial(Class<Material> clase) throws NoHayMaterialException {
-        if ( materiales.get(clase).size() == 0 )
-            throw new NoHayMaterialException();
-        materialSeleccionado = materiales.get(clase).get(0);
+	public void seleccionarMaterial(Class<Material> clase) {
+        materialSeleccionado = clase;
 	}
 }

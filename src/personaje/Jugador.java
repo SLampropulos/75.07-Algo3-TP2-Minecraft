@@ -26,12 +26,7 @@ public class Jugador {
 	}
 
 	public void seleccionarMaterial(Class clase){ //TODO ver
-		try {
-			inventarioMateriales.seleccionarMaterial(clase);
-		} catch (NoHayMaterialException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		inventarioMateriales.seleccionarMaterial(clase);
 	}
 
 	public Herramienta getEquipado() {

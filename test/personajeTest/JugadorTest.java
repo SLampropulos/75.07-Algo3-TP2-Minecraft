@@ -5,6 +5,10 @@ import materiales.Madera;
 import materiales.Material;
 import personaje.Jugador;
 import org.junit.jupiter.api.Test;
+
+import java.util.ArrayList;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 public class JugadorTest {
 
@@ -27,6 +31,33 @@ public class JugadorTest {
 
 		assertTrue(durabilidadPosterior < durabilidadAnterior);
 	}
+
+	@Test
+	void jugadorTrataDeAgregarMaterialSinTenerAlgunoSeleccionadoNoPasaNada(){
+		Jugador jugador = new Jugador();
+		jugador.agregarMaterial(new Madera());
+		jugador.agregarMaterialSeleccionadoAlFabricador(0,0);
+		assertEquals(1,jugador.cantidadDeMadera());
+		assertEquals(0,jugador.cantidadDePiedra());
+		assertEquals(0,jugador.cantidadDeMetal());
+		assertEquals(0,jugador.cantidadDeDiamante());
+
+	}
+
+	@Test
+	void jugadorAniadeMaterialesAlFabricadorSeDescuentaDelInventario(){
+		Jugador jugador = new Jugador();
+		for (int i = 0; i < 3; i++) {
+			jugador.agregarMaterial(new Madera());
+		}
+		jugador.seleccionarMaterial(Madera.class);
+		for (int i = 0; i < 3; i++) {
+			jugador.agregarMaterialSeleccionadoAlFabricador(i,i);
+		}
+
+		assertEquals(0,jugador.cantidadDeMadera());
+	}
+
 
 	/*@Test
 	void personajeSeleccionaUnMaterial(){
