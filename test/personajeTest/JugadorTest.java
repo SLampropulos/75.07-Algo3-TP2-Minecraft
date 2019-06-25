@@ -76,7 +76,7 @@ public class JugadorTest {
 	}
 
 	@Test
-	void JuagadorCambiaHerraminetaEquipada(){
+	void juagadorCambiaHerraminetaEquipada(){
 		Jugador jugador = new Jugador();
 		Herramienta herramienta = new PicoPiedra();
 		jugador.agregarHerramienta(herramienta);
@@ -85,6 +85,21 @@ public class JugadorTest {
 		Herramienta equipoActual = jugador.getEquipado();
 
 		assertEquals(herramienta, equipoActual);
+	}
+
+	@Test
+	void jugadorAgregaMaterialesAlFabricadorYLoCanceConsigueSusMaterialesOtraVez(){
+		Jugador jugador = new Jugador();
+		for (int i = 0; i < 3; i++) {
+			jugador.agregarMaterial(new Madera());
+		}
+		jugador.seleccionarMaterial(Madera.class);
+		for (int i = 0; i < 3; i++) {
+			jugador.agregarMaterialSeleccionadoAlFabricador(i,i);
+		}
+		jugador.cancelarFabricacion();
+
+		assertEquals(3,jugador.cantidadDeMadera());
 	}
 
 	/*@Test

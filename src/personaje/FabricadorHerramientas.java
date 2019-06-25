@@ -38,6 +38,7 @@ public class FabricadorHerramientas {
         ArrayList<Material> listaElementos = new ArrayList<>();
         for(int i=0; i<3;i++) {
             for (int j = 0; j < 3; j++) {
+                if(componentes[i][j] == MaterialNull.getInstancia()) continue;
                 listaElementos.add( remover(i, j) );
             }
         }
