@@ -24,6 +24,7 @@ import javafx.stage.Stage;
 import juego.MineCraft;
 import materiales.Diamante;
 import materiales.Madera;
+import materiales.Material;
 import materiales.Metal;
 import materiales.Piedra;
 import personaje.FabricadorHerramientas;
@@ -111,12 +112,14 @@ public class ContenedorPrincipal extends BorderPane {
 	private void ponerFabricadorHerramientas() {
 		FabricadorHerramientas fabricador = mineCraft.getJugador().getFabricadorHerramientas();
 
-		VistaCelda[][] matriz = new VistaCelda[3][3];
-		Madera madera = new Madera(); // TODO va lo que saque del fabricador
+//		VistaCelda[][] matriz = new VistaCelda[3][3];
+		VistaCelda vistaCelda;
+		Material material; // TODO va lo que saque del fabricador
 		for (int i = 0; i < 3; i++)
 			for (int j = 0; j < 3; j++) {
-				matriz[i][j] = new VistaCelda(madera, datosYBotones, i, j + 5);
-				matriz[i][j].dibujar();
+				material = new Madera(); // TODO va lo que saque del fabricador
+				vistaCelda = new VistaCelda(material, datosYBotones, i, j + 5);
+				vistaCelda.dibujar();
 			}
 	}
 
