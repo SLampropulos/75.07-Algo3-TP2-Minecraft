@@ -112,7 +112,6 @@ public class ContenedorPrincipal extends BorderPane {
 	private void ponerFabricadorHerramientas() {
 		FabricadorHerramientas fabricador = mineCraft.getJugador().getFabricadorHerramientas();
 
-//		VistaCelda[][] matriz = new VistaCelda[3][3];
 		VistaCelda vistaCelda;
 		Material material; // TODO va lo que saque del fabricador
 		for (int i = 0; i < 3; i++)
