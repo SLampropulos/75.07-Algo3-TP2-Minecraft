@@ -7,8 +7,6 @@ import herramientas.Herramienta;
 import juego.Mapa;
 import materiales.Material;
 
-import java.util.ArrayList;
-
 public class Jugador {
 
 	private Mapa mapa;

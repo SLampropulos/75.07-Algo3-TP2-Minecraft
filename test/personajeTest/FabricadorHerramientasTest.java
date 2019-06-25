@@ -21,7 +21,7 @@ public class FabricadorHerramientasTest {
     @Test
     void fabicradorSeIniciaVacio(){
         FabricadorHerramientas fabrHerramientas = new FabricadorHerramientas();
-        ArrayList componentesFabricacion = fabrHerramientas.getMateriales();
+        ArrayList<Material> componentesFabricacion = fabrHerramientas.getMateriales();
         int cantComponentesFabricacion = 9;
         assertEquals(cantComponentesFabricacion,componentesFabricacion.size());
     }

@@ -1,19 +1,11 @@
 package personajeTest;
 
 import herramientas.Herramienta;
-import materiales.Diamante;
 import materiales.Madera;
 import materiales.Material;
-import materiales.Metal;
 import personaje.Jugador;
-
 import org.junit.jupiter.api.Test;
-
-import java.util.ArrayList;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-
 public class JugadorTest {
 
 	@Test
