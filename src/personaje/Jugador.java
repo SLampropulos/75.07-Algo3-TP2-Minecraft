@@ -25,8 +25,13 @@ public class Jugador {
 		this.mapa = mapa;
 	}
 
-	public void setMaterialSeleccionado(Material material){ //TODO ver
-//		materialSeleccionado = material;
+	public void seleccionarMaterial(Class clase){ //TODO ver
+		try {
+			inventarioMateriales.seleccionarMaterial(clase);
+		} catch (NoHayMaterialException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public Herramienta getEquipado() {

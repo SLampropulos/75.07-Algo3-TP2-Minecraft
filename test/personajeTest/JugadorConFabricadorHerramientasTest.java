@@ -13,22 +13,33 @@ class JugadorConFabricadorHerramientasTest {
 	@Test
 	void JugadorfabricaUnPicoDeMadera() {
 		Jugador jugador = new Jugador();
-		jugador.agregarMaterial(new Madera()); // TODO usa que material seleccinado es el ultimo
+
+		for (int i = 0; i < 5; i++)
+			jugador.agregarMaterial(new Madera());
+
+		jugador.seleccionarMaterial(Madera.class);
 		jugador.agregarMaterialSeleccionadoAlFabricador(0, 0);
-		jugador.agregarMaterial(new Madera()); // TODO usa que material seleccinado es el ultimo
+
+		jugador.seleccionarMaterial(Madera.class);
 		jugador.agregarMaterialSeleccionadoAlFabricador(1, 0);
-		jugador.agregarMaterial(new Madera()); // TODO usa que material seleccinado es el ultimo
+
+		jugador.seleccionarMaterial(Madera.class);
 		jugador.agregarMaterialSeleccionadoAlFabricador(2, 0);
-		jugador.agregarMaterial(new Madera()); // TODO usa que material seleccinado es el ultimo
+
+		jugador.seleccionarMaterial(Madera.class);
 		jugador.agregarMaterialSeleccionadoAlFabricador(1, 1);
-		jugador.agregarMaterial(new Madera()); // TODO usa que material seleccinado es el ultimo
+
+		jugador.seleccionarMaterial(Madera.class);
 		jugador.agregarMaterialSeleccionadoAlFabricador(1, 2);
 
 		int cantidadInicial = jugador.getInventarioHerramientas().cantidadDeHerramientas();
+
+
 		jugador.fabricarHerramienta();
 
+		
 		assertEquals(cantidadInicial + 1, jugador.getInventarioHerramientas().cantidadDeHerramientas());
-
 		assertEquals(PicoMadera.class, jugador.getInventarioHerramientas().obtenerHerramienta(1).getClass());
+		assertEquals(0, jugador.cantidadDeMadera());
 	}
 }

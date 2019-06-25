@@ -1,7 +1,6 @@
 package personaje;
 
 import materiales.*;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -22,10 +21,9 @@ public class InventarioMateriales {
 
     public void agregar(Material material) {
         materiales.get(material.getClass()).add(material);
-        materialSeleccionado = material;  //TODO por ahora es siempre el ultimo
     }
 
-    public Material quitar(Class clase) throws NoHayMaterialException {
+    public Material quitar(Class<?> clase) throws NoHayMaterialException {
         if ( materiales.get(clase).size() == 0 )
             throw new NoHayMaterialException();
         return materiales.get(clase).remove(0);
@@ -47,13 +45,17 @@ public class InventarioMateriales {
         return materiales.get(Diamante.class).size();
     }
 
-    public ArrayList<Material> getMateriales(Class clase) {
-        return materiales.get(clase);
-    }
-
 	public Material quitarSeleccionado() throws NoHayMaterialException {  //TODO ver
         if ( materiales.get(materialSeleccionado.getClass()).size() == 0 )
             throw new NoHayMaterialException();
-        return materiales.get(materialSeleccionado.getClass()).remove(0);
+        Material material = materiales.get(materialSeleccionado.getClass()).remove(0);
+        materialSeleccionado = null;
+        return material;
+	}
+
+	public void seleccionarMaterial(Class<Material> clase) throws NoHayMaterialException {
+        if ( materiales.get(clase).size() == 0 )
+            throw new NoHayMaterialException();
+        materialSeleccionado = materiales.get(clase).get(0);
 	}
 }
