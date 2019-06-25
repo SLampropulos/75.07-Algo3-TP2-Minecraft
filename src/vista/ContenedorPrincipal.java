@@ -93,7 +93,7 @@ public class ContenedorPrincipal extends BorderPane {
 		datosYBotones.add(imageView, 0, 0);
 //		imageView.setTranslateX(10);
 //		imageView.setTranslateY(0);
-		imageView.setOnMouseClicked(new MaderaClickHandler());
+		imageView.setOnMouseClicked(new MaderaClickHandler(mineCraft,this));
 		
 		Text lblMaderas = new Text("x" + mineCraft.getJugador().cantidadDeMadera());
 		lblMaderas.setFill(Color.BLACK);
