@@ -1,15 +1,18 @@
 package personajeTest;
 
+import excepciones.MaterialNoSeleccionadoException;
 import herramientas.Herramienta;
 import materiales.Madera;
 import materiales.Material;
+import materiales.MaterialNull;
+import personaje.FabricadorHerramientas;
 import personaje.Jugador;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
+
 public class JugadorTest {
 
 	@Test
@@ -58,6 +61,17 @@ public class JugadorTest {
 		assertEquals(0,jugador.cantidadDeMadera());
 	}
 
+	@Test
+	void jugadorSeCreaTrataDeAgregarMaterialAlFabricadorSinIndicarMaterialTiraExcepcion(){
+		Jugador jugador = new Jugador();
+		FabricadorHerramientas fabricadorHerramientas = jugador.getFabricadorHerramientas();
+		jugador.agregarMaterial(new Madera());
+		jugador.agregarMaterialSeleccionadoAlFabricador(0,0);
+
+		Material material = fabricadorHerramientas.obtener(0,0);
+
+		assertEquals(material, MaterialNull.getInstancia());
+	}
 
 	/*@Test
 	void personajeSeleccionaUnMaterial(){

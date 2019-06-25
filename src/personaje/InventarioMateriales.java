@@ -1,5 +1,6 @@
 package personaje;
 
+import excepciones.MaterialNoSeleccionadoException;
 import materiales.*;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -51,8 +52,8 @@ public class InventarioMateriales {
         return materiales.get(Diamante.class).size();
     }
 
-	public Material quitarSeleccionado() throws NoHayMaterialException {  //TODO ver
-        if(materialSeleccionado == null) return MaterialNull.getInstancia();
+	public Material quitarSeleccionado() throws NoHayMaterialException, MaterialNoSeleccionadoException {
+        if(materialSeleccionado == null) throw new MaterialNoSeleccionadoException();
         if ( materiales.get(materialSeleccionado).size() == 0 )
             throw new NoHayMaterialException();
         Material material = materiales.get(materialSeleccionado).remove(0);

@@ -2,6 +2,7 @@ package personaje;
 
 import excepciones.EspacioOcupadoException;
 import excepciones.ExceptionFabricacionNoValida;
+import excepciones.MaterialNoSeleccionadoException;
 import excepciones.NoHayMaterialException;
 import herramientas.Herramienta;
 import juego.Mapa;
@@ -85,6 +86,8 @@ public class Jugador {
 		try {
 			material = inventarioMateriales.quitarSeleccionado();
 		} catch (NoHayMaterialException e) {  //TODO ver
+			return;
+		} catch (MaterialNoSeleccionadoException e) {
 			return;
 		}
 		try {
