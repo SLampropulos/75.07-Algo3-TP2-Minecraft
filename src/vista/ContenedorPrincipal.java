@@ -4,6 +4,7 @@ import eventos.BotonAbajoHandler;
 import eventos.BotonArribaHandler;
 import eventos.BotonDerechaHandler;
 import eventos.BotonIzquierdaHandler;
+import excepciones.GameOverException;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
@@ -157,6 +158,12 @@ public class ContenedorPrincipal extends BorderPane {
 	}
 
 	public void refrescar() {
+		try {
+			mineCraft.actualizar();
+		} catch (GameOverException e) {
+			// TODO cambiar por pantalla de game over
+			System.exit(0);
+		}
 		this.setPanelIzquierdo();
 		this.setPanelDerecho();
 	}

@@ -1,5 +1,6 @@
 package juego;
 
+import excepciones.GameOverException;
 import materiales.Diamante;
 import materiales.Madera;
 import materiales.Metal;
@@ -44,5 +45,10 @@ public class MineCraft {
 
 	public Jugador getJugador() {
 		return jugador;
+	}
+
+	public void actualizar() throws GameOverException {
+		if (jugador.getEquipado() == null)
+			throw new GameOverException();
 	}
 }
