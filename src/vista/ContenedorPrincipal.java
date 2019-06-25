@@ -22,6 +22,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
@@ -85,15 +86,19 @@ public class ContenedorPrincipal extends BorderPane {
 
 	private void ponerMateriales() {
 
-		// TODO poner con listeners
 		ImageView imageView;
-		
+
+		if (mineCraft.getJugador().materialSeleccionado() == Madera.class) {
+			Rectangle fondo = new Rectangle(0, 0, 60, 32); // TODO ajustar
+			fondo.setFill(Color.RED);
+			datosYBotones.add(fondo, 0, 0);
+		}
 		imageView = new ImageView();
 		imageView.setImage(new Image("file:src/vista/images/Madera.png"));
 		datosYBotones.add(imageView, 0, 0);
 //		imageView.setTranslateX(10);
 //		imageView.setTranslateY(0);
-		imageView.setOnMouseClicked(new MaderaClickHandler(mineCraft,this));
+		imageView.setOnMouseClicked(new MaderaClickHandler(mineCraft, this));
 		
 		Text lblMaderas = new Text("x" + mineCraft.getJugador().cantidadDeMadera());
 		lblMaderas.setFill(Color.BLACK);
@@ -102,10 +107,15 @@ public class ContenedorPrincipal extends BorderPane {
 
 		
 		
+		if (mineCraft.getJugador().materialSeleccionado() == Piedra.class) {
+			Rectangle fondo = new Rectangle(0, 0, 60, 32); // TODO ajustar
+			fondo.setFill(Color.RED);
+			datosYBotones.add(fondo, 0, 1);
+		}
 		imageView = new ImageView();
 		imageView.setImage(new Image("file:src/vista/images/Piedra.png"));
 		datosYBotones.add(imageView, 0, 1);
-		imageView.setOnMouseClicked(new PiedraClickHandler());
+		imageView.setOnMouseClicked(new PiedraClickHandler(mineCraft, this));
 
 		Text lblPiedras = new Text("x" + mineCraft.getJugador().cantidadDePiedra());
 		lblPiedras.setFill(Color.BLACK);
@@ -113,11 +123,16 @@ public class ContenedorPrincipal extends BorderPane {
 		datosYBotones.add(lblPiedras, 1, 1);
 
 		
-		
+
+		if (mineCraft.getJugador().materialSeleccionado() == Metal.class) {
+			Rectangle fondo = new Rectangle(0, 0, 60, 32); // TODO ajustar
+			fondo.setFill(Color.RED);
+			datosYBotones.add(fondo, 0, 2);
+		}
 		imageView = new ImageView();
 		imageView.setImage(new Image("file:src/vista/images/Metal.png"));
 		datosYBotones.add(imageView, 0, 2);
-		imageView.setOnMouseClicked(new MetalClickHandler());
+		imageView.setOnMouseClicked(new MetalClickHandler(mineCraft, this));
 
 		Text lblMetales = new Text("x" + mineCraft.getJugador().cantidadDeMetal());
 		lblMetales.setFill(Color.BLACK);
@@ -126,11 +141,17 @@ public class ContenedorPrincipal extends BorderPane {
 
 		
 		
+
+		if (mineCraft.getJugador().materialSeleccionado() == Diamante.class) {
+			Rectangle fondo = new Rectangle(0, 0, 60, 32); // TODO ajustar
+			fondo.setFill(Color.RED);
+			datosYBotones.add(fondo, 0, 3);
+		}
 		imageView = new ImageView();
 		imageView.setImage(new Image("file:src/vista/images/Diamante.png"));
 		datosYBotones.add(imageView, 0, 3);
-		imageView.setOnMouseClicked(new DiamanteClickHandler());
-		
+		imageView.setOnMouseClicked(new DiamanteClickHandler(mineCraft, this));
+
 		Text lblDiamantes = new Text("x" + mineCraft.getJugador().cantidadDeDiamante());
 		lblDiamantes.setFill(Color.BLACK);
 		lblDiamantes.setFont(Font.font("Arial", FontWeight.BOLD, 30));
