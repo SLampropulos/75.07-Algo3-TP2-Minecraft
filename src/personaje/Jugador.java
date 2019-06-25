@@ -14,7 +14,6 @@ public class Jugador {
 	private InventarioHerramientas inventarioHerramientas;
 	private InventarioMateriales inventarioMateriales;
 	private Herramienta equipado;
-	//private ArrayList<Material> materialSeleccionado;
 
 	public Jugador() {
 		inventarioHerramientas = new InventarioHerramientas();
@@ -26,9 +25,9 @@ public class Jugador {
 		this.mapa = mapa;
 	}
 
-	/*public void setMaterialSeleccionado(Class clase){
-		materialSeleccionado = inventarioMateriales.getMateriales(clase);
-	}*/
+	public void setMaterialSeleccionado(Material material){ //TODO ver
+//		materialSeleccionado = material;
+	}
 
 	public Herramienta getEquipado() {
 		return equipado;
@@ -67,11 +66,25 @@ public class Jugador {
 			agregarMaterial(material);
 	}
 
-	public void agregarMaterialAlFabricador(Class tipoDeMaterial, int fila, int columna) {
+//	public void agregarMaterialAlFabricador(int fila, int columna) {
+//		Material material;
+//		try {
+//			material = inventarioMateriales.quitar(materialSeleccionado.getClass());
+//		} catch (NoHayMaterialException e) {
+//			return;
+//		}
+//		try {
+//			fabricadorHerramientas.agregar( material, fila, columna );
+//		} catch (EspacioOcupadoException e) {
+//			agregarMaterial(material);
+//		}
+//	}
+
+	public void agregarMaterialSeleccionadoAlFabricador(int fila, int columna) {
 		Material material;
 		try {
-			material = inventarioMateriales.quitar(tipoDeMaterial);
-		} catch (NoHayMaterialException e) {
+			material = inventarioMateriales.quitarSeleccionado();
+		} catch (NoHayMaterialException e) {  //TODO ver
 			return;
 		}
 		try {
@@ -80,7 +93,8 @@ public class Jugador {
 			agregarMaterial(material);
 		}
 	}
-
+	
+	
 	/*public void ubicarMaterial(int posicion1, int posicion2) throws EspacioOcupadoException {
 		Material materialAUbicar = materialSeleccionado.remove(0);
 		fabricadorHerramientas.agregar(materialAUbicar,posicion1,posicion2);
@@ -121,6 +135,10 @@ public class Jugador {
 
 	public FabricadorHerramientas getFabricadorHerramientas() {
 		return fabricadorHerramientas;  //TODO ver
+	}
+
+	public InventarioHerramientas getInventarioHerramientas() {
+		return inventarioHerramientas;
 	}
 	
 	/*public ArrayList<Material> getMaterialSeleccionado() {

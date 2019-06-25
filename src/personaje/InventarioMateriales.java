@@ -10,6 +10,7 @@ import excepciones.NoHayMaterialException;
 public class InventarioMateriales {
 
     private HashMap<Class, ArrayList<Material>> materiales;
+    private Material materialSeleccionado;
 
     public InventarioMateriales() {
         materiales = new HashMap<>();
@@ -21,6 +22,7 @@ public class InventarioMateriales {
 
     public void agregar(Material material) {
         materiales.get(material.getClass()).add(material);
+        materialSeleccionado = material;  //TODO por ahora es siempre el ultimo
     }
 
     public Material quitar(Class clase) throws NoHayMaterialException {
@@ -48,4 +50,10 @@ public class InventarioMateriales {
     public ArrayList<Material> getMateriales(Class clase) {
         return materiales.get(clase);
     }
+
+	public Material quitarSeleccionado() throws NoHayMaterialException {  //TODO ver
+        if ( materiales.get(materialSeleccionado.getClass()).size() == 0 )
+            throw new NoHayMaterialException();
+        return materiales.get(materialSeleccionado.getClass()).remove(0);
+	}
 }
