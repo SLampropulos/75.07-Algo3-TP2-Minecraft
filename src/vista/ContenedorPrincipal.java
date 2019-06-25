@@ -38,6 +38,7 @@ import materiales.MaterialNull;
 import materiales.Metal;
 import materiales.Piedra;
 import personaje.FabricadorHerramientas;
+import personaje.InventarioHerramientas;
 
 public class ContenedorPrincipal extends BorderPane {
 
@@ -101,14 +102,21 @@ public class ContenedorPrincipal extends BorderPane {
 	}
 
 	private void setPaneInferior() {
-		Rectangle fondo = new Rectangle(0, 0, 60, 32); // TODO sacar
-		fondo.setFill(Color.BLUE);
+		ImageView imageView;
+		InventarioHerramientas inventario=mineCraft.getJugador().getInventarioHerramientas();
+
+//		Rectangle fondo = new Rectangle(0, 0, 60, 32); // TODO sacar
+//		fondo.setFill(Color.BLUE);
 		paneInferior.getChildren().clear();
-		paneInferior.getChildren().add(fondo);
+
+		for (int i = 0; i < inventario.cantidadDeHerramientas(); i++) {
+			imageView = new ImageView();
+			imageView.setImage(new Image("file:src/vista/images/"+ inventario.obtenerHerramienta(i).getClass().getSimpleName() + ".png"));
+			paneInferior.getChildren().add(imageView);
+		}
 	}
 
 	private void ponerMateriales() {
-
 		ImageView imageView;
 
 		if (mineCraft.getJugador().materialSeleccionado() == Madera.class) {
