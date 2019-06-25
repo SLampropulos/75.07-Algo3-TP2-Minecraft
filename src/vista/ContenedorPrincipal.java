@@ -5,9 +5,11 @@ import eventos.BotonArribaHandler;
 import eventos.BotonDerechaHandler;
 import eventos.BotonIzquierdaHandler;
 import eventos.DiamanteClickHandler;
+import eventos.FabricadorClickHandler;
 import eventos.MaderaClickHandler;
 import eventos.MetalClickHandler;
 import eventos.PiedraClickHandler;
+import excepciones.EspacioOcupadoException;
 import excepciones.GameOverException;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -31,6 +33,7 @@ import juego.MineCraft;
 import materiales.Diamante;
 import materiales.Madera;
 import materiales.Material;
+import materiales.MaterialNull;
 import materiales.Metal;
 import materiales.Piedra;
 import personaje.FabricadorHerramientas;
@@ -99,14 +102,12 @@ public class ContenedorPrincipal extends BorderPane {
 //		imageView.setTranslateX(10);
 //		imageView.setTranslateY(0);
 		imageView.setOnMouseClicked(new MaderaClickHandler(mineCraft, this));
-		
+
 		Text lblMaderas = new Text("x" + mineCraft.getJugador().cantidadDeMadera());
 		lblMaderas.setFill(Color.BLACK);
 		lblMaderas.setFont(Font.font("Arial", FontWeight.BOLD, 30));
 		datosYBotones.add(lblMaderas, 1, 0);
 
-		
-		
 		if (mineCraft.getJugador().materialSeleccionado() == Piedra.class) {
 			Rectangle fondo = new Rectangle(0, 0, 60, 32); // TODO ajustar
 			fondo.setFill(Color.RED);
@@ -122,8 +123,6 @@ public class ContenedorPrincipal extends BorderPane {
 		lblPiedras.setFont(Font.font("Arial", FontWeight.BOLD, 30));
 		datosYBotones.add(lblPiedras, 1, 1);
 
-		
-
 		if (mineCraft.getJugador().materialSeleccionado() == Metal.class) {
 			Rectangle fondo = new Rectangle(0, 0, 60, 32); // TODO ajustar
 			fondo.setFill(Color.RED);
@@ -138,9 +137,6 @@ public class ContenedorPrincipal extends BorderPane {
 		lblMetales.setFill(Color.BLACK);
 		lblMetales.setFont(Font.font("Arial", FontWeight.BOLD, 30));
 		datosYBotones.add(lblMetales, 1, 2);
-
-		
-		
 
 		if (mineCraft.getJugador().materialSeleccionado() == Diamante.class) {
 			Rectangle fondo = new Rectangle(0, 0, 60, 32); // TODO ajustar
@@ -161,13 +157,29 @@ public class ContenedorPrincipal extends BorderPane {
 	private void ponerFabricadorHerramientas() {
 		FabricadorHerramientas fabricador = mineCraft.getJugador().getFabricadorHerramientas();
 
-		VistaCelda vistaCelda;
-		Material material; // TODO va lo que saque del fabricador
+		Rectangle fondo;
+		ImageView imageView;
+
+		Material material;
 		for (int i = 0; i < 3; i++)
 			for (int j = 0; j < 3; j++) {
-				material = new Madera(); // TODO va lo que saque del fabricador
-				vistaCelda = new VistaCelda(material, datosYBotones, i, j + 5);
-				vistaCelda.dibujar();
+				fondo = new Rectangle(0, 0, 50, 40); // TODO ajustar
+				fondo.setFill(Color.GREEN);
+				datosYBotones.add(fondo, i, j + 5);
+
+				if (fabricador.obtener(i, j).getClass() == MaterialNull.class) {
+					imageView = new ImageView();
+					imageView.setImage(new Image("file:src/vista/images/question.png"));
+					datosYBotones.add(imageView, i, j + 5);
+					imageView.setOnMouseClicked(new FabricadorClickHandler(mineCraft, this, i, j));
+
+				} else {
+					material = fabricador.obtener(i, j);
+					imageView = new ImageView();
+					imageView.setImage(
+							new Image("file:src/vista/images/" + material.getClass().getSimpleName() + ".png"));
+					datosYBotones.add(imageView, i, j + 5);
+				}
 			}
 	}
 
