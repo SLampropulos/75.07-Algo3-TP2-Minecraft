@@ -7,6 +7,7 @@ import eventos.BotonDerechaHandler;
 import eventos.BotonIzquierdaHandler;
 import eventos.DiamanteClickHandler;
 import eventos.FabricadorClickHandler;
+import eventos.HerramientaClickHandler;
 import eventos.MaderaClickHandler;
 import eventos.MetalClickHandler;
 import eventos.PiedraClickHandler;
@@ -98,14 +99,16 @@ public class ContenedorPrincipal extends BorderPane {
 
 	private void setPaneInferior() {
 		ImageView imageView;
-		InventarioHerramientas inventario=mineCraft.getJugador().getInventarioHerramientas();
+		InventarioHerramientas inventario = mineCraft.getJugador().getInventarioHerramientas();
 
 		paneInferior.getChildren().clear();
 
 		for (int i = 0; i < inventario.cantidadDeHerramientas(); i++) {
 			imageView = new ImageView();
-			imageView.setImage(new Image("file:src/vista/images/"+ inventario.obtenerHerramienta(i).getClass().getSimpleName() + ".png"));
+			imageView.setImage(new Image(
+					"file:src/vista/images/" + inventario.obtenerHerramienta(i).getClass().getSimpleName() + ".png"));
 			paneInferior.getChildren().add(imageView);
+			imageView.setOnMouseClicked(new HerramientaClickHandler(mineCraft, this, i));
 		}
 	}
 
