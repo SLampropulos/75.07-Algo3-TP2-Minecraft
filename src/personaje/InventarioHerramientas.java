@@ -22,6 +22,8 @@ public class InventarioHerramientas {
     }
 
     public Herramienta obtenerHerramienta(int i) {
+        if (cantidadDeHerramientas() == 0)
+            return null;
         return herramientas.get(i);
     }
 
