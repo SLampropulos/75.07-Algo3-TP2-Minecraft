@@ -1,7 +1,9 @@
 package personajeTest;
 
 import excepciones.MaterialNoSeleccionadoException;
+import herramientas.HachaMadera;
 import herramientas.Herramienta;
+import herramientas.PicoPiedra;
 import materiales.Madera;
 import materiales.Material;
 import materiales.MaterialNull;
@@ -71,6 +73,18 @@ public class JugadorTest {
 		Material material = fabricadorHerramientas.obtener(0,0);
 
 		assertEquals(material, MaterialNull.getInstancia());
+	}
+
+	@Test
+	void JuagadorCambiaHerraminetaEquipada(){
+		Jugador jugador = new Jugador();
+		Herramienta herramienta = new PicoPiedra();
+		jugador.agregarHerramienta(herramienta);
+		jugador.setEquipable(1);
+
+		Herramienta equipoActual = jugador.getEquipado();
+
+		assertEquals(herramienta, equipoActual);
 	}
 
 	/*@Test
