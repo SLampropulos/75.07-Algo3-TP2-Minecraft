@@ -56,7 +56,10 @@ public class FabricadorHerramientas {
     public Herramienta fabricar() throws ExceptionFabricacionNoValida {
         for (int i = 0; i < patronesContrucciones.size(); i++){
             PatronConstruccion patronConstruccionActual = patronesContrucciones.get(i);
-            if( patronConstruccionActual.comparar(componentes)){return patronConstruccionActual.fabricar();}
+            if( patronConstruccionActual.comparar(componentes)){
+                setComponentes();
+                return patronConstruccionActual.fabricar();
+            }
         }
         throw new ExceptionFabricacionNoValida();
     }
