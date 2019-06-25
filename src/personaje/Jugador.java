@@ -67,20 +67,6 @@ public class Jugador {
 			agregarMaterial(material);
 	}
 
-//	public void agregarMaterialAlFabricador(int fila, int columna) {
-//		Material material;
-//		try {
-//			material = inventarioMateriales.quitar(materialSeleccionado.getClass());
-//		} catch (NoHayMaterialException e) {
-//			return;
-//		}
-//		try {
-//			fabricadorHerramientas.agregar( material, fila, columna );
-//		} catch (EspacioOcupadoException e) {
-//			agregarMaterial(material);
-//		}
-//	}
-
 	public void agregarMaterialSeleccionadoAlFabricador(int fila, int columna) {
 		Material material;
 		try {
@@ -97,12 +83,6 @@ public class Jugador {
 		}
 	}
 	
-	
-	/*public void ubicarMaterial(int posicion1, int posicion2) throws EspacioOcupadoException {
-		Material materialAUbicar = materialSeleccionado.remove(0);
-		fabricadorHerramientas.agregar(materialAUbicar,posicion1,posicion2);
-	}*/
-
 	public void izquierda() {
 		mapa.izquierda();
 	}
@@ -151,8 +131,4 @@ public class Jugador {
 	public void setEquipable(int numeroHerramienta) {
 		equipado = inventarioHerramientas.obtenerHerramienta(numeroHerramienta);
 	}
-
-	/*public ArrayList<Material> getMaterialSeleccionado() {
-		return materialSeleccionado;
-	}*/
 }

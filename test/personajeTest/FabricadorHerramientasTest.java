@@ -27,6 +27,7 @@ public class FabricadorHerramientasTest {
         assertEquals(cantComponentesFabricacion,componentesFabricacion.size());
     }
 
+    
     @Test
     void fabricadorAniadeUnMaterial() throws EspacioOcupadoException {
         FabricadorHerramientas fabricadorHerramientas = new FabricadorHerramientas();
@@ -35,6 +36,8 @@ public class FabricadorHerramientasTest {
 
         assertEquals(madera,fabricadorHerramientas.obtener(1,1));
     }
+    
+    
     @Test
     void fabricadorCreaUnPicoMadera() throws EspacioOcupadoException, ExceptionFabricacionNoValida {
         FabricadorHerramientas fabricadorHerramientas = new FabricadorHerramientas();
@@ -49,6 +52,8 @@ public class FabricadorHerramientasTest {
 
         assertEquals(herramientaFabricada.getClass(), PicoMadera.class);
     }
+    
+    
     @Test
     void fabricadorQuitaUnElemento() throws EspacioOcupadoException {
         FabricadorHerramientas fabricadorHerramientas = new FabricadorHerramientas();
@@ -58,6 +63,8 @@ public class FabricadorHerramientasTest {
         fabricadorHerramientas.remover(1,1);
         assertTrue(madera != fabricadorHerramientas.obtener(1,1));
     }
+    
+    
     @Test
     void fabricadorFabricaHachaDeMetal() throws EspacioOcupadoException, ExceptionFabricacionNoValida {
         FabricadorHerramientas fabricadorHerramientas = new FabricadorHerramientas();
@@ -74,6 +81,7 @@ public class FabricadorHerramientasTest {
         assertEquals(herramienta.getClass(), HachaMetal.class);
     }
 
+    
     @Test
     void fabricadorAgregaUnMaterialEnDondeYaHayUnoTieraExcepcion() throws EspacioOcupadoException {
         FabricadorHerramientas fabricadorHerramientas = new FabricadorHerramientas();

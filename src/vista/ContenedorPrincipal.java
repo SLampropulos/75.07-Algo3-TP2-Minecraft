@@ -2,6 +2,7 @@ package vista;
 
 import eventos.BotonAbajoHandler;
 import eventos.BotonArribaHandler;
+import eventos.BotonCancelarHandler;
 import eventos.BotonConstruirHandler;
 import eventos.BotonDerechaHandler;
 import eventos.BotonIzquierdaHandler;
@@ -242,6 +243,12 @@ public class ContenedorPrincipal extends BorderPane {
 		BotonConstruirHandler construirHandler = new BotonConstruirHandler(mineCraft, this);
 		btnConstruir.setOnAction(construirHandler);
 		this.paneDerecho.add(btnConstruir, 0, 8);
+
+		Button btnCancelar = new Button();
+		btnCancelar.setText("Cancelar");
+		BotonCancelarHandler cancelarHandler = new BotonCancelarHandler(mineCraft, this);
+		btnCancelar.setOnAction(cancelarHandler);
+		this.paneDerecho.add(btnCancelar, 2, 8);
 	}
 
 	private void setBorder(Pane pane) {
