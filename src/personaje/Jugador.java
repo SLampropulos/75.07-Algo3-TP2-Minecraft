@@ -148,6 +148,10 @@ public class Jugador {
 		return inventarioMateriales.materialSeleccionado();
 	}
 
+	public void setEquipable(int numeroHerramienta) {
+		equipado = inventarioHerramientas.obtenerHerramienta(numeroHerramienta);
+	}
+
 	/*public ArrayList<Material> getMaterialSeleccionado() {
 		return materialSeleccionado;
 	}*/
