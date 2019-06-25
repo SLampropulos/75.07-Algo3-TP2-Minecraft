@@ -51,8 +51,9 @@ En el presente informe se expone la aplicación desarrollada para el segundo tra
 \section{Supuestos}\label{sec:supuestos}
 Debido a detalles no especificados en la consigna del trabajo práctico, se ha decidido adoptar los siguientes supuestos.
 \begin{itemize}
-\item Supuesto 1...
-\item Supuesto 2...
+\item No hay límite de materiales que el jugador puede recolectar.
+\item El inventario de herramientas tiene una capacidad fija de 10 casilleros.
+\item En caso de que el jugador se quede sin herramientas, perderá el juego.
 \end{itemize}
 
 
@@ -118,6 +119,7 @@ Por otro lado, el \textbf{inventario de herramientas}: cada herramienta es únic
 	\item[NoHayMaterialException] Se lanza cuando se intenta quitar un tipo de material del inventario del que no quedan unidades.
 	\item[EspacioOcupadoException] Se lanza cuando se intenta agregar un material en un espacio ocupado en el fabricador de herramientas.
 	\item[FabricacionNoValidaException] Se lanza cuando se intenta construir una herramienta con un patrón no existente.
+	\item[GameOverException] Se lanza cuando el jugador pierde la partida por quedarse sin herramientas.
 \end{description}
 
 \section{Diagramas de secuencia}\label{sec:diagramasdesecuencia}
