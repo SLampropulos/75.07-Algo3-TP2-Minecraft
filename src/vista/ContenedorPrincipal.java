@@ -2,12 +2,15 @@ package vista;
 
 import eventos.BotonAbajoHandler;
 import eventos.BotonArribaHandler;
+import eventos.BotonConstruirHandler;
 import eventos.BotonDerechaHandler;
 import eventos.BotonIzquierdaHandler;
 import eventos.DiamanteClickHandler;
+import eventos.FabricadorClickHandler;
 import eventos.MaderaClickHandler;
 import eventos.MetalClickHandler;
 import eventos.PiedraClickHandler;
+import excepciones.EspacioOcupadoException;
 import excepciones.GameOverException;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -22,6 +25,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
@@ -30,6 +34,7 @@ import juego.MineCraft;
 import materiales.Diamante;
 import materiales.Madera;
 import materiales.Material;
+import materiales.MaterialNull;
 import materiales.Metal;
 import materiales.Piedra;
 import personaje.FabricadorHerramientas;
@@ -81,56 +86,73 @@ public class ContenedorPrincipal extends BorderPane {
 		datosYBotones.setHgap(12);
 		datosYBotones.setVgap(12);
 
+		//TODO sacar
+		Text lblH = new Text("#Herramientas: " + mineCraft.getJugador().getInventarioHerramientas().cantidadDeHerramientas());
+		lblH.setFont(Font.font("Arial", FontWeight.BOLD, 16));
+		datosYBotones.add(lblH, 0, 14,3,1);
 	}
 
 	private void ponerMateriales() {
 
-		// TODO poner con listeners
 		ImageView imageView;
-		
+
+		if (mineCraft.getJugador().materialSeleccionado() == Madera.class) {
+			Rectangle fondo = new Rectangle(0, 0, 60, 32); // TODO ajustar
+			fondo.setFill(Color.RED);
+			datosYBotones.add(fondo, 0, 0);
+		}
 		imageView = new ImageView();
 		imageView.setImage(new Image("file:src/vista/images/Madera.png"));
 		datosYBotones.add(imageView, 0, 0);
 //		imageView.setTranslateX(10);
 //		imageView.setTranslateY(0);
-		imageView.setOnMouseClicked(new MaderaClickHandler(mineCraft,this));
-		
+		imageView.setOnMouseClicked(new MaderaClickHandler(mineCraft, this));
+
 		Text lblMaderas = new Text("x" + mineCraft.getJugador().cantidadDeMadera());
 		lblMaderas.setFill(Color.BLACK);
 		lblMaderas.setFont(Font.font("Arial", FontWeight.BOLD, 30));
 		datosYBotones.add(lblMaderas, 1, 0);
 
-		
-		
+		if (mineCraft.getJugador().materialSeleccionado() == Piedra.class) {
+			Rectangle fondo = new Rectangle(0, 0, 60, 32); // TODO ajustar
+			fondo.setFill(Color.RED);
+			datosYBotones.add(fondo, 0, 1);
+		}
 		imageView = new ImageView();
 		imageView.setImage(new Image("file:src/vista/images/Piedra.png"));
 		datosYBotones.add(imageView, 0, 1);
-		imageView.setOnMouseClicked(new PiedraClickHandler());
+		imageView.setOnMouseClicked(new PiedraClickHandler(mineCraft, this));
 
 		Text lblPiedras = new Text("x" + mineCraft.getJugador().cantidadDePiedra());
 		lblPiedras.setFill(Color.BLACK);
 		lblPiedras.setFont(Font.font("Arial", FontWeight.BOLD, 30));
 		datosYBotones.add(lblPiedras, 1, 1);
 
-		
-		
+		if (mineCraft.getJugador().materialSeleccionado() == Metal.class) {
+			Rectangle fondo = new Rectangle(0, 0, 60, 32); // TODO ajustar
+			fondo.setFill(Color.RED);
+			datosYBotones.add(fondo, 0, 2);
+		}
 		imageView = new ImageView();
 		imageView.setImage(new Image("file:src/vista/images/Metal.png"));
 		datosYBotones.add(imageView, 0, 2);
-		imageView.setOnMouseClicked(new MetalClickHandler());
+		imageView.setOnMouseClicked(new MetalClickHandler(mineCraft, this));
 
 		Text lblMetales = new Text("x" + mineCraft.getJugador().cantidadDeMetal());
 		lblMetales.setFill(Color.BLACK);
 		lblMetales.setFont(Font.font("Arial", FontWeight.BOLD, 30));
 		datosYBotones.add(lblMetales, 1, 2);
 
-		
-		
+		if (mineCraft.getJugador().materialSeleccionado() == Diamante.class) {
+			Rectangle fondo = new Rectangle(0, 0, 60, 32); // TODO ajustar
+			fondo.setFill(Color.RED);
+			datosYBotones.add(fondo, 0, 3);
+		}
 		imageView = new ImageView();
 		imageView.setImage(new Image("file:src/vista/images/Diamante.png"));
 		datosYBotones.add(imageView, 0, 3);
-		imageView.setOnMouseClicked(new DiamanteClickHandler());
-		
+		imageView.setOnMouseClicked(new DiamanteClickHandler(mineCraft, this));
+
 		Text lblDiamantes = new Text("x" + mineCraft.getJugador().cantidadDeDiamante());
 		lblDiamantes.setFill(Color.BLACK);
 		lblDiamantes.setFont(Font.font("Arial", FontWeight.BOLD, 30));
@@ -140,13 +162,29 @@ public class ContenedorPrincipal extends BorderPane {
 	private void ponerFabricadorHerramientas() {
 		FabricadorHerramientas fabricador = mineCraft.getJugador().getFabricadorHerramientas();
 
-		VistaCelda vistaCelda;
-		Material material; // TODO va lo que saque del fabricador
+		Rectangle fondo;
+		ImageView imageView;
+
+		Material material;
 		for (int i = 0; i < 3; i++)
 			for (int j = 0; j < 3; j++) {
-				material = new Madera(); // TODO va lo que saque del fabricador
-				vistaCelda = new VistaCelda(material, datosYBotones, i, j + 5);
-				vistaCelda.dibujar();
+				fondo = new Rectangle(0, 0, 50, 40); // TODO ajustar
+				fondo.setFill(Color.GREEN);
+				datosYBotones.add(fondo, i, j + 5);
+
+				if (fabricador.obtener(i, j).getClass() == MaterialNull.class) {
+					imageView = new ImageView();
+					imageView.setImage(new Image("file:src/vista/images/question.png"));
+					datosYBotones.add(imageView, i, j + 5);
+					imageView.setOnMouseClicked(new FabricadorClickHandler(mineCraft, this, i, j));
+
+				} else {
+					material = fabricador.obtener(i, j);
+					imageView = new ImageView();
+					imageView.setImage(
+							new Image("file:src/vista/images/" + material.getClass().getSimpleName() + ".png"));
+					datosYBotones.add(imageView, i, j + 5);
+				}
 			}
 	}
 
@@ -180,6 +218,11 @@ public class ContenedorPrincipal extends BorderPane {
 		btnAbajo.setOnAction(abajoHandler);
 		this.datosYBotones.add(btnAbajo, 1, 12);
 
+		Button btnConstruir = new Button();
+		btnConstruir.setText("Construir");
+		BotonConstruirHandler construirHandler = new BotonConstruirHandler(mineCraft, this);
+		btnConstruir.setOnAction(construirHandler);
+		this.datosYBotones.add(btnConstruir, 0, 8);
 	}
 
 	private void setBorder(Pane pane) {

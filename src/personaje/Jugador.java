@@ -144,6 +144,10 @@ public class Jugador {
 		return inventarioHerramientas;
 	}
 	
+	public Class<?> materialSeleccionado() {
+		return inventarioMateriales.materialSeleccionado();
+	}
+
 	/*public ArrayList<Material> getMaterialSeleccionado() {
 		return materialSeleccionado;
 	}*/

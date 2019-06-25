@@ -3,21 +3,24 @@ package eventos;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 import juego.MineCraft;
-import materiales.Madera;
 import vista.ContenedorPrincipal;
 
-public class MaderaClickHandler implements EventHandler<MouseEvent> {
+public class FabricadorClickHandler implements EventHandler<MouseEvent> {
 	private MineCraft mineCraft;
 	private ContenedorPrincipal contenedorPrincipal;
+	private int x;
+	private int y;
 
-	public MaderaClickHandler(MineCraft mineCraft, ContenedorPrincipal contenedorPrincipal) {
+	public FabricadorClickHandler(MineCraft mineCraft, ContenedorPrincipal contenedorPrincipal, int x, int y) {
 		this.mineCraft = mineCraft;
 		this.contenedorPrincipal = contenedorPrincipal;
+		this.x = x;
+		this.y = y;
 	}
 
 	@Override
 	public void handle(MouseEvent event) {
-		mineCraft.getJugador().seleccionarMaterial(Madera.class);;
+		mineCraft.getJugador().agregarMaterialSeleccionadoAlFabricador(x, y);
 		contenedorPrincipal.refrescar();
 	}
 }

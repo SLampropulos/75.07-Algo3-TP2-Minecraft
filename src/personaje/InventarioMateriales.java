@@ -29,6 +29,7 @@ public class InventarioMateriales {
             throw new NoHayMaterialException();
         return materiales.get(clase).remove(0);
     }
+    
     public Material quitar() throws NoHayMaterialException {
         if ( materiales.get(materialSeleccionado).size() == 0 )
             throw new NoHayMaterialException();
@@ -62,5 +63,9 @@ public class InventarioMateriales {
 
 	public void seleccionarMaterial(Class<Material> clase) {
         materialSeleccionado = clase;
+	}
+	
+	public Class<Material> materialSeleccionado() {
+		return materialSeleccionado;
 	}
 }

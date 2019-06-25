@@ -48,6 +48,7 @@ public class FabricadorHerramientas {
         if(componentes[columna][fila] != MaterialNull.getInstancia())throw new EspacioOcupadoException();
         componentes[columna][fila] = material;
     }
+    
     public Material obtener(int columna, int fila) {
         return componentes[columna][fila];
     }
