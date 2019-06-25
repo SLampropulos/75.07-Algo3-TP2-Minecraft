@@ -7,6 +7,7 @@ import herramientas.Herramienta;
 import herramientas.PicoMadera;
 import materiales.Madera;
 import materiales.Material;
+import materiales.MaterialNull;
 import materiales.Metal;
 import personaje.FabricadorHerramientas;
 
@@ -84,4 +85,24 @@ public class FabricadorHerramientasTest {
         assertThrows(EspacioOcupadoException.class, ()->{ fabricadorHerramientas.agregar(metal,0,0); });
     }
 
+
+    @Test
+    void fabricadorCreaHerramientaQUedaVacio() throws EspacioOcupadoException, ExceptionFabricacionNoValida {
+        FabricadorHerramientas fabricadorHerramientas = new FabricadorHerramientas();
+        boolean ok = true;
+        fabricadorHerramientas.agregar(new Madera(),0,0);
+        fabricadorHerramientas.agregar(new Madera(),1,0);
+        fabricadorHerramientas.agregar(new Madera(),2,0);
+        fabricadorHerramientas.agregar(new Madera(),1,1);
+        fabricadorHerramientas.agregar(new Madera(),1,2);
+
+        fabricadorHerramientas.fabricar();
+
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                ok &= (MaterialNull.getInstancia() == fabricadorHerramientas.obtener(i,j));
+            }
+        }
+        assertTrue(ok);
+    }
 }
