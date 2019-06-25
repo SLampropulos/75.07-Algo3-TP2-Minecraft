@@ -2,6 +2,7 @@ package vista;
 
 import eventos.BotonAbajoHandler;
 import eventos.BotonArribaHandler;
+import eventos.BotonConstruirHandler;
 import eventos.BotonDerechaHandler;
 import eventos.BotonIzquierdaHandler;
 import eventos.DiamanteClickHandler;
@@ -85,6 +86,10 @@ public class ContenedorPrincipal extends BorderPane {
 		datosYBotones.setHgap(12);
 		datosYBotones.setVgap(12);
 
+		//TODO sacar
+		Text lblH = new Text("#Herramientas: " + mineCraft.getJugador().getInventarioHerramientas().cantidadDeHerramientas());
+		lblH.setFont(Font.font("Arial", FontWeight.BOLD, 16));
+		datosYBotones.add(lblH, 0, 14,3,1);
 	}
 
 	private void ponerMateriales() {
@@ -213,6 +218,11 @@ public class ContenedorPrincipal extends BorderPane {
 		btnAbajo.setOnAction(abajoHandler);
 		this.datosYBotones.add(btnAbajo, 1, 12);
 
+		Button btnConstruir = new Button();
+		btnConstruir.setText("Construir");
+		BotonConstruirHandler construirHandler = new BotonConstruirHandler(mineCraft, this);
+		btnConstruir.setOnAction(construirHandler);
+		this.datosYBotones.add(btnConstruir, 0, 8);
 	}
 
 	private void setBorder(Pane pane) {
