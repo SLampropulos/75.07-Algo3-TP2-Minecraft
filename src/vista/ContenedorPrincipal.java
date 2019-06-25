@@ -4,10 +4,15 @@ import eventos.BotonAbajoHandler;
 import eventos.BotonArribaHandler;
 import eventos.BotonDerechaHandler;
 import eventos.BotonIzquierdaHandler;
+import eventos.DiamanteClickHandler;
+import eventos.MaderaClickHandler;
+import eventos.MetalClickHandler;
+import eventos.PiedraClickHandler;
 import excepciones.GameOverException;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundImage;
 import javafx.scene.layout.BackgroundPosition;
@@ -80,35 +85,56 @@ public class ContenedorPrincipal extends BorderPane {
 
 	private void ponerMateriales() {
 
-		// TODO poner con imagenes
+		// TODO poner con listeners
+		ImageView imageView;
 		
-		VistaCelda vistaMadera = new VistaCelda(new Madera(), datosYBotones, 0, 0);
-		vistaMadera.dibujar();
+		imageView = new ImageView();
+		imageView.setImage(new Image("file:src/vista/images/Madera.png"));
+		datosYBotones.add(imageView, 0, 0);
+//		imageView.setTranslateX(10);
+//		imageView.setTranslateY(0);
+		imageView.setOnMouseClicked(new MaderaClickHandler());
+		
 		Text lblMaderas = new Text("x" + mineCraft.getJugador().cantidadDeMadera());
 		lblMaderas.setFill(Color.BLACK);
 		lblMaderas.setFont(Font.font("Arial", FontWeight.BOLD, 30));
-		this.datosYBotones.add(lblMaderas, 1, 0);
+		datosYBotones.add(lblMaderas, 1, 0);
 
-		VistaCelda vistaPiedra = new VistaCelda(new Piedra(), datosYBotones, 0, 1);
-		vistaPiedra.dibujar();
+		
+		
+		imageView = new ImageView();
+		imageView.setImage(new Image("file:src/vista/images/Piedra.png"));
+		datosYBotones.add(imageView, 0, 1);
+		imageView.setOnMouseClicked(new PiedraClickHandler());
+
 		Text lblPiedras = new Text("x" + mineCraft.getJugador().cantidadDePiedra());
 		lblPiedras.setFill(Color.BLACK);
 		lblPiedras.setFont(Font.font("Arial", FontWeight.BOLD, 30));
-		this.datosYBotones.add(lblPiedras, 1, 1);
+		datosYBotones.add(lblPiedras, 1, 1);
 
-		VistaCelda vistaMetal = new VistaCelda(new Metal(), datosYBotones, 0, 2);
-		vistaMetal.dibujar();
+		
+		
+		imageView = new ImageView();
+		imageView.setImage(new Image("file:src/vista/images/Metal.png"));
+		datosYBotones.add(imageView, 0, 2);
+		imageView.setOnMouseClicked(new MetalClickHandler());
+
 		Text lblMetales = new Text("x" + mineCraft.getJugador().cantidadDeMetal());
 		lblMetales.setFill(Color.BLACK);
 		lblMetales.setFont(Font.font("Arial", FontWeight.BOLD, 30));
-		this.datosYBotones.add(lblMetales, 1, 2);
+		datosYBotones.add(lblMetales, 1, 2);
 
-		VistaCelda vistaDiamante = new VistaCelda(new Diamante(), datosYBotones, 0, 3);
-		vistaDiamante.dibujar();
+		
+		
+		imageView = new ImageView();
+		imageView.setImage(new Image("file:src/vista/images/Diamante.png"));
+		datosYBotones.add(imageView, 0, 3);
+		imageView.setOnMouseClicked(new DiamanteClickHandler());
+		
 		Text lblDiamantes = new Text("x" + mineCraft.getJugador().cantidadDeDiamante());
 		lblDiamantes.setFill(Color.BLACK);
 		lblDiamantes.setFont(Font.font("Arial", FontWeight.BOLD, 30));
-		this.datosYBotones.add(lblDiamantes, 1, 3);
+		datosYBotones.add(lblDiamantes, 1, 3);
 	}
 
 	private void ponerFabricadorHerramientas() {
