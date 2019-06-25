@@ -23,7 +23,7 @@ public class FabricadorHerramientasTest {
     void fabicradorSeIniciaVacio(){
         FabricadorHerramientas fabrHerramientas = new FabricadorHerramientas();
         ArrayList<Material> componentesFabricacion = fabrHerramientas.getMateriales();
-        int cantComponentesFabricacion = 9;
+        int cantComponentesFabricacion = 0;
         assertEquals(cantComponentesFabricacion,componentesFabricacion.size());
     }
 
