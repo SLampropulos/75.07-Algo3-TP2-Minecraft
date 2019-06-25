@@ -1,9 +1,6 @@
 package eventos;
 
-import java.applet.Applet;
-import java.applet.AudioClip;
 import java.io.File;
-import java.net.URL;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.media.Media;
