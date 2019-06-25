@@ -32,12 +32,14 @@ import personaje.FabricadorHerramientas;
 public class ContenedorPrincipal extends BorderPane {
 
 	private MineCraft mineCraft;
+	private Stage stage;
 	VistaMapa vistaMapa;
 	GridPane paneIzquierdo;
 	GridPane datosYBotones;
 
 	public ContenedorPrincipal(MineCraft mineCraft, Stage stage) {
 		this.mineCraft = mineCraft;
+		this.stage = stage;
 		this.paneIzquierdo = new GridPane();
 
 		vistaMapa = new VistaMapa(mineCraft, this, paneIzquierdo);
@@ -163,8 +165,8 @@ public class ContenedorPrincipal extends BorderPane {
 		try {
 			mineCraft.actualizar();
 		} catch (GameOverException e) {
-			// TODO cambiar por pantalla de game over
-			System.exit(0);
+			PantallaGameOver pantallaGameOver = new PantallaGameOver();
+			stage.setScene(new EscenaJuego(pantallaGameOver));
 		}
 		this.setPanelIzquierdo();
 		this.setPanelDerecho();
