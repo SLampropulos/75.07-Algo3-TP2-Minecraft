@@ -9,8 +9,10 @@ import excepciones.NoHayMaterialException;
 
 public class InventarioMateriales {
 
-    private HashMap<Class, ArrayList<Material>> materiales;
-    private Class materialSeleccionado;
+    @SuppressWarnings("rawtypes")
+	private HashMap<Class, ArrayList<Material>> materiales;
+    @SuppressWarnings("rawtypes")
+	private Class materialSeleccionado;
 
     public InventarioMateriales() {
         materiales = new HashMap<>();
@@ -65,6 +67,7 @@ public class InventarioMateriales {
         materialSeleccionado = clase;
 	}
 	
+	@SuppressWarnings("unchecked")
 	public Class<Material> materialSeleccionado() {
 		return materialSeleccionado;
 	}

@@ -2,6 +2,7 @@ package vista;
 
 import eventos.*;
 import excepciones.GameOverException;
+import javafx.geometry.HPos;
 import javafx.geometry.Pos;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -80,9 +81,9 @@ public class ContenedorPrincipal extends BorderPane {
 
 		ponerBotones();
 
-		paneDerecho.setGridLinesVisible(true); // TODO sacar
-		paneDerecho.setHgap(12);
-		paneDerecho.setVgap(12);
+//		paneDerecho.setGridLinesVisible(true);
+		paneDerecho.setHgap(6);
+		paneDerecho.setVgap(8);
 
 	}
 
@@ -103,17 +104,15 @@ public class ContenedorPrincipal extends BorderPane {
 
 	private void ponerMateriales() {
 		ImageView imageView;
+		Rectangle fondo = new Rectangle(0, 0, 52, 36);
+		fondo.setFill(Color.RED);
 
-		if (mineCraft.getJugador().materialSeleccionado() == Madera.class) {
-			Rectangle fondo = new Rectangle(0, 0, 60, 32); // TODO ajustar
-			fondo.setFill(Color.RED);
+		if (mineCraft.getJugador().materialSeleccionado() == Madera.class)
 			paneDerecho.add(fondo, 0, 0);
-		}
 		imageView = new ImageView();
 		imageView.setImage(new Image("file:src/vista/images/Madera.png"));
 		paneDerecho.add(imageView, 0, 0);
-//		imageView.setTranslateX(10);
-//		imageView.setTranslateY(0);
+		GridPane.setHalignment(imageView, HPos.CENTER);
 		imageView.setOnMouseClicked(new MaderaClickHandler(mineCraft, this));
 
 		Text lblMaderas = new Text("x" + mineCraft.getJugador().cantidadDeMadera());
@@ -121,14 +120,12 @@ public class ContenedorPrincipal extends BorderPane {
 		lblMaderas.setFont(Font.font("Arial", FontWeight.BOLD, 30));
 		paneDerecho.add(lblMaderas, 1, 0);
 
-		if (mineCraft.getJugador().materialSeleccionado() == Piedra.class) {
-			Rectangle fondo = new Rectangle(0, 0, 60, 32); // TODO ajustar
-			fondo.setFill(Color.RED);
+		if (mineCraft.getJugador().materialSeleccionado() == Piedra.class)
 			paneDerecho.add(fondo, 0, 1);
-		}
 		imageView = new ImageView();
 		imageView.setImage(new Image("file:src/vista/images/Piedra.png"));
 		paneDerecho.add(imageView, 0, 1);
+		GridPane.setHalignment(imageView, HPos.CENTER);
 		imageView.setOnMouseClicked(new PiedraClickHandler(mineCraft, this));
 
 		Text lblPiedras = new Text("x" + mineCraft.getJugador().cantidadDePiedra());
@@ -136,14 +133,12 @@ public class ContenedorPrincipal extends BorderPane {
 		lblPiedras.setFont(Font.font("Arial", FontWeight.BOLD, 30));
 		paneDerecho.add(lblPiedras, 1, 1);
 
-		if (mineCraft.getJugador().materialSeleccionado() == Metal.class) {
-			Rectangle fondo = new Rectangle(0, 0, 60, 32); // TODO ajustar
-			fondo.setFill(Color.RED);
+		if (mineCraft.getJugador().materialSeleccionado() == Metal.class)
 			paneDerecho.add(fondo, 0, 2);
-		}
 		imageView = new ImageView();
 		imageView.setImage(new Image("file:src/vista/images/Metal.png"));
 		paneDerecho.add(imageView, 0, 2);
+		GridPane.setHalignment(imageView, HPos.CENTER);
 		imageView.setOnMouseClicked(new MetalClickHandler(mineCraft, this));
 
 		Text lblMetales = new Text("x" + mineCraft.getJugador().cantidadDeMetal());
@@ -151,20 +146,21 @@ public class ContenedorPrincipal extends BorderPane {
 		lblMetales.setFont(Font.font("Arial", FontWeight.BOLD, 30));
 		paneDerecho.add(lblMetales, 1, 2);
 
-		if (mineCraft.getJugador().materialSeleccionado() == Diamante.class) {
-			Rectangle fondo = new Rectangle(0, 0, 60, 32); // TODO ajustar
-			fondo.setFill(Color.RED);
+		if (mineCraft.getJugador().materialSeleccionado() == Diamante.class)
 			paneDerecho.add(fondo, 0, 3);
-		}
 		imageView = new ImageView();
 		imageView.setImage(new Image("file:src/vista/images/Diamante.png"));
 		paneDerecho.add(imageView, 0, 3);
+		GridPane.setHalignment(imageView, HPos.CENTER);
 		imageView.setOnMouseClicked(new DiamanteClickHandler(mineCraft, this));
 
 		Text lblDiamantes = new Text("x" + mineCraft.getJugador().cantidadDeDiamante());
 		lblDiamantes.setFill(Color.BLACK);
 		lblDiamantes.setFont(Font.font("Arial", FontWeight.BOLD, 30));
 		paneDerecho.add(lblDiamantes, 1, 3);
+
+		
+		GridPane.setHalignment(fondo, HPos.CENTER);
 	}
 
 	private void ponerFabricadorHerramientas() {
@@ -176,54 +172,64 @@ public class ContenedorPrincipal extends BorderPane {
 		Material material;
 		for (int i = 0; i < 3; i++)
 			for (int j = 0; j < 3; j++) {
-				fondo = new Rectangle(0, 0, 50, 40); // TODO ajustar
+				fondo = new Rectangle(0, 0, 68, 40); // TODO ajustar
 				fondo.setFill(Color.GREEN);
 				paneDerecho.add(fondo, i, j + 5);
+				imageView = new ImageView();
 
 				if (fabricador.obtener(i, j).getClass() == MaterialNull.class) {
-					imageView = new ImageView();
 					imageView.setImage(new Image("file:src/vista/images/question.png"));
 					paneDerecho.add(imageView, i, j + 5);
 					imageView.setOnMouseClicked(new FabricadorClickHandler(mineCraft, this, i, j));
-
 				} else {
 					material = fabricador.obtener(i, j);
-					imageView = new ImageView();
 					imageView.setImage(
 							new Image("file:src/vista/images/" + material.getClass().getSimpleName() + ".png"));
 					paneDerecho.add(imageView, i, j + 5);
 				}
+				GridPane.setHalignment(imageView, HPos.CENTER);
 			}
 	}
 
+	
 	private void ponerBotones() {
+
+		BotonConstruirHandler construirHandler = new BotonConstruirHandler(mineCraft, this);
+		Boton btnConstruir = new Boton(construirHandler);
+		paneDerecho.add(btnConstruir, 0, 8);
+		GridPane.setHalignment(btnConstruir, HPos.CENTER);
+
+
+		BotonCancelarHandler cancelarHandler = new BotonCancelarHandler(mineCraft, this);
+		Boton btnCancelar = new Boton(cancelarHandler);
+		paneDerecho.add(btnCancelar, 2, 8);
+		GridPane.setHalignment(btnCancelar, HPos.CENTER);
+
+		
+		
 		BotonArribaHandler arribaHandler = new BotonArribaHandler(mineCraft.getJugador(), this,
 				vistaMapa.getVistaJugador());
 		Boton btnArriba = new Boton(arribaHandler);
-		this.paneDerecho.add(btnArriba, 1, 10);
+		paneDerecho.add(btnArriba, 1, 14);
+		GridPane.setHalignment(btnArriba, HPos.CENTER);
 
 		BotonIzquierdaHandler izquierdaHandler = new BotonIzquierdaHandler(mineCraft.getJugador(), this,
 				vistaMapa.getVistaJugador());
 		Boton btnIzquierda = new Boton(izquierdaHandler);
-		this.paneDerecho.add(btnIzquierda, 0, 11);
+		paneDerecho.add(btnIzquierda, 0, 15);
+		GridPane.setHalignment(btnIzquierda, HPos.CENTER);
 
 		BotonDerechaHandler derechaHandler = new BotonDerechaHandler(mineCraft.getJugador(), this,
 				vistaMapa.getVistaJugador());
 		Boton btnDerecha = new Boton(derechaHandler);
-		this.paneDerecho.add(btnDerecha, 2, 11);
+		paneDerecho.add(btnDerecha, 2, 15);
+		GridPane.setHalignment(btnDerecha, HPos.CENTER);
 
 		BotonAbajoHandler abajoHandler = new BotonAbajoHandler(mineCraft.getJugador(), this,
 				vistaMapa.getVistaJugador());
 		Boton btnAbajo = new Boton(abajoHandler);
-		this.paneDerecho.add(btnAbajo, 1, 12);
-
-		BotonConstruirHandler construirHandler = new BotonConstruirHandler(mineCraft, this);
-		Boton btnConstruir = new Boton(construirHandler);
-		this.paneDerecho.add(btnConstruir, 0, 8);
-
-		BotonCancelarHandler cancelarHandler = new BotonCancelarHandler(mineCraft, this);
-		Boton btnCancelar = new Boton(cancelarHandler);
-		this.paneDerecho.add(btnCancelar, 2, 8);
+		this.paneDerecho.add(btnAbajo, 1, 16);
+		GridPane.setHalignment(btnAbajo, HPos.CENTER);
 	}
 
 	private void setBorder(Pane pane) {

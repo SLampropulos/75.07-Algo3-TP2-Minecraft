@@ -26,7 +26,8 @@ public class Jugador {
 		this.mapa = mapa;
 	}
 
-	public void seleccionarMaterial(Class clase){ //TODO ver
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	public void seleccionarMaterial(Class clase){
 		inventarioMateriales.seleccionarMaterial(clase);
 	}
 
@@ -71,7 +72,7 @@ public class Jugador {
 		Material material;
 		try {
 			material = inventarioMateriales.quitarSeleccionado();
-		} catch (NoHayMaterialException e) {  //TODO ver
+		} catch (NoHayMaterialException e) {
 			return;
 		} catch (MaterialNoSeleccionadoException e) {
 			return;
@@ -117,7 +118,7 @@ public class Jugador {
 	
 
 	public FabricadorHerramientas getFabricadorHerramientas() {
-		return fabricadorHerramientas;  //TODO ver
+		return fabricadorHerramientas;
 	}
 
 	public InventarioHerramientas getInventarioHerramientas() {

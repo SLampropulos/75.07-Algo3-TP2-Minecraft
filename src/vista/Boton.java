@@ -34,5 +34,4 @@ public class Boton extends Button {
         setText("Cancelar");
         setOnAction(handler);
     }
-
 }

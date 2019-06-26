@@ -1,7 +1,5 @@
 package personajeTest;
 
-import excepciones.MaterialNoSeleccionadoException;
-import herramientas.HachaMadera;
 import herramientas.Herramienta;
 import herramientas.PicoPiedra;
 import materiales.Madera;
@@ -10,8 +8,6 @@ import materiales.MaterialNull;
 import personaje.FabricadorHerramientas;
 import personaje.Jugador;
 import org.junit.jupiter.api.Test;
-
-import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 

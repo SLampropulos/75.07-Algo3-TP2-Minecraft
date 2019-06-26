@@ -4,7 +4,6 @@ import java.lang.reflect.Constructor;
 
 import herramientas.Herramienta;
 import javafx.scene.layout.GridPane;
-import materiales.Material;
 
 public class VistaCeldaHerramienta {
 	private Dibujable dibujable;

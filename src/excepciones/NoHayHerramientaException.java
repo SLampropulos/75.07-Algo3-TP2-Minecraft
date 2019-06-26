@@ -1,8 +1,5 @@
 package excepciones;
 
 public class NoHayHerramientaException extends Exception {
-	
-	public static void main(String[] args) {
-		
-	}
+	private static final long serialVersionUID = 3719946602729498325L;
 }
