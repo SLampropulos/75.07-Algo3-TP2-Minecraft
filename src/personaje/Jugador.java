@@ -54,7 +54,7 @@ public class Jugador {
 		inventarioHerramientas.agregar(herramienta);
 	}
 
-	public void fabricarHerramienta() {
+	public void fabricarHerramienta() throws FabricacionNoValidaException {
 		try {
 			inventarioHerramientas.agregar( fabricadorHerramientas.fabricar() );
 		} catch (FabricacionNoValidaException e) {
