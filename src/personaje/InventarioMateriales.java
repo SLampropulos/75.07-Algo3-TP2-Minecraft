@@ -20,6 +20,7 @@ public class InventarioMateriales {
         materiales.put(Metal.class, new ArrayList<>());
         materiales.put(Piedra.class, new ArrayList<>());
         materiales.put(Diamante.class, new ArrayList<>());
+        materialSeleccionado = Madera.class;
     }
 
     public void agregar(Material material) {
@@ -31,13 +32,13 @@ public class InventarioMateriales {
             throw new NoHayMaterialException();
         return materiales.get(clase).remove(0);
     }
-    
+/*
     public Material quitar() throws NoHayMaterialException {
         if ( materiales.get(materialSeleccionado).size() == 0 )
             throw new NoHayMaterialException();
         return materiales.get(materialSeleccionado).remove(0);
     }
-
+*/
 
     public int cantidadDeMadera() {
         return materiales.get(Madera.class).size();
@@ -55,8 +56,7 @@ public class InventarioMateriales {
         return materiales.get(Diamante.class).size();
     }
 
-	public Material quitarSeleccionado() throws NoHayMaterialException, MaterialNoSeleccionadoException {
-        if(materialSeleccionado == null) throw new MaterialNoSeleccionadoException();
+	public Material quitarSeleccionado() throws NoHayMaterialException{
         if ( materiales.get(materialSeleccionado).size() == 0 )
             throw new NoHayMaterialException();
         Material material = materiales.get(materialSeleccionado).remove(0);

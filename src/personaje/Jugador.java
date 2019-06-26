@@ -74,8 +74,6 @@ public class Jugador {
 			material = inventarioMateriales.quitarSeleccionado();
 		} catch (NoHayMaterialException e) {
 			return;
-		} catch (MaterialNoSeleccionadoException e) {
-			return;
 		}
 		try {
 			fabricadorHerramientas.agregar( material, fila, columna );

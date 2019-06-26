@@ -34,11 +34,11 @@ public class JugadorTest {
 	}
 
 	@Test
-	void jugadorTrataDeAgregarMaterialSinTenerAlgunoSeleccionadoNoPasaNada(){
+	void jugadorTrataDeAgregarMaterialYAgregaMaderaPorDefecto(){
 		Jugador jugador = new Jugador();
 		jugador.agregarMaterial(new Madera());
 		jugador.agregarMaterialSeleccionadoAlFabricador(0,0);
-		assertEquals(1,jugador.cantidadDeMadera());
+		assertEquals(0,jugador.cantidadDeMadera());
 		assertEquals(0,jugador.cantidadDePiedra());
 		assertEquals(0,jugador.cantidadDeMetal());
 		assertEquals(0,jugador.cantidadDeDiamante());
@@ -60,10 +60,9 @@ public class JugadorTest {
 	}
 
 	@Test
-	void jugadorSeCreaTrataDeAgregarMaterialAlFabricadorSinIndicarMaterialTiraExcepcion(){
+	void jugadorSeCreaTrataDeAgregarMaterialAlFabricadorSinTenerMadera(){
 		Jugador jugador = new Jugador();
 		FabricadorHerramientas fabricadorHerramientas = jugador.getFabricadorHerramientas();
-		jugador.agregarMaterial(new Madera());
 		jugador.agregarMaterialSeleccionadoAlFabricador(0,0);
 
 		Material material = fabricadorHerramientas.obtener(0,0);
@@ -98,26 +97,5 @@ public class JugadorTest {
 		assertEquals(3,jugador.cantidadDeMadera());
 	}
 
-	/*@Test
-	void personajeSeleccionaUnMaterial(){
-		Jugador jugador = new Jugador();
-
-		ArrayList<Material> materiales= jugador.getMaterialSeleccionado();
-
-		assertTrue(materiales == null);
-	}*/
-
-	/*@Test
-	void personajeSelecciona(){
-		Jugador jugador = new Jugador();
-		ArrayList<Material> materiales;
-		jugador.agregarMaterial(new Madera());
-		jugador.setMaterialSeleccionado(Madera.class);
-		materiales = jugador.getMaterialSeleccionado();
-		Material material = materiales.get(0);
-
-		assertEquals(material.getClass(),Madera.class);
-		assertEquals(materiales.size(),1);
-	}*/
 
 }

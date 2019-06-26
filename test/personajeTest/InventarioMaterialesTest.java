@@ -60,6 +60,13 @@ public class InventarioMaterialesTest {
     }
 
     @Test
+    void inventarioSeCreaYTieneAMaderaComoDeterminado(){
+        InventarioMateriales inventarioMateriales = new InventarioMateriales();
+
+        assertEquals(Madera.class, inventarioMateriales.materialSeleccionado());
+    }
+
+    @Test
     void inventarioSeAgregaPiedraYAumentaCantidadDePiedra() {
         InventarioMateriales inventario = new InventarioMateriales();
         Material piedra = new Piedra();
