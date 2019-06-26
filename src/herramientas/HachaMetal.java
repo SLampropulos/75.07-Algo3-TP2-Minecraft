@@ -9,8 +9,11 @@ import materiales.Piedra;
 
 public class HachaMetal extends Herramienta {
 
+	static final int DURABILIDAD_HACHA_METAL = 400;
+	static final int FUERZA_HACHA_METAL = 10;
+	
     public HachaMetal() {
-        super(400, 10);
+        super(DURABILIDAD_HACHA_METAL, FUERZA_HACHA_METAL);
         desgastador = new DesgastadorLineal(fuerza,2);
     }
 

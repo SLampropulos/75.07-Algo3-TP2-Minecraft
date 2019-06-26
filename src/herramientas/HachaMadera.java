@@ -8,8 +8,12 @@ import materiales.Piedra;
 
 public class HachaMadera extends Herramienta {
 
+	static final int DURABILIDAD_HACHA_MADERA = 100;
+	static final int FUERZA_HACHA_MADERA = 2;
+	
+	
 	public HachaMadera() {
-		super(100, 2);
+		super(DURABILIDAD_HACHA_MADERA, FUERZA_HACHA_MADERA);
 		desgastador = new DesgastadorLineal(fuerza, 1);
 	}
 

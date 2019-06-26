@@ -9,9 +9,13 @@ import materiales.Piedra;
 
 public class PicoMadera extends Herramienta {
 
+	static final int DURABILIDAD_PICO_MADERA = 100;
+	static final int FUERZA_PICO_MADERA = 2;
+	static final int INDICE_DESGASTE_PICO_MADERA = 1;
+	
     public PicoMadera() {
-        super(100, 2);
-        desgastador = new DesgastadorLineal(fuerza,1);
+        super(DURABILIDAD_PICO_MADERA, FUERZA_PICO_MADERA);
+        desgastador = new DesgastadorLineal(fuerza, INDICE_DESGASTE_PICO_MADERA);
     }
 
 	@Override

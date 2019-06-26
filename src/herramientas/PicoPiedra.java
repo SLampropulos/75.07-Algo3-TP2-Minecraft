@@ -7,9 +7,14 @@ import materiales.Metal;
 import materiales.Piedra;
 
 public class PicoPiedra extends Herramienta {
-    public PicoPiedra() {
-        super(200, 4);
-        desgastador = new DesgastadorLineal(fuerza, (float) 1.5);
+    
+	static final int DURABILIDAD_PICO_PIEDRA = 200;
+	static final int FUERZA_PICO_PIEDRA = 4;
+	static final float INDICE_DESGASTE_PICO_PIEDRA = (float) 1.5;
+	
+	public PicoPiedra() {
+        super(DURABILIDAD_PICO_PIEDRA, FUERZA_PICO_PIEDRA);
+        desgastador = new DesgastadorLineal(fuerza, INDICE_DESGASTE_PICO_PIEDRA);
     }
 
 	@Override

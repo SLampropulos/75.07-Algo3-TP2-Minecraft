@@ -9,9 +9,13 @@ import herramientas.desgastador.DesgastadorPorcentual;
 
 public class PicoFino extends Herramienta {
 
+	static final int DURABILIDAD_PICO_FINO = 1000;
+	static final int FUERZA_PICO_FINO = 20;
+	static final int INDICE_DESGASTE_PICO_FINO = 10;
+	
     public PicoFino() {
-        super(1000, 20);
-        desgastador = new DesgastadorPorcentual(1000, 10);
+        super(DURABILIDAD_PICO_FINO, FUERZA_PICO_FINO);
+        desgastador = new DesgastadorPorcentual(DURABILIDAD_PICO_FINO, INDICE_DESGASTE_PICO_FINO);
     }
 
 	@Override

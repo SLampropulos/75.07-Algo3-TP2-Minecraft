@@ -9,9 +9,13 @@ import materiales.Piedra;
 
 public class PicoMetal extends Herramienta{
 
+	static final int DURABILIDAD_PICO_METAL = 400;
+	static final int FUERZA_PICO_METAL = 12;
+	static final int INDICE_USOS_DESGASTE_PICO_METAL = 10;
+	
     public PicoMetal() {
-        super(400, 12);
-        desgastador = new DesgastadorPorUsos(10, 400);
+        super(DURABILIDAD_PICO_METAL, FUERZA_PICO_METAL);
+        desgastador = new DesgastadorPorUsos(INDICE_USOS_DESGASTE_PICO_METAL, DURABILIDAD_PICO_METAL);
     }
 
 	@Override
