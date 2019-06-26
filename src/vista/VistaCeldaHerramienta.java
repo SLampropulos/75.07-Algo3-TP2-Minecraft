@@ -1,10 +1,10 @@
 package vista;
 
 import java.lang.reflect.Constructor;
-
 import herramientas.Herramienta;
 import javafx.scene.layout.GridPane;
-import materiales.Material;
+
+//TODO sacar vistas herramientas?
 
 public class VistaCeldaHerramienta {
 	private Dibujable dibujable;
