@@ -1,7 +1,7 @@
 package personaje;
 
 import excepciones.EspacioOcupadoException;
-import excepciones.ExceptionFabricacionNoValida;
+import excepciones.FabricacionNoValidaException;
 import excepciones.MaterialNoSeleccionadoException;
 import excepciones.NoHayMaterialException;
 import herramientas.Herramienta;
@@ -57,7 +57,7 @@ public class Jugador {
 	public void fabricarHerramienta() {
 		try {
 			inventarioHerramientas.agregar( fabricadorHerramientas.fabricar() );
-		} catch (ExceptionFabricacionNoValida e) {
+		} catch (FabricacionNoValidaException e) {
 			cancelarFabricacion();
 		}
 	}

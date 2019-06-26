@@ -1,7 +1,7 @@
 package personaje;
 
 import excepciones.EspacioOcupadoException;
-import excepciones.ExceptionFabricacionNoValida;
+import excepciones.FabricacionNoValidaException;
 import herramientas.Herramienta;
 import materiales.Material;
 import materiales.MaterialNull;
@@ -54,7 +54,7 @@ public class FabricadorHerramientas {
         return componentes[columna][fila];
     }
 
-    public Herramienta fabricar() throws ExceptionFabricacionNoValida {
+    public Herramienta fabricar() throws FabricacionNoValidaException {
         for (int i = 0; i < patronesContrucciones.size(); i++){
             PatronConstruccion patronConstruccionActual = patronesContrucciones.get(i);
             if( patronConstruccionActual.comparar(componentes)){
@@ -62,7 +62,7 @@ public class FabricadorHerramientas {
                 return patronConstruccionActual.fabricar();
             }
         }
-        throw new ExceptionFabricacionNoValida();
+        throw new FabricacionNoValidaException();
     }
 
     public Material remover(int columna, int fila) {
