@@ -1,20 +1,8 @@
 package vista;
 
-import eventos.BotonAbajoHandler;
-import eventos.BotonArribaHandler;
-import eventos.BotonCancelarHandler;
-import eventos.BotonConstruirHandler;
-import eventos.BotonDerechaHandler;
-import eventos.BotonIzquierdaHandler;
-import eventos.DiamanteClickHandler;
-import eventos.FabricadorClickHandler;
-import eventos.HerramientaClickHandler;
-import eventos.MaderaClickHandler;
-import eventos.MetalClickHandler;
-import eventos.PiedraClickHandler;
+import eventos.*;
 import excepciones.GameOverException;
 import javafx.geometry.Pos;
-import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Background;
@@ -209,45 +197,32 @@ public class ContenedorPrincipal extends BorderPane {
 	}
 
 	private void ponerBotones() {
-
-		Button btnArriba = new Button();
-		btnArriba.setText("Arriba");
 		BotonArribaHandler arribaHandler = new BotonArribaHandler(mineCraft.getJugador(), this,
 				vistaMapa.getVistaJugador());
-		btnArriba.setOnAction(arribaHandler);
+		Boton btnArriba = new Boton(arribaHandler);
 		this.paneDerecho.add(btnArriba, 1, 10);
 
-		Button btnIzquierda = new Button();
-		btnIzquierda.setText("Izquierda");
 		BotonIzquierdaHandler izquierdaHandler = new BotonIzquierdaHandler(mineCraft.getJugador(), this,
 				vistaMapa.getVistaJugador());
-		btnIzquierda.setOnAction(izquierdaHandler);
+		Boton btnIzquierda = new Boton(izquierdaHandler);
 		this.paneDerecho.add(btnIzquierda, 0, 11);
 
-		Button btnDerecha = new Button();
-		btnDerecha.setText("Derecha");
 		BotonDerechaHandler derechaHandler = new BotonDerechaHandler(mineCraft.getJugador(), this,
 				vistaMapa.getVistaJugador());
-		btnDerecha.setOnAction(derechaHandler);
+		Boton btnDerecha = new Boton(derechaHandler);
 		this.paneDerecho.add(btnDerecha, 2, 11);
 
-		Button btnAbajo = new Button();
-		btnAbajo.setText("Abajo");
 		BotonAbajoHandler abajoHandler = new BotonAbajoHandler(mineCraft.getJugador(), this,
 				vistaMapa.getVistaJugador());
-		btnAbajo.setOnAction(abajoHandler);
+		Boton btnAbajo = new Boton(abajoHandler);
 		this.paneDerecho.add(btnAbajo, 1, 12);
 
-		Button btnConstruir = new Button();
-		btnConstruir.setText("Construir");
 		BotonConstruirHandler construirHandler = new BotonConstruirHandler(mineCraft, this);
-		btnConstruir.setOnAction(construirHandler);
+		Boton btnConstruir = new Boton(construirHandler);
 		this.paneDerecho.add(btnConstruir, 0, 8);
 
-		Button btnCancelar = new Button();
-		btnCancelar.setText("Cancelar");
 		BotonCancelarHandler cancelarHandler = new BotonCancelarHandler(mineCraft, this);
-		btnCancelar.setOnAction(cancelarHandler);
+		Boton btnCancelar = new Boton(cancelarHandler);
 		this.paneDerecho.add(btnCancelar, 2, 8);
 	}
 
@@ -267,4 +242,5 @@ public class ContenedorPrincipal extends BorderPane {
 		setPaneDerecho();
 		setPaneInferior();
 	}
+
 }
