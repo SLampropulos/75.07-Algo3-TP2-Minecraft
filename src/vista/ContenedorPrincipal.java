@@ -91,9 +91,6 @@ public class ContenedorPrincipal extends BorderPane {
 	private void setPaneInferior() {
 		ImageView imageView;
 		InventarioHerramientas inventario = mineCraft.getJugador().getInventarioHerramientas();
-		Rectangle fondo = new Rectangle(0, 0, 52, 36);
-		fondo.setFill(Color.BLUE);
-
 
 		paneInferior.getChildren().clear();
 
