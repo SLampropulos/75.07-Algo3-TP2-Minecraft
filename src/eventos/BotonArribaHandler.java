@@ -26,7 +26,7 @@ public class BotonArribaHandler implements EventHandler<ActionEvent> {
 		jugador.arriba();
 		
 		MediaPlayer mediaPlayer = new MediaPlayer(
-				new Media(new File("src/vista/sounds/SUCTION.WAV").toURI().toString()));
+				new Media(new File("src/vista/sounds/suction.wav").toURI().toString()));
 		mediaPlayer.play();
 
 		vistaJugador.setImagen("file:src/vista/images/JugadorArriba.png");

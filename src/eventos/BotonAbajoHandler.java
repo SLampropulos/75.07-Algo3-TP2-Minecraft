@@ -25,7 +25,7 @@ public class BotonAbajoHandler implements EventHandler<ActionEvent> {
 		jugador.abajo();
 		
 		MediaPlayer mediaPlayer = new MediaPlayer(
-				new Media(new File("src/vista/sounds/SUCTION.WAV").toURI().toString()));
+				new Media(new File("src/vista/sounds/suction.wav").toURI().toString()));
 		mediaPlayer.play();
 		
 		vistaJugador.setImagen("file:src/vista/images/JugadorAbajo.png");

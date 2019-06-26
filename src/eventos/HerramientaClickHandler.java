@@ -24,7 +24,7 @@ public class HerramientaClickHandler implements EventHandler<MouseEvent> {
 	public void handle(MouseEvent event) {
 		mineCraft.getJugador().setEquipable(numeroHerramienta);
 		MediaPlayer mediaPlayer = new MediaPlayer(
-				new Media(new File("src/vista/sounds/COIN.WAV").toURI().toString()));
+				new Media(new File("src/vista/sounds/coin.wav").toURI().toString()));
 		mediaPlayer.play();
 
 		contenedorPrincipal.refrescar();

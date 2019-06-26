@@ -23,7 +23,7 @@ public class BotonCancelarHandler implements EventHandler<ActionEvent> {
 	public void handle(ActionEvent actionEvent) {
 		mineCraft.getJugador().cancelarFabricacion();
 		MediaPlayer mediaPlayer = new MediaPlayer(
-				new Media(new File("src/vista/sounds/MMHMM.WAV").toURI().toString()));
+				new Media(new File("src/vista/sounds/mmhmm.wav").toURI().toString()));
 		mediaPlayer.play();
 		contenedorPrincipal.refrescar();
 	}

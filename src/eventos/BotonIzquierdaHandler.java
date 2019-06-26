@@ -26,7 +26,7 @@ public class BotonIzquierdaHandler implements EventHandler<ActionEvent> {
 		jugador.izquierda();
 		
 		MediaPlayer mediaPlayer = new MediaPlayer(
-				new Media(new File("src/vista/sounds/SUCTION.WAV").toURI().toString()));
+				new Media(new File("src/vista/sounds/suction.wav").toURI().toString()));
 		mediaPlayer.play();
 
 		this.vistaJugador.setImagen("file:src/vista/images/JugadorIzquierda.png");

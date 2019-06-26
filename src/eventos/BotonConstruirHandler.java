@@ -23,7 +23,7 @@ public class BotonConstruirHandler implements EventHandler<ActionEvent> {
 	public void handle(ActionEvent actionEvent) {
 		mineCraft.getJugador().fabricarHerramienta();
 		MediaPlayer mediaPlayer = new MediaPlayer(
-				new Media(new File("src/vista/sounds/CONSTRUIR2.WAV").toURI().toString()));
+				new Media(new File("src/vista/sounds/construir2.wav").toURI().toString()));
 		mediaPlayer.play();
 		contenedorPrincipal.refrescar();
 	}
