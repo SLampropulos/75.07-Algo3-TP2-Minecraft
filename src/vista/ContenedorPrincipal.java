@@ -4,6 +4,7 @@ import eventos.*;
 import excepciones.GameOverException;
 import javafx.geometry.HPos;
 import javafx.geometry.Pos;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Background;
@@ -90,6 +91,9 @@ public class ContenedorPrincipal extends BorderPane {
 	private void setPaneInferior() {
 		ImageView imageView;
 		InventarioHerramientas inventario = mineCraft.getJugador().getInventarioHerramientas();
+		Rectangle fondo = new Rectangle(0, 0, 52, 36);
+		fondo.setFill(Color.BLUE);
+
 
 		paneInferior.getChildren().clear();
 
@@ -97,6 +101,8 @@ public class ContenedorPrincipal extends BorderPane {
 			imageView = new ImageView();
 			imageView.setImage(new Image(
 					"file:src/vista/images/" + inventario.obtenerHerramienta(i).getClass().getSimpleName() + ".png"));
+			if(inventario.obtenerHerramienta(i) == mineCraft.getJugador().getEquipado())
+				imageView.setEffect(new DropShadow(10,Color.BLUE));
 			paneInferior.getChildren().add(imageView);
 			imageView.setOnMouseClicked(new HerramientaClickHandler(mineCraft, this, i));
 		}
