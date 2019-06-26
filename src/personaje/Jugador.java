@@ -2,7 +2,6 @@ package personaje;
 
 import excepciones.EspacioOcupadoException;
 import excepciones.FabricacionNoValidaException;
-import excepciones.MaterialNoSeleccionadoException;
 import excepciones.NoHayMaterialException;
 import herramientas.Herramienta;
 import juego.Mapa;

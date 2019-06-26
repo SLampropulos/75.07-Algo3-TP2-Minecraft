@@ -1,6 +1,5 @@
 package personaje;
 
-import excepciones.MaterialNoSeleccionadoException;
 import materiales.*;
 import java.util.ArrayList;
 import java.util.HashMap;
