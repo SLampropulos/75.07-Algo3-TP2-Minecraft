@@ -12,12 +12,11 @@ public class Aplicacion extends Application {
 
 	@Override
 	public void start(Stage stage) throws Exception {
-
 		stage.setTitle("AlgoMineCraft");
 
 		MineCraft mineCraft = new MineCraft(); // Crea el modelo
 
-		PantallaInicio pantallaInicio = new PantallaInicio(stage, mineCraft, 1160, 680);
+		PantallaInicio pantallaInicio = new PantallaInicio(stage, mineCraft);
 		EscenaJuego escenaInicial = new EscenaJuego(pantallaInicio);
 		stage.setScene(escenaInicial);
 		stage.show();

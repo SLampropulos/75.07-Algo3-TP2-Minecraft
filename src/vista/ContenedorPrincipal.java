@@ -46,10 +46,10 @@ public class ContenedorPrincipal extends BorderPane {
 
 	private MineCraft mineCraft;
 	private Stage stage;
-	VistaMapa vistaMapa;
-	GridPane paneIzquierdo;
-	GridPane paneDerecho;
-	FlowPane paneInferior;
+	private VistaMapa vistaMapa;
+	private GridPane paneIzquierdo;
+	private GridPane paneDerecho;
+	private FlowPane paneInferior;
 
 	public ContenedorPrincipal(MineCraft mineCraft, Stage stage) {
 		this.mineCraft = mineCraft;
