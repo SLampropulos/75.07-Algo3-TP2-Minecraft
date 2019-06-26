@@ -7,8 +7,10 @@ import herramientas.Herramienta;
 
 public class Madera extends Material {
 
+	static final int DURABILIDAD_MADERA = 100;
+	
     public Madera() {
-        super(10);
+        super(DURABILIDAD_MADERA);
     }
 
 	@Override
