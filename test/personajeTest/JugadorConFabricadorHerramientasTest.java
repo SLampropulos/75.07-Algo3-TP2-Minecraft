@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+import excepciones.FabricacionNoValidaException;
 import herramientas.PicoMadera;
 import materiales.Madera;
 import personaje.Jugador;
@@ -11,7 +12,7 @@ import personaje.Jugador;
 class JugadorConFabricadorHerramientasTest {
 
 	@Test
-	void JugadorfabricaUnPicoDeMadera() {
+	void JugadorfabricaUnPicoDeMadera() throws FabricacionNoValidaException {
 		Jugador jugador = new Jugador();
 
 		for (int i = 0; i < 5; i++)
