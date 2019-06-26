@@ -7,10 +7,8 @@ import herramientas.PicoPiedra;
 
 public class Metal extends Material {
 
-	static final int DURABILIDAD_METAL = 50;
-	
     public Metal(){
-        super(DURABILIDAD_METAL);
+        super(50);
     }
 
 	@Override

@@ -5,40 +5,33 @@ import javafx.scene.control.Button;
 
 public class Boton extends Button {
 
-    static final String TEXTO_BOTON_ARRIBA = "Arriba";
-    static final String TEXTO_BOTON_ABAJO = "Abajo";
-    static final String TEXTO_BOTON_IZQUIERDA = "Izquierda";
-    static final String TEXTO_BOTON_DERECHA = "Derecha";
-    static final String TEXTO_BOTON_CONSTRUIR = "Construir";
-    static final String TEXTO_BOTON_CANCELAR = "Cancelar";
-    
     public Boton(BotonArribaHandler handler) {
-        setText(TEXTO_BOTON_ARRIBA);
+        setText("Arriba");
         setOnAction(handler);
     }
 
     public Boton(BotonAbajoHandler handler) {
-        setText(TEXTO_BOTON_ABAJO);
+        setText("Abajo");
         setOnAction(handler);
     }
 
     public Boton(BotonIzquierdaHandler handler) {
-        setText(TEXTO_BOTON_IZQUIERDA);
+        setText("Izquierda");
         setOnAction(handler);
     }
 
     public Boton(BotonDerechaHandler handler) {
-        setText(TEXTO_BOTON_DERECHA);
+        setText("Derecha");
         setOnAction(handler);
     }
 
     public Boton(BotonConstruirHandler handler) {
-        setText(TEXTO_BOTON_CONSTRUIR);
+        setText("Construir");
         setOnAction(handler);
     }
 
     public Boton(BotonCancelarHandler handler) {
-        setText(TEXTO_BOTON_CANCELAR);
+        setText("Cancelar");
         setOnAction(handler);
     }
 

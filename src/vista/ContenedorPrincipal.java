@@ -38,14 +38,6 @@ public class ContenedorPrincipal extends BorderPane {
 	private GridPane paneIzquierdo;
 	private GridPane paneDerecho;
 	private FlowPane paneInferior;
-	
-	static final String DIRECCION_IMAGEN_FONDO_PANEL_DERECHO = "file:src/vista/images/Mono2.jpg";
-	static final String DIRECCION_IMAGEN_MADERA = "file:src/vista/images/Madera.png";
-	static final String DIRECCION_IMAGEN_PIEDRA = "file:src/vista/images/Piedra.png";
-	static final String DIRECCION_IMAGEN_METAL = "file:src/vista/images/Metal.png";
-	static final String DIRECCION_IMAGEN_DIAMANTE = "file:src/vista/images/Diamante.png";
-	static final String DIRECCION_IMAGEN_NO_MATERIAL = "file:src/vista/images/question.png";
-	
 
 	public ContenedorPrincipal(MineCraft mineCraft, Stage stage) {
 		this.mineCraft = mineCraft;
@@ -66,7 +58,7 @@ public class ContenedorPrincipal extends BorderPane {
 		setPaneDerecho();
 		setPaneInferior();
 
-		Image fondo = new Image(DIRECCION_IMAGEN_FONDO_PANEL_DERECHO);
+		Image fondo = new Image("file:src/vista/images/Mono2.jpg");
 		BackgroundImage imagenDeFondo = new BackgroundImage(fondo, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT,
 				BackgroundPosition.DEFAULT, new BackgroundSize(1, 1, true, true, false, false));
 		setBackground(new Background(imagenDeFondo));
@@ -118,7 +110,7 @@ public class ContenedorPrincipal extends BorderPane {
 			paneDerecho.add(fondo, 0, 0);
 		}
 		imageView = new ImageView();
-		imageView.setImage(new Image(DIRECCION_IMAGEN_MADERA));
+		imageView.setImage(new Image("file:src/vista/images/Madera.png"));
 		paneDerecho.add(imageView, 0, 0);
 //		imageView.setTranslateX(10);
 //		imageView.setTranslateY(0);
@@ -135,7 +127,7 @@ public class ContenedorPrincipal extends BorderPane {
 			paneDerecho.add(fondo, 0, 1);
 		}
 		imageView = new ImageView();
-		imageView.setImage(new Image(DIRECCION_IMAGEN_PIEDRA));
+		imageView.setImage(new Image("file:src/vista/images/Piedra.png"));
 		paneDerecho.add(imageView, 0, 1);
 		imageView.setOnMouseClicked(new PiedraClickHandler(mineCraft, this));
 
@@ -150,7 +142,7 @@ public class ContenedorPrincipal extends BorderPane {
 			paneDerecho.add(fondo, 0, 2);
 		}
 		imageView = new ImageView();
-		imageView.setImage(new Image(DIRECCION_IMAGEN_METAL));
+		imageView.setImage(new Image("file:src/vista/images/Metal.png"));
 		paneDerecho.add(imageView, 0, 2);
 		imageView.setOnMouseClicked(new MetalClickHandler(mineCraft, this));
 
@@ -165,7 +157,7 @@ public class ContenedorPrincipal extends BorderPane {
 			paneDerecho.add(fondo, 0, 3);
 		}
 		imageView = new ImageView();
-		imageView.setImage(new Image(DIRECCION_IMAGEN_DIAMANTE));
+		imageView.setImage(new Image("file:src/vista/images/Diamante.png"));
 		paneDerecho.add(imageView, 0, 3);
 		imageView.setOnMouseClicked(new DiamanteClickHandler(mineCraft, this));
 
@@ -190,7 +182,7 @@ public class ContenedorPrincipal extends BorderPane {
 
 				if (fabricador.obtener(i, j).getClass() == MaterialNull.class) {
 					imageView = new ImageView();
-					imageView.setImage(new Image(DIRECCION_IMAGEN_NO_MATERIAL));
+					imageView.setImage(new Image("file:src/vista/images/question.png"));
 					paneDerecho.add(imageView, i, j + 5);
 					imageView.setOnMouseClicked(new FabricadorClickHandler(mineCraft, this, i, j));
 

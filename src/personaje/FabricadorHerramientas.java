@@ -11,12 +11,9 @@ import java.util.ArrayList;
 
 public class FabricadorHerramientas {
 
-    Material componentes[][] = new Material[CANTIDAD_MATERIALES_FILA_PATRON][CANTIDAD_MATERIALES_COLUMNA_PATRON];
+    Material componentes[][] = new Material[3][3];
     ArrayList<PatronConstruccion> patronesContrucciones = new ArrayList<PatronConstruccion>();
 
-    static final int CANTIDAD_MATERIALES_FILA_PATRON = 3;
-    static final int CANTIDAD_MATERIALES_COLUMNA_PATRON = 3;
-    
     public FabricadorHerramientas(){
         this.setComponentes();
         patronesContrucciones.add(new PatronHachaMadera());
@@ -30,8 +27,8 @@ public class FabricadorHerramientas {
     }
 
     private void setComponentes(){
-        for(int i = 0; i < CANTIDAD_MATERIALES_FILA_PATRON; i++){
-            for(int j = 0; j < CANTIDAD_MATERIALES_COLUMNA_PATRON; j++){
+        for(int i=0; i<3; i++){
+            for(int j=0; j<3; j++){
                 componentes[i][j] = MaterialNull.getInstancia();
             }
         }
@@ -39,8 +36,8 @@ public class FabricadorHerramientas {
 
     public ArrayList<Material> getMateriales() {
         ArrayList<Material> listaElementos = new ArrayList<>();
-        for(int i = 0; i < CANTIDAD_MATERIALES_FILA_PATRON;i++) {
-            for (int j = 0; j < CANTIDAD_MATERIALES_COLUMNA_PATRON; j++) {
+        for(int i=0; i<3;i++) {
+            for (int j = 0; j < 3; j++) {
                 if(componentes[i][j] == MaterialNull.getInstancia()) continue;
                 listaElementos.add( remover(i, j) );
             }

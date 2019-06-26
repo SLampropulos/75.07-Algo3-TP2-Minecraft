@@ -5,10 +5,8 @@ import herramientas.PicoFino;
 
 public class Diamante extends Material {
 
-	static final int DURABILIDAD_DIAMANTE = 100;
-	
     public Diamante() {
-        super(DURABILIDAD_DIAMANTE);
+        super(100);
     }
 
 	@Override
