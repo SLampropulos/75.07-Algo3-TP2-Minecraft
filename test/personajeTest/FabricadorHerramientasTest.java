@@ -1,6 +1,7 @@
 package personajeTest;
 
 import excepciones.EspacioOcupadoException;
+import excepciones.ExceptionFabricacionNoValida;
 import excepciones.FabricacionNoValidaException;
 import herramientas.HachaMetal;
 import herramientas.Herramienta;
@@ -39,7 +40,7 @@ public class FabricadorHerramientasTest {
     
     
     @Test
-    void fabricadorCreaUnPicoMadera() throws EspacioOcupadoException, FabricacionNoValidaException {
+    void fabricadorCreaUnPicoMadera() throws EspacioOcupadoException, FabricacionNoValidaException, ExceptionFabricacionNoValida {
         FabricadorHerramientas fabricadorHerramientas = new FabricadorHerramientas();
         Material madera = new Madera();
         for(int i=0; i<3; i++){
