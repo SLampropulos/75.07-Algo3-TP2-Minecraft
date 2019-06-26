@@ -22,6 +22,10 @@ public class VistaMapa {
 	private VistaJugador vistaJugador;
 	private MineCraft mineCraft;
 
+	static final String DIRECCION_IMAGEN_FONDO = "file:src/vista/images/Fondo.png";
+	static final int CANTIDAD_CELDAS_FILA = 16;
+	static final int CANTIDAD_CELDAS_COLUMNA = 24;
+	
 	public VistaMapa(MineCraft mineCraft, ContenedorPrincipal contenedorPrincipal, GridPane pane) {
 		cantFilas = 16;
 		cantColumnas = 24;
@@ -55,8 +59,8 @@ public class VistaMapa {
 	private void actualizarVistaCeldas() {
 		Material material;
 		ArrayList<VistaCelda> nuevas = new ArrayList<>();
-		for (int i = 0; i < 16; i++) {
-			for (int j = 0; j < 24; j++) {
+		for (int i = 0; i < CANTIDAD_CELDAS_FILA; i++) {
+			for (int j = 0; j < CANTIDAD_CELDAS_COLUMNA; j++) {
 				material = grilla[i][j].getMaterial();
 //				if (material.getClass() != MaterialNull.class) //TODO dejar?
 					nuevas.add(new VistaCelda(material, pane, j, i));
@@ -75,7 +79,7 @@ public class VistaMapa {
 //		fondo.setFill(Color.CHARTREUSE.desaturate());
 //		pane.add(fondo, 0, 0, cantColumnas, cantFilas);
 
-		Image image = new Image("file:src/vista/images/Fondo.png");
+		Image image = new Image(DIRECCION_IMAGEN_FONDO);
 		ImageView imageView = new ImageView();
 		imageView.setImage(image);
 		pane.add(imageView, 0, 0, cantColumnas, cantFilas);
