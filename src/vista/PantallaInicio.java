@@ -12,7 +12,7 @@ public class PantallaInicio extends PantallaJuego {
 	
 	public PantallaInicio(Stage stage, MineCraft mineCraft) {
 		super();
-		setBoton(BOTON_INICIO, new InicioDelJuegoHandler(mineCraft, stage, anchoPantalla, altoPantalla));
+		setBoton(BOTON_INICIO, new InicioDelJuegoHandler(mineCraft, stage));
 		setImagenDeFondo(DIRECCION_FONDO_MENU_INICIAL);
 		setMusicaDeFondo(DIRECCION_AUDIO_INICIO);
 	}
