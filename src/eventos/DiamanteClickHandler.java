@@ -6,7 +6,7 @@ import juego.MineCraft;
 import materiales.Diamante;
 import vista.ContenedorPrincipal;
 
-public class DiamanteClickHandler implements EventHandler<MouseEvent> {
+public class DiamanteClickHandler implements EventHandler<MouseEvent>  {
 	private MineCraft mineCraft;
 	private ContenedorPrincipal contenedorPrincipal;
 

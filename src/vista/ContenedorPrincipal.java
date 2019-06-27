@@ -104,7 +104,7 @@ public class ContenedorPrincipal extends BorderPane {
 			imageView.setImage(new Image(
 					"file:src/vista/images/" + inventario.obtenerHerramienta(i).getClass().getSimpleName() + ".png"));
 			if (inventario.obtenerHerramienta(i) == jugador.getEquipado())
-				imageView.setEffect(new DropShadow(10, Color.BLUE));
+				imageView.setEffect(new DropShadow(10, Color.RED));
 			paneInferior.getChildren().add(imageView);
 			imageView.setOnMouseClicked(new HerramientaClickHandler(mineCraft, this, i));
 		}
@@ -132,69 +132,64 @@ public class ContenedorPrincipal extends BorderPane {
 		GridPane.setHalignment(fondo, HPos.CENTER);
 	}
 
+	private ImageView dibujarIconoMaterial(String nombreMaterial, int columna, int fila) {
+		
+		ImageView imageView;
+		imageView = new ImageView();
+
+		imageView.setImage(new Image("file:src/vista/images/" + nombreMaterial + ".png"));
+		paneDerecho.add(imageView, columna, fila);
+		GridPane.setHalignment(imageView, HPos.CENTER);
+
+		return imageView;
+	}
+
 	private void dibujarMaterialesDisponibles() {
+		
 		resaltarMaterialSeleccionado();
 
 		ImageView imageView;
-		imageView = new ImageView();
 
-		imageView.setImage(new Image("file:src/vista/images/Madera.png"));
-		paneDerecho.add(imageView, 0, 0);
-		GridPane.setHalignment(imageView, HPos.CENTER);
+		imageView = dibujarIconoMaterial("Madera", 0, 0);
 		imageView.setOnMouseClicked(new MaderaClickHandler(mineCraft, this));
-
 		etiquetarMaterial(jugador.cantidadDeMadera(), 1, 0);
 
-		imageView = new ImageView();
-		imageView.setImage(new Image("file:src/vista/images/Piedra.png"));
-		paneDerecho.add(imageView, 0, 1);
-		GridPane.setHalignment(imageView, HPos.CENTER);
+		imageView = dibujarIconoMaterial("Piedra", 0, 1);
 		imageView.setOnMouseClicked(new PiedraClickHandler(mineCraft, this));
-
 		etiquetarMaterial(jugador.cantidadDePiedra(), 1, 1);
 
-		imageView = new ImageView();
-		imageView.setImage(new Image("file:src/vista/images/Metal.png"));
-		paneDerecho.add(imageView, 0, 2);
-		GridPane.setHalignment(imageView, HPos.CENTER);
+		imageView = dibujarIconoMaterial("Metal", 0, 2);
 		imageView.setOnMouseClicked(new MetalClickHandler(mineCraft, this));
-
 		etiquetarMaterial(jugador.cantidadDeMetal(), 1, 2);
 
-		imageView = new ImageView();
-		imageView.setImage(new Image("file:src/vista/images/Diamante.png"));
-		paneDerecho.add(imageView, 0, 3);
-		GridPane.setHalignment(imageView, HPos.CENTER);
+		imageView = dibujarIconoMaterial("Diamante", 0, 3);
 		imageView.setOnMouseClicked(new DiamanteClickHandler(mineCraft, this));
-
 		etiquetarMaterial(jugador.cantidadDeDiamante(), 1, 3);
 	}
 
+	private void dibujarFondoFabricador(int columna, int fila) {
+		Rectangle fondo = new Rectangle(0, 0, 68, 40);
+		fondo.setFill(Color.GREEN);
+		paneDerecho.add(fondo, columna, fila);
+	}
+
 	private void dibujarFabricadorHerramientas() {
+		
 		FabricadorHerramientas fabricador = jugador.getFabricadorHerramientas();
 
-		Rectangle fondo;
 		ImageView imageView;
 
 		Material material;
-		for (int i = 0; i < 3; i++)
-			for (int j = 0; j < 3; j++) {
-				fondo = new Rectangle(0, 0, 68, 40); // TODO ajustar
-				fondo.setFill(Color.GREEN);
-				paneDerecho.add(fondo, i, j + 5);
-				imageView = new ImageView();
+		for (int columna = 0; columna < 3; columna++)
+			for (int fila = 0; fila < 3; fila++) {
 
-				if (fabricador.obtener(i, j).getClass() == MaterialNull.class) {
-					imageView.setImage(new Image("file:src/vista/images/question.png"));
-					paneDerecho.add(imageView, i, j + 5);
-					imageView.setOnMouseClicked(new FabricadorClickHandler(mineCraft, this, i, j));
-				} else {
-					material = fabricador.obtener(i, j);
-					imageView.setImage(
-							new Image("file:src/vista/images/" + material.getClass().getSimpleName() + ".png"));
-					paneDerecho.add(imageView, i, j + 5);
+				dibujarFondoFabricador(columna, fila + 5);
+				material = fabricador.obtener(columna, fila);
+				imageView = dibujarIconoMaterial(material.getClass().getSimpleName(), columna, fila + 5);
+
+				if (fabricador.obtener(columna, fila).getClass() == MaterialNull.class) {
+					imageView.setOnMouseClicked(new FabricadorClickHandler(mineCraft, this, columna, fila));
 				}
-				GridPane.setHalignment(imageView, HPos.CENTER);
 			}
 	}
 
