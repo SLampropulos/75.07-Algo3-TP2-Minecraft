@@ -4,13 +4,13 @@ import herramientas.Herramienta;
 
 public abstract class Material{
 
-    protected float durabilidad;
+    protected int durabilidad;
 
-    public Material(float durabilidadDada) {
+    public Material(int durabilidadDada) {
         durabilidad = durabilidadDada;
     }
 
-    public float getDurabilidad() {
+    public int getDurabilidad() {
         return durabilidad;
     }
 
@@ -18,7 +18,7 @@ public abstract class Material{
 
     public void recibirGolpeDe(Herramienta herramienta) {}
 
-    protected void desgastar(float desgaste) {
+    protected void desgastar(int desgaste) {
         durabilidad -= desgaste;
     }
 
