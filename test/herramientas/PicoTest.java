@@ -70,6 +70,6 @@ public class PicoTest {
         PicoFino picoFino = new PicoFino();
         int durabilidad = picoFino.getDurabilidad();
         picoFino.desgastar();
-        assertEquals(durabilidad * 0.1, picoFino.getDurabilidad());
+        assertEquals(durabilidad * 0.9, picoFino.getDurabilidad());
     }
 }
