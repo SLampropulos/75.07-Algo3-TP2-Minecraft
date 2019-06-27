@@ -119,7 +119,7 @@ class MapaTest {
 		Jugador jugador = new Jugador();
 		mapa.setJugador(jugador, 10, 15);
 		jugador.setMapa(mapa);
-		float durabilidadInicial = unaMadera.getDurabilidad();
+		int durabilidadInicial = unaMadera.getDurabilidad();
 		jugador.derecha();
 
 		assertTrue(unaMadera.getDurabilidad() < durabilidadInicial);

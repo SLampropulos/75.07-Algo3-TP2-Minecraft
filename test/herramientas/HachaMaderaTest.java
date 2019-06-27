@@ -12,7 +12,7 @@ import materiales.Piedra;
 
 class HachaMaderaTest {
 
-	float durabilidadEsperada = 100 - 2; // para inicial = 100 y DesgastadorLineal Fuerza = 2
+	int durabilidadEsperada = 100 - 2; // para inicial = 100 y DesgastadorLineal Fuerza = 2
 
 	@Test
 	public void HachaDeMaderaGolpeaMaderaYSeDesgastaElHacha() {

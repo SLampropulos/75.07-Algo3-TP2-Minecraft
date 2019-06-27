@@ -13,7 +13,7 @@ public class PiedraTest {
     @Test
     public void piedraEsGolpeadaPorHachaDePiedraYNoSeReduceSuDurabilidad() {
         Material piedra = new Piedra();
-        float durabilidad = piedra.getDurabilidad();
+        int durabilidad = piedra.getDurabilidad();
         HachaPiedra hacha = new HachaPiedra();
 
         piedra.desgastarCon(hacha);
@@ -24,7 +24,7 @@ public class PiedraTest {
     @Test
     public void piedraEsGolpeadaPorHachaDeMaderaYNoSeReduceSuDurabilidad() {
         Material piedra = new Piedra();
-        float durabilidad = piedra.getDurabilidad();
+        int durabilidad = piedra.getDurabilidad();
         HachaMadera hacha = new HachaMadera();
 
         piedra.desgastarCon(hacha);
@@ -35,7 +35,7 @@ public class PiedraTest {
     @Test
     public void piedraEsGolpeadaPorHachaDeMetalYNoSeReduceSuDurabilidad() {
         Material piedra = new Piedra();
-        float durabilidad = piedra.getDurabilidad();
+        int durabilidad = piedra.getDurabilidad();
         HachaMetal hacha = new HachaMetal();
 
         piedra.desgastarCon(hacha);
@@ -46,7 +46,7 @@ public class PiedraTest {
     @Test
     public void piedraEsGolepadaPorPicoMadera(){
         Material piedra = new Piedra();
-        float durabilidad = piedra.getDurabilidad();
+        int durabilidad = piedra.getDurabilidad();
         PicoMadera picoMadera = new PicoMadera();
 
         piedra.desgastarCon(picoMadera);
@@ -58,7 +58,7 @@ public class PiedraTest {
     @Test
     public void piedraEsGolepadaPorPicoPiedra(){
         Material piedra = new Piedra();
-        float durabilidad = piedra.getDurabilidad();
+        int durabilidad = piedra.getDurabilidad();
         PicoPiedra pico = new PicoPiedra();
 
         piedra.desgastarCon(pico);
@@ -68,7 +68,7 @@ public class PiedraTest {
     @Test
     public void piedraEsGolepadaPorPicoMetal(){
         Material piedra = new Piedra();
-        float durabilidad = piedra.getDurabilidad();
+        int durabilidad = piedra.getDurabilidad();
         PicoMetal pico = new PicoMetal();
 
         piedra.desgastarCon(pico);
@@ -78,7 +78,7 @@ public class PiedraTest {
     @Test
     public void piedraEsGolepadaPorPicoFino(){
         Material piedra = new Piedra();
-        float durabilidad = piedra.getDurabilidad();
+        int durabilidad = piedra.getDurabilidad();
         PicoFino pico = new PicoFino();
 
         piedra.desgastarCon(pico);
