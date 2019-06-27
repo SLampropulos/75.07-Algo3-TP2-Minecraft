@@ -22,7 +22,7 @@ public class Mapa {
 		}
 	}
 
-	public void agregar(Material material, int fila, int columna) { // TODO excepcion si ocupado
+	public void agregar(Material material, int fila, int columna) {
 		celdas[fila][columna].agregar(material);
 	}
 
@@ -30,7 +30,7 @@ public class Mapa {
 		return celdas[fila][columna].getMaterial();
 	}
 
-	public boolean estaVacio(int fila, int columna) { // TODO contemplar jugador
+	public boolean estaVacio(int fila, int columna) {
 		return celdas[fila][columna].estaVacia();
 	}
 

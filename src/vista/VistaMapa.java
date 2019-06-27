@@ -58,22 +58,18 @@ public class VistaMapa {
 		for (int i = 0; i < 16; i++) {
 			for (int j = 0; j < 24; j++) {
 				material = grilla[i][j].getMaterial();
-//				if (material.getClass() != MaterialNull.class) //TODO dejar?
 					nuevas.add(new VistaCelda(material, pane, j, i));
 			}
 		}
 		this.vistaCeldas = nuevas;
 	}
-
+	
 	private void limpiar() {
 		pane.getChildren().clear();
-		for (int x = 0; x < cantColumnas; x++)  //TODO fijar sin estos inventos
+		for (int x = 0; x < cantColumnas; x++)  //para fijar espaciado
 			pane.add(new Rectangle(0, 0, anchoCelda, altoCelda), x, 0);
-		for (int y = 0; y < cantFilas; y++)
+		for (int y = 0; y < cantFilas; y++) //para fijar espaciado
 			pane.add(new Rectangle(0, 0, anchoCelda, altoCelda), 0, y);
-//		Rectangle fondo = new Rectangle(0, 0, cantColumnas * anchoCelda, cantFilas * altoCelda);
-//		fondo.setFill(Color.CHARTREUSE.desaturate());
-//		pane.add(fondo, 0, 0, cantColumnas, cantFilas);
 
 		Image image = new Image("file:src/vista/images/Fondo.png");
 		ImageView imageView = new ImageView();
