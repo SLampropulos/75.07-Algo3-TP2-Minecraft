@@ -17,7 +17,7 @@ public class DesgastadoPorUsosTest {
     @Test
     void desgastadorPorUsosSeAlcanzaLimiteDeUsosYSuDurabilidadEsCero(){
         DesgastadorPorUsos desgastadorPorUsos = new DesgastadorPorUsos(3,5);
-        float desgastado = 0;
+        int desgastado = 0;
         for (int i=0; i < 4; i++){
             desgastado = desgastadorPorUsos.calcularDesgaste();
         }

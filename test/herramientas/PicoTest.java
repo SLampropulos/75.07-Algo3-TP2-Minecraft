@@ -8,8 +8,8 @@ public class PicoTest {
     @Test
     void seCreaUnPicoDeMaderaCorrectamente(){
         PicoMadera picoMadera = new PicoMadera();
-        float durabilidad = picoMadera.getDurabilidad();
-        float fuerza = picoMadera.getFuerza();
+        int durabilidad = picoMadera.getDurabilidad();
+        int fuerza = picoMadera.getFuerza();
         assertEquals(100,durabilidad);
         assertEquals(2,fuerza);
     }
@@ -17,7 +17,7 @@ public class PicoTest {
     @Test
     void seCreaUnPicoDeMaderaYDesgastaCorrectamente(){
         PicoMadera picoMadera = new PicoMadera();
-        float durabilidad = picoMadera.getDurabilidad();
+        int durabilidad = picoMadera.getDurabilidad();
         picoMadera.desgastar();
         assertEquals(durabilidad-2, picoMadera.getDurabilidad());
     }
@@ -25,8 +25,8 @@ public class PicoTest {
     @Test
     void seCreaUnPicoDePiedraCorrectamente(){
         PicoPiedra picoPiedra = new PicoPiedra();
-        float durabilidad = picoPiedra.getDurabilidad();
-        float fuerza = picoPiedra.getFuerza();
+        int durabilidad = picoPiedra.getDurabilidad();
+        int fuerza = picoPiedra.getFuerza();
         assertEquals(200,durabilidad);
         assertEquals(4,fuerza);
     }
@@ -34,16 +34,16 @@ public class PicoTest {
     @Test
     void seCreaUnPicoDePiedraYDesgastaCorrectamente(){
         PicoPiedra picoPiedra = new PicoPiedra();
-        float durabilidad = picoPiedra.getDurabilidad();
+        int durabilidad = picoPiedra.getDurabilidad();
         picoPiedra.desgastar();
-        assertEquals(durabilidad - (float) (4/1.5), picoPiedra.getDurabilidad());
+        assertEquals(durabilidad - 2/*(float) (4/1.5)*/, picoPiedra.getDurabilidad());
     }
 
     @Test
     void seCreaUnPicoDeMetalCorrectamente(){
         PicoMetal picoMetal = new PicoMetal();
-        float durabilidad = picoMetal.getDurabilidad();
-        float fuerza = picoMetal.getFuerza();
+        int durabilidad = picoMetal.getDurabilidad();
+        int fuerza = picoMetal.getFuerza();
         assertEquals(400,durabilidad);
         assertEquals(12,fuerza);
     }
@@ -51,7 +51,7 @@ public class PicoTest {
     @Test
     void seCreaUnPicoDeMetalSeUsaYNoCambiaDurabilidad(){
         PicoMetal picoMetal = new PicoMetal();
-        float durabilidad = picoMetal.getDurabilidad();
+        int durabilidad = picoMetal.getDurabilidad();
         picoMetal.desgastar();
         assertEquals(durabilidad, picoMetal.getDurabilidad());
     }
@@ -59,8 +59,8 @@ public class PicoTest {
     @Test
     void seCreaUnPicoFinoCorrectamnete(){
         PicoFino picoFino = new PicoFino();
-        float durabilidad = picoFino.getDurabilidad();
-        float fuerza = picoFino.getFuerza();
+        int durabilidad = picoFino.getDurabilidad();
+        int fuerza = picoFino.getFuerza();
         assertEquals(1000,durabilidad);
         assertEquals(20,fuerza);
     }
@@ -68,8 +68,8 @@ public class PicoTest {
     @Test
     void seCreaPicoFinoYSedesgastaCorrectamente(){
         PicoFino picoFino = new PicoFino();
-        float durabilidad = picoFino.getDurabilidad();
+        int durabilidad = picoFino.getDurabilidad();
         picoFino.desgastar();
-        assertEquals(durabilidad - (durabilidad/10), picoFino.getDurabilidad());
+        assertEquals(durabilidad * 0.1, picoFino.getDurabilidad());
     }
 }

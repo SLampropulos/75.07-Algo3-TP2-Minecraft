@@ -26,9 +26,9 @@ public class JugadorTest {
 		Herramienta herramienta = jugador.getEquipado(); 
 		Material madera = new Madera();
 
-		float durabilidadAnterior = madera.getDurabilidad();
+		int durabilidadAnterior = madera.getDurabilidad();
 		madera.desgastarCon(herramienta);
-		float durabilidadPosterior = madera.getDurabilidad();
+		int durabilidadPosterior = madera.getDurabilidad();
 
 		assertTrue(durabilidadPosterior < durabilidadAnterior);
 	}
