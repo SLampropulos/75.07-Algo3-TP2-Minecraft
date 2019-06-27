@@ -2,15 +2,15 @@ package herramientas.desgastador;
 
 public class DesgastadorLineal implements Desgastador {
 
-    private int desgaste;
+    private float desgaste;
 
-    public DesgastadorLineal(int fuerza, float indice) {
-        desgaste = (int) (fuerza / indice);
+    public DesgastadorLineal(float fuerza, float i) {
+        desgaste = fuerza / i;
     }
 
 
     @Override
-    public int calcularDesgaste() {
+    public float calcularDesgaste() {
         return desgaste;
     }
 

@@ -12,7 +12,7 @@ import materiales.Piedra;
 
 class PicoMaderaTest {
 
-	int durabilidadEsperada=98; //para inicial = 100 y DesgastadorLineal  Fuerza = 2
+	float durabilidadEsperada=98; //para inicial = 100 y DesgastadorLineal  Fuerza = 2
 	
     @Test
     public void PicoDeMaderaGolpeaMaderaYSeDesgastaElPico() {

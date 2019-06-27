@@ -5,18 +5,18 @@ import materiales.*;
 
 public abstract class Herramienta {
 
-    protected int durabilidad;
-    protected int fuerza;
+    protected float durabilidad;
+    protected float fuerza;
     protected Desgastador desgastador;
 
-    public Herramienta(int durabilidadDada, int fuerzaDada){
+    public Herramienta(float durabilidadDada, float fuerzaDada){
         durabilidad = durabilidadDada;
         fuerza = fuerzaDada;
     }
 
-    public int getDurabilidad(){return durabilidad;}
+    public float getDurabilidad(){return durabilidad;}
     
-    public int getFuerza(){return fuerza;}
+    public float getFuerza(){return fuerza;}
 
     public void desgastar() {
         durabilidad -= desgastador.calcularDesgaste();

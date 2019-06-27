@@ -12,7 +12,7 @@ import materiales.Piedra;
 
 class PicoMetalTest {
 
-	int durabilidadEsperada = 400; // no disminuye la durabilidad pero se rompe al 12
+	float durabilidadEsperada = 400; // no disminuye la durabilidad pero se rompe al 12
 
 	@Test
 	public void PicoDeMetalGolpeaMaderaYSeDesgastaElPico() {

@@ -4,10 +4,9 @@ import herramientas.Herramienta;
 
 public class MaterialNull extends Material {
     private static MaterialNull primeraInstancia = null;
-    static final int DURABILIDAD_PERMANENTE = 999999;
-    
+
     private MaterialNull() {
-        super(DURABILIDAD_PERMANENTE);
+        super(999999);
     }
 
     public static MaterialNull getInstancia(){

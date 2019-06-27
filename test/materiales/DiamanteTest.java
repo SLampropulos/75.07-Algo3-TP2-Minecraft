@@ -16,7 +16,7 @@ public class DiamanteTest {
     @Test
     public void diamanteSeCreaCorrectamnete(){
         Material diamante = new Diamante();
-        int durabiliadad = diamante.getDurabilidad();
+        float durabiliadad = diamante.getDurabilidad();
 
         assertEquals(100,durabiliadad);
     }
@@ -24,7 +24,7 @@ public class DiamanteTest {
     @Test
     public void diamanteEsGolpeadoPorHachaPiedraYNoSeReduceSuDurabilidad() {
         Material diamante = new Diamante();
-        int durabilidad = diamante.getDurabilidad();
+        float durabilidad = diamante.getDurabilidad();
         Herramienta hacha = new HachaPiedra();
 
         diamante.desgastarCon(hacha);
@@ -34,7 +34,7 @@ public class DiamanteTest {
 
     @Test void diamanteEsGolpeadoPorUnPicoFino(){
         Material diamante = new Diamante();
-        int durabilidad = diamante.getDurabilidad();
+        float durabilidad = diamante.getDurabilidad();
         Herramienta picoFino = new PicoFino();
 
         diamante.desgastarCon(picoFino);
@@ -43,7 +43,7 @@ public class DiamanteTest {
 
     @Test void diamanteEsGolpeadoPorUnPicoPiedraNoPasaNada(){
         Material diamante = new Diamante();
-        int durabilidad = diamante.getDurabilidad();
+        float durabilidad = diamante.getDurabilidad();
         Herramienta picoPiedra = new PicoPiedra();
 
         diamante.desgastarCon(picoPiedra);

@@ -14,7 +14,6 @@ class PicoFinoTest {
 
 	float durabilidadEsperada1 = (float) (1000 * .9); // para inicial = 1000 y DesgastadorPorcentual
 	float durabilidadEsperada2 = (float) (1000 * .9 *.9);
-	float durabilidadEsperada3 = (float) (1000 * .9 * .9 * .9);
 
 	@Test
 	public void PicoFinoGolpeaMaderaYSeDesgastaElPico() {
@@ -26,10 +25,6 @@ class PicoFinoTest {
 
 		Pico.golpear(madera);
 		assertEquals(durabilidadEsperada2, Pico.getDurabilidad());
-		
-		Pico.golpear(madera);
-		assertEquals(durabilidadEsperada3, Pico.getDurabilidad());
-		
 }
 
 	@Test
