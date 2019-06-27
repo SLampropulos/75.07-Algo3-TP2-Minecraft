@@ -31,13 +31,6 @@ public class InventarioMateriales {
             throw new NoHayMaterialException();
         return materiales.get(clase).remove(0);
     }
-/*
-    public Material quitar() throws NoHayMaterialException {
-        if ( materiales.get(materialSeleccionado).size() == 0 )
-            throw new NoHayMaterialException();
-        return materiales.get(materialSeleccionado).remove(0);
-    }
-*/
 
     public int cantidadDeMadera() {
         return materiales.get(Madera.class).size();
@@ -56,10 +49,7 @@ public class InventarioMateriales {
     }
 
 	public Material quitarSeleccionado() throws NoHayMaterialException{
-        if ( materiales.get(materialSeleccionado).size() == 0 )
-            throw new NoHayMaterialException();
-        Material material = materiales.get(materialSeleccionado).remove(0);
-        return material;
+        return quitar(materialSeleccionado);
 	}
 
 	public void seleccionarMaterial(Class<Material> clase) {
