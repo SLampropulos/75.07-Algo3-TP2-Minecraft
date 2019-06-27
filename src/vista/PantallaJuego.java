@@ -36,7 +36,7 @@ abstract class PantallaJuego extends StackPane {
     
     	Media musica = new Media(url.toString());
     	MediaPlayer clip = new MediaPlayer(musica);
-    	clip.setCycleCount(clip.INDEFINITE);
+    	clip.setCycleCount(MediaPlayer.INDEFINITE);
     	clip.play();
     }
 }
