@@ -87,6 +87,8 @@ public class ContenedorPrincipal extends BorderPane {
 
 		dibujarBotones();
 
+		dibujarHerramientaActual();
+
 //		paneDerecho.setGridLinesVisible(true);
 		paneDerecho.setHgap(6);
 		paneDerecho.setVgap(8);
@@ -122,18 +124,18 @@ public class ContenedorPrincipal extends BorderPane {
 		fondo.setFill(Color.RED);
 
 		if (jugador.materialSeleccionado() == Madera.class)
-			paneDerecho.add(fondo, 0, 0);
+			paneDerecho.add(fondo, 0, 4);
 		if (jugador.materialSeleccionado() == Piedra.class)
-			paneDerecho.add(fondo, 0, 1);
+			paneDerecho.add(fondo, 0, 5);
 		if (jugador.materialSeleccionado() == Metal.class)
-			paneDerecho.add(fondo, 0, 2);
+			paneDerecho.add(fondo, 0, 6);
 		if (jugador.materialSeleccionado() == Diamante.class)
-			paneDerecho.add(fondo, 0, 3);
+			paneDerecho.add(fondo, 0, 7);
 		GridPane.setHalignment(fondo, HPos.CENTER);
 	}
 
 	private ImageView dibujarIconoMaterial(String nombreMaterial, int columna, int fila) {
-		
+
 		ImageView imageView;
 		imageView = new ImageView();
 
@@ -145,26 +147,26 @@ public class ContenedorPrincipal extends BorderPane {
 	}
 
 	private void dibujarMaterialesDisponibles() {
-		
+
 		resaltarMaterialSeleccionado();
 
 		ImageView imageView;
 
-		imageView = dibujarIconoMaterial("Madera", 0, 0);
+		imageView = dibujarIconoMaterial("Madera", 0, 4);
 		imageView.setOnMouseClicked(new MaderaClickHandler(mineCraft, this));
-		etiquetarMaterial(jugador.cantidadDeMadera(), 1, 0);
+		etiquetarMaterial(jugador.cantidadDeMadera(), 1, 4);
 
-		imageView = dibujarIconoMaterial("Piedra", 0, 1);
+		imageView = dibujarIconoMaterial("Piedra", 0, 5);
 		imageView.setOnMouseClicked(new PiedraClickHandler(mineCraft, this));
-		etiquetarMaterial(jugador.cantidadDePiedra(), 1, 1);
+		etiquetarMaterial(jugador.cantidadDePiedra(), 1, 5);
 
-		imageView = dibujarIconoMaterial("Metal", 0, 2);
+		imageView = dibujarIconoMaterial("Metal", 0, 6);
 		imageView.setOnMouseClicked(new MetalClickHandler(mineCraft, this));
-		etiquetarMaterial(jugador.cantidadDeMetal(), 1, 2);
+		etiquetarMaterial(jugador.cantidadDeMetal(), 1, 6);
 
-		imageView = dibujarIconoMaterial("Diamante", 0, 3);
+		imageView = dibujarIconoMaterial("Diamante", 0, 7);
 		imageView.setOnMouseClicked(new DiamanteClickHandler(mineCraft, this));
-		etiquetarMaterial(jugador.cantidadDeDiamante(), 1, 3);
+		etiquetarMaterial(jugador.cantidadDeDiamante(), 1, 7);
 	}
 
 	private void dibujarFondoFabricador(int columna, int fila) {
@@ -174,7 +176,7 @@ public class ContenedorPrincipal extends BorderPane {
 	}
 
 	private void dibujarFabricadorHerramientas() {
-		
+
 		FabricadorHerramientas fabricador = jugador.getFabricadorHerramientas();
 
 		ImageView imageView;
@@ -183,9 +185,9 @@ public class ContenedorPrincipal extends BorderPane {
 		for (int columna = 0; columna < 3; columna++)
 			for (int fila = 0; fila < 3; fila++) {
 
-				dibujarFondoFabricador(columna, fila + 5);
+				dibujarFondoFabricador(columna, fila + 9);
 				material = fabricador.obtener(columna, fila);
-				imageView = dibujarIconoMaterial(material.getClass().getSimpleName(), columna, fila + 5);
+				imageView = dibujarIconoMaterial(material.getClass().getSimpleName(), columna, fila + 9);
 
 				if (fabricador.obtener(columna, fila).getClass() == MaterialNull.class) {
 					imageView.setOnMouseClicked(new FabricadorClickHandler(mineCraft, this, columna, fila));
@@ -196,22 +198,38 @@ public class ContenedorPrincipal extends BorderPane {
 	private void dibujarBotones() {
 
 		BotonConstruirHandler construirHandler = new BotonConstruirHandler(mineCraft, this);
-		new Boton(construirHandler, paneDerecho, 0, 8);
+		new Boton(construirHandler, paneDerecho, 0, 12);
 
 		BotonCancelarHandler cancelarHandler = new BotonCancelarHandler(mineCraft, this);
-		new Boton(cancelarHandler, paneDerecho, 2, 8);
+		new Boton(cancelarHandler, paneDerecho, 2, 12);
 
 		BotonArribaHandler arribaHandler = new BotonArribaHandler(jugador, this, vistaMapa.getVistaJugador());
-		new Boton(arribaHandler, paneDerecho, 1, 14);
+		new Boton(arribaHandler, paneDerecho, 1, 18);
 
 		BotonIzquierdaHandler izquierdaHandler = new BotonIzquierdaHandler(jugador, this, vistaMapa.getVistaJugador());
-		new Boton(izquierdaHandler, paneDerecho, 0, 15);
+		new Boton(izquierdaHandler, paneDerecho, 0, 19);
 
 		BotonDerechaHandler derechaHandler = new BotonDerechaHandler(jugador, this, vistaMapa.getVistaJugador());
-		new Boton(derechaHandler, paneDerecho, 2, 15);
+		new Boton(derechaHandler, paneDerecho, 2, 19);
 
 		BotonAbajoHandler abajoHandler = new BotonAbajoHandler(jugador, this, vistaMapa.getVistaJugador());
-		new Boton(abajoHandler, paneDerecho, 1, 16);
+		new Boton(abajoHandler, paneDerecho, 1, 20);
+	}
+
+	private void dibujarHerramientaActual() {
+		ImageView imageView;
+		imageView = new ImageView();
+
+		imageView.setImage(
+				new Image("file:src/vista/images/" + jugador.getEquipado().getClass().getSimpleName() + ".png"));
+		paneDerecho.add(imageView, 0, 0);
+		GridPane.setHalignment(imageView, HPos.RIGHT);
+
+		Text etiqueta = new Text(": " + jugador.getEquipado().getDurabilidad());
+		etiqueta.setFill(Color.BLACK);
+		etiqueta.setFont(Font.font("Arial", FontWeight.BOLD, 24));
+		paneDerecho.add(etiqueta, 1, 0, 2, 1);
+
 	}
 
 	private void setBorder(Pane pane) {
