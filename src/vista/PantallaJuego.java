@@ -29,14 +29,4 @@ abstract class PantallaJuego extends StackPane {
         botonIniciar.setOnAction(handler);
         this.getChildren().add(botonIniciar);
     }
-    
-    void setMusicaDeFondo(String rutaMusica) {
-    	
-    	URL url = getClass().getResource(rutaMusica);
-    
-    	Media musica = new Media(url.toString());
-    	MediaPlayer clip = new MediaPlayer(musica);
-    	clip.setCycleCount(MediaPlayer.INDEFINITE);
-    	clip.play();
-    }
-}
+ }
