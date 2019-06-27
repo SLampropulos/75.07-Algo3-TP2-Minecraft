@@ -45,25 +45,28 @@
 \newpage
 
 \section{Introducción}\label{sec:intro}
-En el presente informe se expone la aplicación desarrollada para el segundo trabajo práctico de la materia, en lenguaje Java, y los conceptos teóricos de la programación orientada a objetos utilizados en el diseño de la misma.
+El objetivo del presente trabajo práctico fue crear una aplicación basada en el videojuego \emph{Minecraft}, que permitiera al jugador explorar un mapa bidimensional, recolectar materiales y fabricar herramientas. La aplicación fue desarrollada en lenguaje \emph{Java}, utilizando \emph{JavaFX},  siguiendo el paradigma orientado a objetos. El diseño de la misma se basa en el patrón MVC (\emph{modelo vista controlador}). En el presente informe, que pretende servir como documentación, se exponen los conceptos teóricos utilizados y se detallan los puntos principales de la implementación.
 
 
 \section{Supuestos}\label{sec:supuestos}
 Debido a detalles no especificados en la consigna del trabajo práctico, se ha decidido adoptar los siguientes supuestos.
 \begin{itemize}
-\item No hay límite de materiales que el jugador puede recolectar.
-\item El inventario de herramientas tiene una capacidad fija de 10 casilleros.
+\item La cantidad de materiales posibles a recolectar es limitada debido a que el mapa consiste de una única pantalla. Debido a esto, se decidió no poner límites a la capacidad de los inventarios del jugador.
 \item En caso de que el jugador se quede sin herramientas, perderá el juego.
 \end{itemize}
 
 
 \section{Modelo de dominio}\label{sec:modelo}
-El diseño del trabajo consiste principalmente en las siguientes clases.
+Las principales clases del modelo son las siguientes.
 \begin{description}
+\item[MineCraft] Es la clase que se ocupa del armado del mapa, creación del jugador y materiales, y de actualizar el estado del juego.
 \item[Jugador] Modela al jugador de la partida, que puede moverse en el mapa del juego. Posee un inventario de herramientas y materiales. Puede recolectar materiales y luego usarlos para fabricar herramientas.
 \item[Mapa] Modela al mundo en el cual el jugador puede moverse. El mapa es un conjunto de celdas, las cuales pueden estar vacías o ocupadas, ya sea por el jugador o por distintos materiales.
 \item[Herramienta] Es una clase abstracta que modela una herramienta genérica. Posee una durabilidad y una fuerza determinadas por el tipo específico de herramienta. Puede ser usada en materiales, reduciendo la durabilidad de éstos y también la propia.
 \item[Material] Es una clase abstracta que modela un material. Posee una durabilidad, que puede ser desgastada por una herramienta. Se encuentran distribuidas en el mapa del juego y al reducirse por completo su durabilidad puede ser obtenida por el jugador.
+\item[FabricadorHerramientas] Modela al mecanismo por el cual el jugador puede fabricar herramientas a partir de materiales recolectados. Posee patrones de construcción que se utilizan para crear distintos tipos de herramientas.
+\item[InventarioMateriales] Modela un inventario que almacena materiales, organizándolos según el tipo.
+\item[InventarioHerramientas] Modela un inventario que almacena herramientas. Se inicializa con una herramienta por defecto.
 \end{description}
 
 \section{Diagramas de clase}\label{sec:diagramasdeclase}
@@ -106,6 +109,7 @@ A continuación se encuentran los diagramas que muestran las clases implementada
 \end{figure}
 
 \section{Detalles de implementación}\label{sec:implementacion}
+En esta sección se detallarán puntos importantes de la implementación, comentando cuestiones que surgieron en el desarrollo del programa y como fueron solucionadas.
 \subsection{Interacción jugador-material}
 	Uno de los primeros problemas que surgieron al encarar este trabajo práctico fue definir cómo lograr que cada material pueda ser desgastado sólo por los correspondientes tipos de herramientas. Una opción era que cada material pregunte primero que clase de herramienta lo está golpeando y en base a eso decidir si se desgasta o no. Sin embargo, esta solución suponía utilizar muchos \emph{if} y además no resultaba muy apropiada en el paradigma de objetos. Entonces, se decidió utilizar la técnica de \emph{double dispatch}. De esta forma, cada material posee un método por defecto para recibir un golpe de una herramienta genérica que no modifica su durabilidad y luego se redefine este método con cada tipo de herramienta que sí puede dañar al material.
 \subsection{Inventarios}
@@ -135,6 +139,33 @@ A continuación se presentan diagramas de algunas secuencias importantes del jue
 	\centering
 	\includegraphics[width=\textwidth]{Diagramas/ConstruccionHerramienta.png}
 	\caption{\label{fig:fabricacion}Construcción de una herramienta.}
+\end{figure}
+
+
+\section{Diagrama de estados}\label{sec:diagramadeestados}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{Diagramas/EstadosMaterial.png}
+	\caption{\label{fig:estadosmaterial}Diagrama de estados de un material.}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{Diagramas/EstadosHerramienta.png}
+	\caption{\label{fig:estadosherramienta}Diagrama de estados de una herramienta.}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{Diagramas/EstadosFabricador.png}
+	\caption{\label{fig:estadosfabricador}Diagrama de estados del fabricador.}
+\end{figure}
+
+\section{Diagrama de paquetes}\label{sec:diagramadepaquetes}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{Diagramas/Paquetes.png}
+	\caption{\label{fig:paquetes}Diagrama de paquetes del trabajo práctico.}
 \end{figure}
 
 \end{document}
